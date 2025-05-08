@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Detalhes de imóveis em Londrina - Imobiliárias de Londrina">
-    <meta name="keywords" content="imóveis Londrina, apartamentos Gleba Palhano, casas Centro">
+    <meta name="description" content="Lista de imóveis em Londrina - Apartamentos, casas e terrenos em Gleba Palhano, Centro, Jardim Londrilar e mais!">
+    <meta name="keywords" content="imóveis Londrina, apartamentos Gleba Palhano, casas Centro, terrenos Jardim Londrilar">
     <meta name="author" content="Imobiliárias de Londrina">
-    <title>Detalhes do Imóvel - Imobiliárias de Londrina</title>
+    <title>Imóveis - Imobiliárias de Londrina</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -77,66 +77,65 @@
         .btn-cta:hover {
             background-color: #26734d;
         }
-        .imovel-section {
-            padding: 8rem 0 5rem;
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=300&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            padding: 10rem 0 6rem;
+            text-align: center;
+            color: var(--branco);
         }
-        .section-title {
-            font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            color: var(--azul-escuro);
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
         }
-        .imovel-foto {
-            width: 100%;
-            max-height: 400px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 1.5rem;
+        .hero-subtitle {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        .imovel-info p {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-            color: var(--preto);
-        }
-        .imovel-info strong {
-            color: var(--azul-escuro);
-        }
-        .lead-form {
-            background-color: var(--cinza-claro);
-            padding: 2rem;
+        .search-form {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--branco);
+            padding: 1rem;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
-        .lead-form .card-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--azul-escuro);
-            margin-bottom: 1.5rem;
-        }
-        .lead-form .form-label {
-            font-size: 0.9rem;
-            color: var(--preto);
-        }
-        .lead-form .form-control,
-        .lead-form .form-select {
+        .search-form select,
+        .search-form input {
             border: 1px solid var(--cinza-claro);
             border-radius: 5px;
             padding: 0.8rem;
             font-size: 1rem;
-            margin-bottom: 1rem;
+            width: 200px;
             transition: border-color 0.3s ease;
         }
-        .lead-form .form-control:focus,
-        .lead-form .form-select:focus {
+        .search-form select:focus,
+        .search-form input:focus {
             border-color: var(--verde-esmeralda);
             outline: none;
         }
-        .lead-form .btn-cta {
-            width: 100%;
-            padding: 0.8rem;
+        .search-form .btn-cta {
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
         }
-        .imoveis-relacionados {
-            padding: 3rem 0;
+        .imoveis-section {
+            padding: 5rem 0;
+        }
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--azul-escuro);
         }
         .imoveis-lista {
             display: grid;
@@ -189,44 +188,29 @@
             margin: 0.5rem 0;
         }
         @media (max-width: 768px) {
-            .imovel-section {
+            .hero {
                 padding: 7rem 0 4rem;
             }
-            .section-title {
-                font-size: 1.8rem;
+            .hero-title {
+                font-size: 2.5rem;
             }
-            .imovel-foto {
-                max-height: 300px;
+            .hero-subtitle {
+                font-size: 1rem;
             }
-            .lead-form {
-                padding: 1.5rem;
+            .search-form {
+                flex-direction: column;
+                padding: 0.5rem;
             }
-            .imoveis-relacionados {
-                padding: 2rem 0;
+            .search-form select,
+            .search-form input {
+                width: 100%;
             }
-        }
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-            margin: 0 -1rem;
-        }
-        .col-md-8,
-        .col-md-4 {
-            padding: 0 1rem;
-        }
-        .col-md-8 {
-            flex: 0 0 66.666%;
-            max-width: 66.666%;
-        }
-        .col-md-4 {
-            flex: 0 0 33.333%;
-            max-width: 33.333%;
-        }
-        @media (max-width: 768px) {
-            .col-md-8,
-            .col-md-4 {
-                flex: 0 0 100%;
-                max-width: 100%;
+            .nav {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .nav-link {
+                margin: 0.5rem 0;
             }
         }
     </style>
@@ -244,468 +228,337 @@
             </nav>
         </div>
     </header>
-    <section class="imovel-section">
+    <section class="hero">
         <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <h2 class="section-title" id="imovel-titulo">Apartamento 3 quartos - Gleba Palhano</h2>
-                    <img id="imovel-foto" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop" alt="Apartamento na Gleba Palhano" class="imovel-foto">
-                    <div class="imovel-info">
-                        <p><strong>Preço:</strong> <span id="imovel-preco">R$ 450.000</span></p>
-                        <p><strong>Bairro:</strong> <span id="imovel-bairro">Gleba Palhano</span></p>
-                        <p><strong>Área:</strong> <span id="imovel-area">120m²</span></p>
-                        <p><strong>Quartos:</strong> <span id="imovel-quartos">3</span></p>
-                        <p><strong>Vagas:</strong> <span id="imovel-vagas">2</span></p>
-                        <p><strong>Descrição:</strong> <span id="imovel-descricao">Apartamento moderno com vista para o Lago Igapó, acabamentos de alto padrão, área de lazer completa e localização privilegiada na Gleba Palhano.</span></p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <form id="lead-form" class="lead-form">
-                        <h3 class="card-title">Entre em contato</h3>
-                        <input type="hidden" name="imovel_id" id="lead-imovel-id" value="IMOB123">
-                        <input type="hidden" name="imobiliaria_id" id="lead-imobiliaria-id" value="IMOBI456">
-                        <div>
-                            <label for="nome" class="form-label">Nome</label>
-                            <input type="text" class="form-control" id="nome" name="nome" required>
-                        </div>
-                        <div>
-                            <label for="email" class="form-label">E-mail</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
-                        </div>
-                        <div>
-                            <label for="telefone" class="form-label">Telefone</label>
-                            <input type="tel" class="form-control" id="telefone" name="telefone" required>
-                        </div>
-                        <div>
-                            <label for="mensagem" class="form-label">Mensagem</label>
-                            <textarea class="form-control" id="mensagem" name="mensagem"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-cta">Enviar</button>
-                    </form>
-                </div>
-            </div>
-            <section class="imoveis-relacionados">
-                <h3 class="section-title">Imóveis Relacionados</h3>
-                <div class="imoveis-lista">
-                    <div class="imovel-card">
-                        <img src="https://images.unsplash.com/photo-1600585153490-76fb20a0f2b4?q=80&w=300&auto=format&fit=crop" alt="Apartamento no Jardim Londrilar">
-                        <div class="card-body">
-                            <h5 class="card-title">Apartamento 2 quartos - Jardim Londrilar</h5>
-                            <p class="card-text">R$ 320.000</p>
-                            <p class="card-text">Jardim Londrilar | 90m² | 2 quartos</p>
-                            <a href="imovel.html?id=IMOB129" class="btn btn-cta">Ver detalhes</a>
-                        </div>
-                    </div>
-                    <div class="imovel-card">
-                        <img src="https://images.unsplash.com/photo-1560448209-0b3f48f6f4f2?q=80&w=300&auto=format&fit=crop" alt="Casa na Vila Nova">
-                        <div class="card-body">
-                            <h5 class="card-title">Casa 3 quartos - Vila Nova</h5>
-                            <p class="card-text">R$ 550.000</p>
-                            <p class="card-text">Vila Nova | 180m² | 3 quartos</p>
-                            <a href="imovel.html?id=IMOB130" class="btn btn-cta">Ver detalhes</a>
-                        </div>
-                    </div>
-                    <div class="imovel-card">
-                        <img src="https://images.unsplash.com/photo-1501785891-4b7b4f4e4f53?q=80&w=300&auto=format&fit=crop" alt="Terreno no Jardim Leonor">
-                        <div class="card-body">
-                            <h5 class="card-title">Terreno 600m² - Jardim Leonor</h5>
-                            <p class="card-text">R$ 280.000</p>
-                            <p class="card-text">Jardim Leonor | 600m²</p>
-                            <a href="imovel.html?id=IMOB131" class="btn btn-cta">Ver detalhes</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <h2 class="hero-title">Todos os Imóveis em Londrina</h2>
+            <p class="hero-subtitle">Explore apartamentos, casas e terrenos em diversos bairros de Londrina.</p>
+            <form id="search-form" class="search-form">
+                <select name="tipo">
+                    <option value="">Tipo</option>
+                    <option value="apartamento">Apartamento</option>
+                    <option value="casa">Casa</option>
+                    <option value="terreno">Terreno</option>
+                </select>
+                <select name="bairro">
+                    <option value="">Bairro</option>
+                    <option value="gleba-palhano">Gleba Palhano</option>
+                    <option value="centro">Centro</option>
+                    <option value="jardim-londrilar">Jardim Londrilar</option>
+                    <option value="vila-nova">Vila Nova</option>
+                    <option value="jardim-leonor">Jardim Leonor</option>
+                    <option value="bela-suica">Bela Suíça</option>
+                    <option value="jardim-quebec">Jardim Quebec</option>
+                    <option value="aurora">Aurora</option>
+                    <option value="shangri-la">Shangri-lá</option>
+                    <option value="lago-igapo">Lago Igapó</option>
+                </select>
+                <input type="number" name="preco" placeholder="Preço máximo">
+                <button type="submit" class="btn btn-cta">Buscar</button>
+            </form>
         </div>
     </section>
-    <footer class="footer">
+    <section id="imoveis" class="imoveis-section">
+        <div class="container">
+            <h3 class="section-title">Nossos Imóveis</h3>
+            <div id="imoveis-lista" class="imoveis-lista">
+                <!-- Apartamentos -->
+                <div class="imovel-card">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=300&auto=format&fit=crop" alt="Apartamento Gleba Palhano">
+                    <div class="card-body">
+                        <h5 class="card-title">Apartamento 3 quartos - Gleba Palhano</h5>
+                        <p class="card-text">R$ 600.000</p>
+                        <p class="card-text">Gleba Palhano | 150m² | 3 quartos</p>
+                        <a href="imovel.html?id=IMOB201" class="btn btn-cta">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="imovel-card">
+                    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=300&auto=format&fit=crop" alt="Apartamento Centro">
+                    <div class="card-body">
+                        <h5 class="card-title">Apartamento 2 quartos - Centro</h5>
+                        <p class="card-text">R$ 300.000</p>
+                        <p class="card-text">Centro | 80m² | 2 quartos</p>
+                        <a href="imovel.html?id=IMOB202" class="btn btn-cta">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="imovel-card">
+                    <img src="https://images.unsplash.com/photo-1600585153490-76fb20a0f2b4?q=80&w=300&auto=format&fit=crop" alt="Apartamento Jardim Londrilar">
+                    <div class="card-body">
+                        <h5 class="card-title">Apartamento 1 quarto - Jardim Londrilar</h5>
+                        <p class="card-text">R$ 200.000</p>
+                        <p class="card-text">Jardim Londrilar | 50m² | 1 quarto</p>
+                        <a href="imovel.html?id=IMOB203" class="btn btn-cta">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="imovel-card">
+                    <img src="https://images.unsplash.com/photo-1600585152915-d208bec867a1?q=80&w=300&auto=format&fit=crop" alt="Apartamento Vila Nova">
+                    <div class="card-body">
+                        <h5 class="card-title">Apartamento 2 quartos - Vila Nova</h5>
+                        <p class="card-text">R$ 350.000</p>
+                        <p class="card-text">Vila Nova | 90m² | 2 quartos</p>
+                        <a href="imovel.html?id=IMOB204" class="btn btn-cta">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="imovel-card">
+                    <img src="https://images.unsplash.com/photo-1600585154084-4e1fe0687c8d?q=80&w=300&auto=format&fit=crop" alt="Apartamento Jardim Leonor">
+                    <div class="card-body">
+                        <h5 class="card-title">Apartamento 3 quartos - Jardim Leonor</h5>
+                        <p class="card-text">R$ 500.000</p>
+                        <p class="card-text">Jardim Leonor | 120m² | 3 quartos</p>
+                        <a href="imovel.html?id=IMOB205" class="btn btn-cta">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="imovel-card">
+                    <img src="https://images.unsplash.com/photo-1600585153786-7e5acbabdafc?q=80&w=300&auto=format&fit=crop" alt="Apartamento Bela Suíça">
+                    <div class="card-body">
+                        <h5 class="card-title">Apartamento 2 quartos - Bela Suíça</h5>
+                        <p class="card-text">R$ 400.000</p>
+                        <p class="card-text">Bela Suíça | 100m² | 2 quartos</p>
+                        <a href="imovel.html?id=IMOB206" class="btn btn-cta">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="imovel-card">
+                    <img src="https://images.unsplash.com/photo-1600585153917-28a9b28b8b3d?q=80&w=300&auto=format&fit=crop" alt="Apartamento Jardim Quebec">
+                    <div class="card-body">
+                        <h5 class="card-title">Apartamento 1 quarto - Jardim Quebec</h5>
+                        <p class="card-text">R$ 250.000</p>
+                        <p class="card-text">Jardim Quebec | 60m² | 1 quarto</p>
+                        <a href="imovel.html?id=IMOB207" class="btn btn-cta">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="imovel-card">
+                    <img src="https://images.unsplash.com/photo-1600585154477-8c208b3813f7?q=80&w=300&auto=format&fit=crop" alt="Apartamento Aurora">
+                    <div class="card-body">
+                        <h5 class="card-title">Apartamento 3 quartos - Aurora</h5>
+                        <p class="card-text">R$ 550.000</p>
+                        <p class="card-text">Aurora | 130m² | 3 quartos</p>
+                        <a href="imovel.html?id=IMOB208" class="btn btn-cta">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="imovel-card">
+                    <img src="https://images.unsplash.com/photo-1600585154626-8c2f2a139804?q=80&w=300&auto=format&fit=crop" alt="Apartamento Shangri-lá">
+                    <div class="card-body">
+                        <h5 class="card-title">Apartamento 2 quartos - Shangri-lá</h5>
+                        <p class="card-text">R$ 380.000</p>
+                        <p class="card-text">Shangri-lá | 95m² | 2 quartos</p>
+                        <a href="imovel.html?id=IMOB209" class="btn btn-cta">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="imovel-card">
+                    <img src="https://images.unsplash.com/photo-1600585154855-09c93cd7e2f2?q=80&w=300&auto=format&fit=crop" alt="Apartamento Lago Igapó">
+                    <div class="card-body">
+                        <h5 class="card-title">Apartamento 3 quartos - Lago Igapó</h5>
+                        <p class="card-text">R$ 580.000</p>
+                        <p class="card-text">Lago Igapó | 140m² | 3 quartos</p>
+                        <a href="imovel.html?id=IMOB210" class="btn btn-cta">Ver detalhes</a>
+                    </div>
+                </div>
+                <!-- Casas -->
+                <div class="imovel-card">
+                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=300&auto=format&fit=crop" alt="Casa Gleba Palhano">
+                    <div class="card-body">
+                        <h5 class="card-title">Casa 4 quartos - Gleba Palhano</h5>
+                        <p class="card-text">R$ 1.200.000</p>
+                        <p class="card-text">Gleba Palhano | 300m² | 4 quartos</p>
+                        <a href="imovel.html?id=IMOB211" class="btn btn-cta">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="imovel-card">
+                    <img src="https://images.unsplash.com/photo-1560448205-17d3f43b7d87?q=80&w=300&auto=format&fit=crop" alt="Casa Centro">
+                    <div class="card-body">
+                        <h5 class="card-title">Casa 3 quartos - Centro</h5>
+                        <p class="card-text">R$ 600.000</p>
+                        <p class="card-text">Centro | 200m² | 3 quartos</p>
+                        <a href="imovel.html?id=IMOB212" class="btn btn-cta">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="imovel-card">
+                    <img src="https://images.unsplash.com/photo-1560448208-4f8b4d456d45?q=80&w=300&auto=format&fit=crop" alt="Casa Jardim Londrilar">
+                    <div class="card-body">
+                        <h5 class="card-title">Casa 2 quartos - Jardim Londrilar</h5>
+                        <p class="card-text">R$ 400.000</p>
+                        <p class="card-text">Jardim Londrilar | 120m² | 2 quartos</p>
+                        <a href="imovel.html?id=IMOB213" class="btn btn-cta">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="imovel-card">
+                    <img src="https://images.unsplash.com/photo-1560448209-0b3f48f6f4f2?q=80&w=300&auto=format&fit=crop" alt="Casa Vila Nova">
+                    <div class="card-body">
+                        <h5 class="card-title">Casa 5 quartos - Vila Nova</h5>
+                        <p class="card-text">R$ 900.000</p>
+                        <p class="card-text">Vila Nova | 250m² | 5 quartos</p>
+                        <a href="imovel.html?id=IMOB214" class="btn btn-cta">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="imovel-card">
+                    <img src="https://images.unsplash.com/photo-1560448210-1b3f48f6f4f3?q=80&w=300&auto=format&fit=crop" alt="Casa Jardim Leonor">
+                    <div class="card-body">
+                        <h5 class="card-title">Casa 3 quartos - Jardim Leonor</h5>
+                        <p class="card-text">R$ 650.000</p>
+                        <p class="card-text">Jardim Leonor | 180m² | 3 quartos</p>
+                        <a href="imovel.html?id=IMOB215" class="btn btn-cta">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="imovel-card">
+                    <img src="https://images.unsplash.com/photo-1560448211-4b3f48f6f4f4?q=80&w=300&auto=format&fit=crop" alt="Casa Bela Suíça">
+                    <div class="card-body">
+                        <h5 class="card-title">Casa 4 quartos - Bela Suíça</h5>
+                        <p class="card-text">R$ 800.000</p>
+                        <p class="card-text">Bela Suíça | 220m² | 4 quartos</p>
+                        <a href="imovel.html?id=IMOB216" class="btn btn-cta">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="imovel-card">
+                    <img src="https://images.unsplash.com/photo-1560448212-4b3f48f6f4f5?q=80&w=300&auto=format&fit=crop" alt="Casa Jardim Quebec">
+                    <div class="card-body">
+                        <h5 class="card-title">Casa 3 quartos - Jardim Quebec</h5>
+                        <p class="card-text">R$ 700.000</p>
+                        <p class="card-text">Jardim Quebec | 200m² | 3 quartos</p>
+                        <a href="imovel.html?id=IMOB217" class="btn btn-cta">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="imovel-card">
+                    <img src="https://images.unsplash.com/photo-1560448213-4b3f48f6f4f6?q=80&w=300&auto=format&fit=crop" alt="Casa Aurora">
+                    <div class="card-body">
+                        <h5 class="card-title">Casa 2 quartos - Aurora</h5>
+                        <p class="card-text">R$ 450.000</p>
+                        <p class="card-text">Aurora | 150m² | 2 quartos</p>
+                        <a href="imovel.html?id=IMOB218" class="btn btn-cta">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="imovel-card">
+                    <img src="https://images.unsplash.com/photo-1560448214-4b3f48f6f4f7?q=80&w=300&auto=format&fit=crop" alt="Casa Shangri-lá">
+                    <div class="card-body">
+                        <h5 class="card-title">Casa 4 quartos - Shangri-lá</h5>
+                        <p class="card-text">R$ 850.000</p>
+                        <p class="card-text">Shangri-lá | 240m² | 4 quartos</p>
+                        <a href="imovel.html?id=IMOB219" class="btn btn-cta">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="imovel-card">
+                    <img src="https://images.unsplash.com/photo-1560448215-4b3f48f6f4f8?q=80&w=300&auto=format&fit=crop" alt="Casa Lago Igapó">
+                    <div class="card-body">
+                        <h5 class="card-title">Casa 3 quartos - Lago Igapó</h5>
+                        <p class="card-text">R$ 750.000</p>
+                        <p class="card-text">Lago Igapó | 210m² | 3 quartos</p>
+                        <a href="imovel.html?id=IMOB220" class="btn btn-cta">Ver detalhes</a>
+                    </div>
+                </div>
+                <!-- Terrenos -->
+                <div class="imovel-card">
+                    <img src="https://images.unsplash.com/photo-1501785887-3b7b4f4e4f4f?q=80&w=300&auto=format&fit=crop" alt="Terreno Gleba Palhano">
+                    <div class="card-body">
+                        <h5 class="card-title">Terreno 800m² - Gleba Palhano</h5>
+                        <p class="card-text">R$ 500.000</p>
+                        <p class="card-text">Gleba Palhano | 800m²</p>
+                        <a href="imovel.html?id=IMOB221" class="btn btn-cta">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="imovel-card">
+                    <img src="https://images.unsplash.com/photo-1501785888-4b7b4f4e4f50?q=80&w=300&auto=format&fit=crop" alt="Terreno Centro">
+                    <div class="card-body">
+                        <h5 class="card-title">Terreno 400m² - Centro</h5>
+                        <p class="card-text">R$ 350.000</p>
+                        <p class="card-text">Centro | 400m²</p>
+                        <a href="imovel.html?id=IMOB222" class="btn btn-cta">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="imovel-card">
+                    <img src="https://images.unsplash.com/photo-1501785889-4b7b4f4e4f51?q=80&w=300&auto=format&fit=crop" alt="Terreno Jardim Londrilar">
+                    <div class="card-body">
+                        <h5 class="card-title">Terreno 600m² - Jardim Londrilar</h5>
+                        <p class="card-text">R$ 300.000</p>
+                        <p class="card-text">Jardim Londrilar | 600m²</p>
+                        <a href="imovel.html?id=IMOB223" class="btn btn-cta">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="imovel-card">
+                    <img src="https://images.unsplash.com/photo-1501785890-4b7b4f4e4f52?q=80&w=300&auto=format&fit=crop" alt="Terreno Vila Nova">
+                    <div class="card-body">
+                        <h5 class="card-title">Terreno 500m² - Vila Nova</h5>
+                        <p class="card-text">R$ 250.000</p>
+                        <p class="card-text">Vila Nova | 500m²</p>
+                        <a href="imovel.html?id=IMOB224" class="btn btn-cta">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="imovel-card">
+                    <img src="https://images.unsplash.com/photo-1501785891-4b7b4f4e4f53?q=80&w=300&auto=format&fit=crop" alt="Terreno Jardim Leonor">
+                    <div class="card-body">
+                        <h5 class="card-title">Terreno 700m² - Jardim Leonor</h5>
+                        <p class="card-text">R$ 400.000</p>
+                        <p class="card-text">Jardim Leonor | 700m²</p>
+                        <a href="imovel.html?id=IMOB225" class="btn btn-cta">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="imovel-card">
+                    <img src="https://images.unsplash.com/photo-1501785892-4b7b4f4e4f54?q=80&w=300&auto=format&fit=crop" alt="Terreno Bela Suíça">
+                    <div class="card-body">
+                        <h5 class="card-title">Terreno 450m² - Bela Suíça</h5>
+                        <p class="card-text">R$ 280.000</p>
+                        <p class="card-text">Bela Suíça | 450m²</p>
+                        <a href="imovel.html?id=IMOB226" class="btn btn-cta">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="imovel-card">
+                    <img src="https://images.unsplash.com/photo-1501785893-4b7b4f4e4f55?q=80&w=300&auto=format&fit=crop" alt="Terreno Jardim Quebec">
+                    <div class="card-body">
+                        <h5 class="card-title">Terreno 1000m² - Jardim Quebec</h5>
+                        <p class="card-text">R$ 450.000</p>
+                        <p class="card-text">Jardim Quebec | 1000m²</p>
+                        <a href="imovel.html?id=IMOB227" class="btn btn-cta">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="imovel-card">
+                    <img src="https://images.unsplash.com/photo-1501785894-4b7b4f4e4f56?q=80&w=300&auto=format&fit=crop" alt="Terreno Aurora">
+                    <div class="card-body">
+                        <h5 class="card-title">Terreno 300m² - Aurora</h5>
+                        <p class="card-text">R$ 200.000</p>
+                        <p class="card-text">Aurora | 300m²</p>
+                        <a href="imovel.html?id=IMOB228" class="btn btn-cta">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="imovel-card">
+                    <img src="https://images.unsplash.com/photo-1501785895-4b7b4f4e4f57?q=80&w=300&auto=format&fit=crop" alt="Terreno Shangri-lá">
+                    <div class="card-body">
+                        <h5 class="card-title">Terreno 600m² - Shangri-lá</h5>
+                        <p class="card-text">R$ 320.000</p>
+                        <p class="card-text">Shangri-lá | 600m²</p>
+                        <a href="imovel.html?id=IMOB229" class="btn btn-cta">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="imovel-card">
+                    <img src="https://images.unsplash.com/photo-1501785896-4b7b4f4e4f58?q=80&w=300&auto=format&fit=crop" alt="Terreno Lago Igapó">
+                    <div class="card-body">
+                        <h5 class="card-title">Terreno 750m² - Lago Igapó</h5>
+                        <p class="card-text">R$ 380.000</p>
+                        <p class="card-text">Lago Igapó | 750m²</p>
+                        <a href="imovel.html?id=IMOB230" class="btn btn-cta">Ver detalhes</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer id="contato" class="footer">
         <div class="container">
             <p>© 2025 Imobiliárias de Londrina. Todos os direitos reservados.</p>
             <p>contato@imobiliariasdelondrina.com.br | (43) 99999-9999</p>
         </div>
     </footer>
     <script>
-        document.getElementById('lead-form').addEventListener('submit', (e) => {
+        document.getElementById('search-form').addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('Lead enviado com sucesso! (Simulação)');
-            e.target.reset();
+            const tipo = e.target.tipo.value.toLowerCase();
+            const bairro = e.target.bairro.value.toLowerCase();
+            const preco = e.target.preco.value;
+            const imoveis = document.querySelectorAll('.imovel-card');
+            imoveis.forEach(imovel => {
+                const titulo = imovel.querySelector('.card-title').textContent.toLowerCase();
+                const precoText = imovel.querySelector('.card-text').textContent;
+                const matchesTipo = !tipo || titulo.includes(tipo);
+                const matchesBairro = !bairro || titulo.includes(bairro);
+                const matchesPreco = !preco || parseInt(precoText.replace(/[^0-9]/g, '')) <= preco;
+                imovel.style.display = matchesTipo && matchesBairro && matchesPreco ? 'block' : 'none';
+            });
         });
-        const urlParams = new URLSearchParams(window.location.search);
-        const imovelId = urlParams.get('id');
-        const imoveis = {
-            // Imóveis de index.html
-            'IMOB123': {
-                titulo: 'Apartamento 3 quartos - Gleba Palhano',
-                preco: '450.000',
-                bairro: 'Gleba Palhano',
-                area: '120m²',
-                quartos: '3',
-                vagas: '2',
-                descricao: 'Apartamento moderno com vista para o Lago Igapó, acabamentos de alto padrão, área de lazer completa e localização privilegiada na Gleba Palhano.',
-                foto: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop'
-            },
-            'IMOB124': {
-                titulo: 'Casa 4 quartos - Centro',
-                preco: '650.000',
-                bairro: 'Centro',
-                area: '200m²',
-                quartos: '4',
-                vagas: '3',
-                descricao: 'Casa espaçosa no coração de Londrina, ideal para famílias, com quintal amplo e garagem para 3 carros.',
-                foto: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=800&auto=format&fit=crop'
-            },
-            'IMOB125': {
-                titulo: 'Terreno 500m² - Bela Suíça',
-                preco: '300.000',
-                bairro: 'Bela Suíça',
-                area: '500m²',
-                quartos: '0',
-                vagas: '0',
-                descricao: 'Terreno plano em bairro residencial tranquilo, perfeito para construção de casa ou investimento.',
-                foto: 'https://images.unsplash.com/photo-1501785887-3b7b4f4e4f4f?q=80&w=800&auto=format&fit=crop'
-            },
-            'IMOB126': {
-                titulo: 'Apartamento 2 quartos - Centro',
-                preco: '280.000',
-                bairro: 'Centro',
-                area: '80m²',
-                quartos: '2',
-                vagas: '1',
-                descricao: 'Apartamento compacto e funcional, próximo a comércios e serviços no Centro de Londrina.',
-                foto: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=800&auto=format&fit=crop'
-            },
-            'IMOB127': {
-                titulo: 'Casa 3 quartos - Gleba Palhano',
-                preco: '800.000',
-                bairro: 'Gleba Palhano',
-                area: '250m²',
-                quartos: '3',
-                vagas: '4',
-                descricao: 'Casa de alto padrão com piscina e área gourmet, localizada no bairro mais valorizado de Londrina.',
-                foto: 'https://images.unsplash.com/photo-1560448205-17d3f43b7d87?q=80&w=800&auto=format&fit=crop'
-            },
-            'IMOB128': {
-                titulo: 'Terreno 400m² - Centro',
-                preco: '350.000',
-                bairro: 'Centro',
-                area: '400m²',
-                quartos: '0',
-                vagas: '0',
-                descricao: 'Terreno comercial no Centro, ideal para empreendimentos ou investimento.',
-                foto: 'https://images.unsplash.com/photo-1501785888-4b7b4f4e4f50?q=80&w=800&auto=format&fit=crop'
-            },
-            // Imóveis Relacionados (anteriores)
-            'IMOB129': {
-                titulo: 'Apartamento 2 quartos - Jardim Londrilar',
-                preco: '320.000',
-                bairro: 'Jardim Londrilar',
-                area: '90m²',
-                quartos: '2',
-                vagas: '1',
-                descricao: 'Apartamento aconchegante com varanda gourmet, ideal para casais, em bairro residencial tranquilo.',
-                foto: 'https://images.unsplash.com/photo-1600585153490-76fb20a0f2b4?q=80&w=800&auto=format&fit=crop'
-            },
-            'IMOB130': {
-                titulo: 'Casa 3 quartos - Vila Nova',
-                preco: '550.000',
-                bairro: 'Vila Nova',
-                area: '180m²',
-                quartos: '3',
-                vagas: '2',
-                descricao: 'Casa térrea com quintal amplo e churrasqueira, perfeita para famílias em bairro bem localizado.',
-                foto: 'https://images.unsplash.com/photo-1560448209-0b3f48f6f4f2?q=80&w=800&auto=format&fit=crop'
-            },
-            'IMOB131': {
-                titulo: 'Terreno 600m² - Jardim Leonor',
-                preco: '280.000',
-                bairro: 'Jardim Leonor',
-                area: '600m²',
-                quartos: '0',
-                vagas: '0',
-                descricao: 'Terreno amplo em bairro valorizado, ideal para construção residencial ou comercial.',
-                foto: 'https://images.unsplash.com/photo-1501785891-4b7b4f4e4f53?q=80&w=800&auto=format&fit=crop'
-            },
-            // Novos imóveis de imoveis.html
-            'IMOB201': {
-                titulo: 'Apartamento 3 quartos - Gleba Palhano',
-                preco: '600.000',
-                bairro: 'Gleba Palhano',
-                area: '150m²',
-                quartos: '3',
-                vagas: '2',
-                descricao: 'Apartamento de alto padrão com vista panorâmica, área de lazer completa e localização privilegiada.',
-                foto: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop'
-            },
-            'IMOB202': {
-                titulo: 'Apartamento 2 quartos - Centro',
-                preco: '300.000',
-                bairro: 'Centro',
-                area: '80m²',
-                quartos: '2',
-                vagas: '1',
-                descricao: 'Apartamento funcional no coração de Londrina, próximo a comércios e serviços.',
-                foto: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=800&auto=format&fit=crop'
-            },
-            'IMOB203': {
-                titulo: 'Apartamento 1 quarto - Jardim Londrilar',
-                preco: '200.000',
-                bairro: 'Jardim Londrilar',
-                area: '50m²',
-                quartos: '1',
-                vagas: '1',
-                descricao: 'Apartamento compacto ideal para solteiros ou investidores, em bairro tranquilo.',
-                foto: 'https://images.unsplash.com/photo-1600585153490-76fb20a0f2b4?q=80&w=800&auto=format&fit=crop'
-            },
-            'IMOB204': {
-                titulo: 'Apartamento 2 quartos - Vila Nova',
-                preco: '350.000',
-                bairro: 'Vila Nova',
-                area: '90m²',
-                quartos: '2',
-                vagas: '1',
-                descricao: 'Apartamento com varanda gourmet, perfeito para casais jovens.',
-                foto: 'https://images.unsplash.com/photo-1600585152915-d208bec867a1?q=80&w=800&auto=format&fit=crop'
-            },
-            'IMOB205': {
-                titulo: 'Apartamento 3 quartos - Jardim Leonor',
-                preco: '500.000',
-                bairro: 'Jardim Leonor',
-                area: '120m²',
-                quartos: '3',
-                vagas: '2',
-                descricao: 'Apartamento espaçoso com acabamentos modernos, em bairro residencial valorizado.',
-                foto: 'https://images.unsplash.com/photo-1600585154084-4e1fe0687c8d?q=80&w=800&auto=format&fit=crop'
-            },
-            'IMOB206': {
-                titulo: 'Apartamento 2 quartos - Bela Suíça',
-                preco: '400.000',
-                bairro: 'Bela Suíça',
-                area: '100m²',
-                quartos: '2',
-                vagas: '1',
-                descricao: 'Apartamento com área de lazer e localização estratégica em bairro tranquilo.',
-                foto: 'https://images.unsplash.com/photo-1600585153786-7e5acbabdafc?q=80&w=800&auto=format&fit=crop'
-            },
-            'IMOB207': {
-                titulo: 'Apartamento 1 quarto - Jardim Quebec',
-                preco: '250.000',
-                bairro: 'Jardim Quebec',
-                area: '60m²',
-                quartos: '1',
-                vagas: '1',
-                descricao: 'Apartamento compacto com design moderno, ideal para jovens ou investidores.',
-                foto: 'https://images.unsplash.com/photo-1600585153917-28a9b28b8b3d?q=80&w=800&auto=format&fit=crop'
-            },
-            'IMOB208': {
-                titulo: 'Apartamento 3 quartos - Aurora',
-                preco: '550.000',
-                bairro: 'Aurora',
-                area: '130m²',
-                quartos: '3',
-                vagas: '2',
-                descricao: 'Apartamento amplo com área de lazer completa, perfeito para famílias.',
-                foto: 'https://images.unsplash.com/photo-1600585154477-8c208b3813f7?q=80&w=800&auto=format&fit=crop'
-            },
-            'IMOB209': {
-                titulo: 'Apartamento 2 quartos - Shangri-lá',
-                preco: '380.000',
-                bairro: 'Shangri-lá',
-                area: '95m²',
-                quartos: '2',
-                vagas: '1',
-                descricao: 'Apartamento aconchegante com boa iluminação, em bairro residencial.',
-                foto: 'https://images.unsplash.com/photo-1600585154626-8c2f2a139804?q=80&w=800&auto=format&fit=crop'
-            },
-            'IMOB210': {
-                titulo: 'Apartamento 3 quartos - Lago Igapó',
-                preco: '580.000',
-                bairro: 'Lago Igapó',
-                area: '140m²',
-                quartos: '3',
-                vagas: '2',
-                descricao: 'Apartamento com vista para o Lago Igapó, ideal para quem busca conforto e natureza.',
-                foto: 'https://images.unsplash.com/photo-1600585154855-09c93cd7e2f2?q=80&w=800&auto=format&fit=crop'
-            },
-            'IMOB211': {
-                titulo: 'Casa 4 quartos - Gleba Palhano',
-                preco: '1200000',
-                bairro: 'Gleba Palhano',
-                area: '300m²',
-                quartos: '4',
-                vagas: '4',
-                descricao: 'Casa de alto padrão com piscina e área gourmet, no bairro mais valorizado de Londrina.',
-                foto: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=800&auto=format&fit=crop'
-            },
-            'IMOB212': {
-                titulo: 'Casa 3 quartos - Centro',
-                preco: '600.000',
-                bairro: 'Centro',
-                area: '200m²',
-                quartos: '3',
-                vagas: '2',
-                descricao: 'Casa térrea espaçosa, ideal para famílias, próxima a comércios no Centro.',
-                foto: 'https://images.unsplash.com/photo-1560448205-17d3f43b7d87?q=80&w=800&auto=format&fit=crop'
-            },
-            'IMOB213': {
-                titulo: 'Casa 2 quartos - Jardim Londrilar',
-                preco: '400.000',
-                bairro: 'Jardim Londrilar',
-                area: '120m²',
-                quartos: '2',
-                vagas: '1',
-                descricao: 'Casa compacta com quintal, perfeita para casais ou famílias pequenas.',
-                foto: 'https://images.unsplash.com/photo-1560448208-4f8b4d456d45?q=80&w=800&auto=format&fit=crop'
-            },
-            'IMOB214': {
-                titulo: 'Casa 5 quartos - Vila Nova',
-                preco: '900.000',
-                bairro: 'Vila Nova',
-                area: '250m²',
-                quartos: '5',
-                vagas: '3',
-                descricao: 'Casa ampla com área de lazer, ideal para famílias grandes.',
-                foto: 'https://images.unsplash.com/photo-1560448209-0b3f48f6f4f2?q=80&w=800&auto=format&fit=crop'
-            },
-            'IMOB215': {
-                titulo: 'Casa 3 quartos - Jardim Leonor',
-                preco: '650.000',
-                bairro: 'Jardim Leonor',
-                area: '180m²',
-                quartos: '3',
-                vagas: '2',
-                descricao: 'Casa moderna com churrasqueira, em bairro residencial tranquilo.',
-                foto: 'https://images.unsplash.com/photo-1560448210-1b3f48f6f4f3?q=80&w=800&auto=format&fit=crop'
-            },
-            'IMOB216': {
-                titulo: 'Casa 4 quartos - Bela Suíça',
-                preco: '800.000',
-                bairro: 'Bela Suíça',
-                area: '220m²',
-                quartos: '4',
-                vagas: '3',
-                descricao: 'Casa com acabamentos de alto padrão, ideal para quem busca conforto.',
-                foto: 'https://images.unsplash.com/photo-1560448211-4b3f48f6f4f4?q=80&w=800&auto=format&fit=crop'
-            },
-            'IMOB217': {
-                titulo: 'Casa 3 quartos - Jardim Quebec',
-                preco: '700.000',
-                bairro: 'Jardim Quebec',
-                area: '200m²',
-                quartos: '3',
-                vagas: '2',
-                descricao: 'Casa com quintal amplo, perfeita para famílias que valorizam espaço.',
-                foto: 'https://images.unsplash.com/photo-1560448212-4b3f48f6f4f5?q=80&w=800&auto=format&fit=crop'
-            },
-            'IMOB218': {
-                titulo: 'Casa 2 quartos - Aurora',
-                preco: '450.000',
-                bairro: 'Aurora',
-                area: '150m²',
-                quartos: '2',
-                vagas: '1',
-                descricao: 'Casa térrea aconchegante, ideal para casais ou famílias pequenas.',
-                foto: 'https://images.unsplash.com/photo-1560448213-4b3f48f6f4f6?q=80&w=800&auto=format&fit=crop'
-            },
-            'IMOB219': {
-                titulo: 'Casa 4 quartos - Shangri-lá',
-                preco: '850.000',
-                bairro: 'Shangri-lá',
-                area: '240m²',
-                quartos: '4',
-                vagas: '3',
-                descricao: 'Casa com área gourmet e piscina, em bairro residencial valorizado.',
-                foto: 'https://images.unsplash.com/photo-1560448214-4b3f48f6f4f7?q=80&w=800&auto=format&fit=crop'
-            },
-            'IMOB220': {
-                titulo: 'Casa 3 quartos - Lago Igapó',
-                preco: '750.000',
-                bairro: 'Lago Igapó',
-                area: '210m²',
-                quartos: '3',
-                vagas: '2',
-                descricao: 'Casa com vista para o lago, ideal para quem busca tranquilidade.',
-                foto: 'https://images.unsplash.com/photo-1560448215-4b3f48f6f4f8?q=80&w=800&auto=format&fit=crop'
-            },
-            'IMOB221': {
-                titulo: 'Terreno 800m² - Gleba Palhano',
-                preco: '500.000',
-                bairro: 'Gleba Palhano',
-                area: '800m²',
-                quartos: '0',
-                vagas: '0',
-                descricao: 'Terreno amplo em bairro nobre, ideal para construção de alto padrão.',
-                foto: 'https://images.unsplash.com/photo-1501785887-3b7b4f4e4f4f?q=80&w=800&auto=format&fit=crop'
-            },
-            'IMOB222': {
-                titulo: 'Terreno 400m² - Centro',
-                preco: '350.000',
-                bairro: 'Centro',
-                area: '400m²',
-                quartos: '0',
-                vagas: '0',
-                descricao: 'Terreno comercial no coração de Londrina, perfeito para empreendimentos.',
-                foto: 'https://images.unsplash.com/photo-1501785888-4b7b4f4e4f50?q=80&w=800&auto=format&fit=crop'
-            },
-            'IMOB223': {
-                titulo: 'Terreno 600m² - Jardim Londrilar',
-                preco: '300.000',
-                bairro: 'Jardim Londrilar',
-                area: '600m²',
-                quartos: '0',
-                vagas: '0',
-                descricao: 'Terreno plano em bairro residencial, ideal para construção de casas.',
-                foto: 'https://images.unsplash.com/photo-1501785889-4b7b4f4e4f51?q=80&w=800&auto=format&fit=crop'
-            },
-            'IMOB224': {
-                titulo: 'Terreno 500m² - Vila Nova',
-                preco: '250.000',
-                bairro: 'Vila Nova',
-                area: '500m²',
-                quartos: '0',
-                vagas: '0',
-                descricao: 'Terreno bem localizado, perfeito para investimentos residenciais.',
-                foto: 'https://images.unsplash.com/photo-1501785890-4b7b4f4e4f52?q=80&w=800&auto=format&fit=crop'
-            },
-            'IMOB225': {
-                titulo: 'Terreno 700m² - Jardim Leonor',
-                preco: '400.000',
-                bairro: 'Jardim Leonor',
-                area: '700m²',
-                quartos: '0',
-                vagas: '0',
-                descricao: 'Terreno amplo em bairro valorizado, ideal para projetos residenciais ou comerciais.',
-                foto: 'https://images.unsplash.com/photo-1501785891-4b7b4f4e4f53?q=80&w=800&auto=format&fit=crop'
-            },
-            'IMOB226': {
-                titulo: 'Terreno 450m² - Bela Suíça',
-                preco: '280.000',
-                bairro: 'Bela Suíça',
-                area: '450m²',
-                quartos: '0',
-                vagas: '0',
-                descricao: 'Terreno em bairro tranquilo, perfeito para construção de casas.',
-                foto: 'https://images.unsplash.com/photo-1501785892-4b7b4f4e4f54?q=80&w=800&auto=format&fit=crop'
-            },
-            'IMOB227': {
-                titulo: 'Terreno 1000m² - Jardim Quebec',
-                preco: '450.000',
-                bairro: 'Jardim Quebec',
-                area: '1000m²',
-                quartos: '0',
-                vagas: '0',
-                descricao: 'Terreno grande em bairro nobre, ideal para empreendimentos de alto padrão.',
-                foto: 'https://images.unsplash.com/photo-1501785893-4b7b4f4e4f55?q=80&w=800&auto=format&fit=crop'
-            },
-            'IMOB228': {
-                titulo: 'Terreno 300m² - Aurora',
-                preco: '200.000',
-                bairro: 'Aurora',
-                area: '300m²',
-                quartos: '0',
-                vagas: '0',
-                descricao: 'Terreno compacto, ideal para projetos residenciais econômicos.',
-                foto: 'https://images.unsplash.com/photo-1501785894-4b7b4f4e4f56?q=80&w=800&auto=format&fit=crop'
-            },
-            'IMOB229': {
-                titulo: 'Terreno 600m² - Shangri-lá',
-                preco: '320.000
+    </script>
+</body>
+</html>
