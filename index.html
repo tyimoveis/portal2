@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Encontre imóveis em Londrina: apartamentos, casas e terrenos nos melhores bairros como Gleba Palhano e Centro.">
-    <meta name="keywords" content="imóveis Londrina, apartamentos Gleba Palhano, casas Centro, terrenos Bela Suíça">
+    <meta name="description" content="Detalhes de imóveis à venda em Londrina, incluindo apartamentos, casas e terrenos.">
+    <meta name="keywords" content="imóvel Londrina, apartamento Gleba Palhano, casa Centro, terreno Bela Suíça">
     <meta name="author" content="Imobiliárias de Londrina">
-    <title>Imobiliárias de Londrina - Seu Imóvel Ideal</title>
+    <title>Detalhes do Imóvel - Imobiliárias de Londrina</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -28,106 +28,21 @@
             </nav>
         </div>
     </header>
-    <section class="hero">
+    <section class="imoveis-section">
         <div class="container">
-            <h2 class="hero-title">Encontre seu Imóvel dos Sonhos</h2>
-            <p class="hero-subtitle">Apartamentos, casas e terrenos nos melhores bairros de Londrina, como Gleba Palhano e Centro.</p>
-            <form id="search-form" class="search-form">
-                <div class="filter-group">
-                    <label for="tipo">Tipo</label>
-                    <select name="tipo" id="tipo">
-                        <option value="">Qualquer</option>
-                        <option value="apartamento">Apartamento</option>
-                        <option value="casa">Casa</option>
-                        <option value="terreno">Terreno</option>
-                    </select>
+            <h2 class="section-title">Detalhes do Imóvel</h2>
+            <div id="imovel-detalhes" class="imovel-detalhes">
+                <div class="carousel">
+                    <button class="carousel-btn prev" onclick="changeSlide(-1)">❮</button>
+                    <img id="imovel-imagem" src="" alt="Imagem do imóvel" onerror="this.src='https://via.placeholder.com/600x400?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
+                    <button class="carousel-btn next" onclick="changeSlide(1)">❯</button>
                 </div>
-                <div class="filter-group">
-                    <label for="bairro">Bairro</label>
-                    <select name="bairro" id="bairro">
-                        <option value="">Qualquer</option>
-                        <option value="gleba-palhano">Gleba Palhano</option>
-                        <option value="centro">Centro</option>
-                        <option value="jardim-londrilar">Jardim Londrilar</option>
-                        <option value="bela-suica">Bela Suíça</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label for="precoMin">Preço Mínimo (R$)</label>
-                    <input type="number" name="precoMin" id="precoMin" placeholder="100000" min="0">
-                    <span class="error-message" id="precoMin-error">Preço inválido</span>
-                </div>
-                <div class="filter-group">
-                    <label for="precoMax">Preço Máximo (R$)</label>
-                    <input type="number" name="precoMax" id="precoMax" placeholder="500000" min="0">
-                    <span class="error-message" id="precoMax-error">Preço inválido</span>
-                </div>
-                <div class="filter-group">
-                    <label for="quartos">Quartos</label>
-                    <select name="quartos" id="quartos">
-                        <option value="">Qualquer</option>
-                        <option value="1">1 quarto</option>
-                        <option value="2">2 quartos</option>
-                        <option value="3">3 quartos</option>
-                        <option value="4+">4+ quartos</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label for="areaMin">Área Mínima (m²)</label>
-                    <input type="number" name="areaMin" id="areaMin" placeholder="50" min="0">
-                    <span class="error-message" id="areaMin-error">Área inválida</span>
-                </div>
-                <div class="filter-group">
-                    <label for="areaMax">Área Máxima (m²)</label>
-                    <input type="number" name="areaMax" id="areaMax" placeholder="200" min="0">
-                    <span class="error-message" id="areaMax-error">Área inválida</span>
-                </div>
-                <div class="filter-group">
-                    <button type="submit" class="btn btn-cta">Buscar</button>
-                    <button type="reset" class="btn btn-reset">Limpar</button>
-                </div>
-            </form>
-        </div>
-    </section>
-    <section id="imoveis" class="imoveis-section">
-        <div class="container">
-            <h3 class="section-title">Imóveis em Destaque</h3>
-            <div class="imoveis-lista">
-                <div class="imovel-card">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=300&auto=format&fit=crop" alt="Apartamento Gleba Palhano" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
-                    <div class="card-body">
-                        <h5 class="card-title">Apartamento 3 quartos - Gleba Palhano</h5>
-                        <p class="card-text">R$ 450.000</p>
-                        <p class="card-text">Gleba Palhano | 120m² | 3 quartos</p>
-                        <a href="imovel.html?id=IMOB001" class="btn btn-cta">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="imovel-card">
-                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=300&auto=format&fit=crop" alt="Casa Centro" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
-                    <div class="card-body">
-                        <h5 class="card-title">Casa 4 quartos - Centro</h5>
-                        <p class="card-text">R$ 650.000</p>
-                        <p class="card-text">Centro | 200m² | 4 quartos</p>
-                        <a href="imovel.html?id=IMOB002" class="btn btn-cta">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="imovel-card">
-                    <img src="https://images.unsplash.com/photo-1501785887-3b7b4f4e4f4f?q=80&w=300&auto=format&fit=crop" alt="Terreno Bela Suíça" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
-                    <div class="card-body">
-                        <h5 class="card-title">Terreno 500m² - Bela Suíça</h5>
-                        <p class="card-text">R$ 300.000</p>
-                        <p class="card-text">Bela Suíça | 500m²</p>
-                        <a href="imovel.html?id=IMOB003" class="btn btn-cta">Ver detalhes</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="sobre" class="sobre-section">
-        <div class="container">
-            <h3 class="section-title">Sobre Nós</h3>
-            <div class="sobre-content">
-                <p>Conectamos você aos melhores imóveis de Londrina com atendimento personalizado. Encontre apartamentos, casas e terrenos nos bairros mais valorizados, como Gleba Palhano e Centro.</p>
+                <h3 id="imovel-titulo"></h3>
+                <p id="imovel-preco"></p>
+                <p id="imovel-detalhes-texto"></p>
+                <p id="imovel-descricao"></p>
+                <a href="https://wa.me/5543999999999" target="_blank" class="btn btn-cta">Fale pelo WhatsApp</a>
+                <a href="#contato" class="btn btn-cta">Entre em Contato</a>
             </div>
         </div>
     </section>
@@ -170,44 +85,6 @@
             document.querySelector('.nav').classList.toggle('active');
         });
 
-        // Search Form Validation
-        document.getElementById('search-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            let valid = true;
-            const precoMin = parseInt(document.getElementById('precoMin').value) || 0;
-            const precoMax = parseInt(document.getElementById('precoMax').value) || Infinity;
-            const areaMin = parseInt(document.getElementById('areaMin').value) || 0;
-            const areaMax = parseInt(document.getElementById('areaMax').value) || Infinity;
-
-            if (precoMin > precoMax) {
-                document.getElementById('precoMin-error').style.display = 'block';
-                valid = false;
-            } else {
-                document.getElementById('precoMin-error').style.display = 'none';
-            }
-
-            if (areaMin > areaMax) {
-                document.getElementById('areaMin-error').style.display = 'block';
-                valid = false;
-            } else {
-                document.getElementById('areaMin-error').style.display = 'none';
-            }
-
-            if (valid) {
-                const formData = new FormData(e.target);
-                const query = new URLSearchParams();
-                formData.forEach((value, key) => {
-                    if (value) query.set(key, value);
-                });
-                window.location.href = `imoveis.html?${query.toString()}`;
-            }
-        });
-
-        // Reset Search Form
-        document.getElementById('search-form').addEventListener('reset', () => {
-            document.querySelectorAll('.error-message').forEach(error => error.style.display = 'none');
-        });
-
         // Contato Form Validation
         document.getElementById('contato-form').addEventListener('submit', (e) => {
             e.preventDefault();
@@ -240,6 +117,134 @@
             if (valid) {
                 alert('Mensagem enviada com sucesso! (Simulação)');
                 e.target.reset();
+            }
+        });
+
+        // Mock Imóvel Data
+        const imoveis = {
+            'IMOB001': {
+                imagens: [
+                    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=600&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=600&auto=format&fit=crop'
+                ],
+                titulo: 'Apartamento 3 quartos - Gleba Palhano',
+                preco: 'R$ 450.000',
+                detalhes: 'Gleba Palhano | 120m² | 3 quartos | 2 banheiros',
+                descricao: 'Apartamento moderno com vista para o Lago Igapó, 3 quartos, área de lazer completa e localização premium.'
+            },
+            'IMOB002': {
+                imagens: [
+                    'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=600&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1501785887-3b7b4f4e4f4f?q=80&w=600&auto=format&fit=crop'
+                ],
+                titulo: 'Casa 4 quartos - Centro',
+                preco: 'R$ 650.000',
+                detalhes: 'Centro | 200m² | 4 quartos | 3 banheiros',
+                descricao: 'Casa espaçosa com quintal amplo, garagem para 3 carros e localização central.'
+            },
+            'IMOB003': {
+                imagens: [
+                    'https://images.unsplash.com/photo-1501785887-3b7b4f4e4f4f?q=80&w=600&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=600&auto=format&fit=crop'
+                ],
+                titulo: 'Terreno 500m² - Bela Suíça',
+                preco: 'R$ 300.000',
+                detalhes: 'Bela Suíça | 500m²',
+                descricao: 'Terreno plano em bairro nobre, ideal para construção residencial ou comercial.'
+            },
+            'IMOB004': {
+                imagens: [
+                    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=600&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=600&auto=format&fit=crop'
+                ],
+                titulo: 'Apartamento 3 quartos - Gleba Palhano',
+                preco: 'R$ 600.000',
+                detalhes: 'Gleba Palhano | 150m² | 3 quartos | 2 banheiros',
+                descricao: 'Apartamento de alto padrão com 3 suítes, varanda gourmet e área de lazer premium.'
+            },
+            'IMOB005': {
+                imagens: [
+                    'https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=600&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1501785887-3b7b4f4e4f4f?q=80&w=600&auto=format&fit=crop'
+                ],
+                titulo: 'Apartamento 2 quartos - Centro',
+                preco: 'R$ 300.000',
+                detalhes: 'Centro | 80m² | 2 quartos | 1 banheiro',
+                descricao: 'Apartamento compacto e bem localizado, ideal para casais ou investidores.'
+            },
+            'IMOB006': {
+                imagens: [
+                    'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=600&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1501785887-3b7b4f4e4f4f?q=80&w=600&auto=format&fit=crop'
+                ],
+                titulo: 'Casa 4 quartos - Gleba Palhano',
+                preco: 'R$ 1.200.000',
+                detalhes: 'Gleba Palhano | 300m² | 4 quartos | 4 banheiros',
+                descricao: 'Casa de luxo com piscina, 4 suítes e acabamentos premium.'
+            },
+            'IMOB007': {
+                imagens: [
+                    'https://images.unsplash.com/photo-1501785887-3b7b4f4e4f4f?q=80&w=600&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=600&auto=format&fit=crop'
+                ],
+                titulo: 'Terreno 800m² - Gleba Palhano',
+                preco: 'R$ 500.000',
+                detalhes: 'Gleba Palhano | 800m²',
+                descricao: 'Terreno amplo em localização estratégica, perfeito para projetos residenciais ou comerciais.'
+            }
+        };
+
+        // Carousel
+        let currentSlide = 0;
+        let currentImovelImages = [];
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) currentSlide = currentImovelImages.length - 1;
+            if (currentSlide >= currentImovelImages.length) currentSlide = 0;
+            document.getElementById('imovel-imagem').src = currentImovelImages[currentSlide];
+        }
+
+        // Load Imóvel Details
+        window.addEventListener('load', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const id = urlParams.get('id');
+            console.log('ID do imóvel:', id); // Depuração
+
+            const imagemElement = document.getElementById('imovel-imagem');
+            const tituloElement = document.getElementById('imovel-titulo');
+            const precoElement = document.getElementById('imovel-preco');
+            const detalhesElement = document.getElementById('imovel-detalhes-texto');
+            const descricaoElement = document.getElementById('imovel-descricao');
+            const detalhesContainer = document.getElementById('imovel-detalhes');
+
+            if (!id) {
+                detalhesContainer.innerHTML = '<p>Erro: Nenhum ID de imóvel fornecido. Tente novamente.</p>';
+                console.error('Nenhum ID fornecido na URL');
+                return;
+            }
+
+            const imovel = imoveis[id];
+            console.log('Dados do imóvel:', imovel); // Depuração
+
+            if (imovel) {
+                currentImovelImages = imovel.imagens;
+                imagemElement.src = currentImovelImages[0];
+                imagemElement.alt = imovel.titulo;
+                tituloElement.textContent = imovel.titulo;
+                precoElement.textContent = imovel.preco;
+                detalhesElement.textContent = imovel.detalhes;
+                descricaoElement.textContent = imovel.descricao;
+            } else {
+                detalhesContainer.innerHTML = '<p>Imóvel não encontrado. Verifique o ID ou tente outro imóvel.</p>';
+                console.error(`Imóvel com ID ${id} não encontrado`);
             }
         });
     </script>
