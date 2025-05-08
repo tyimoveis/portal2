@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Imóveis à venda em Londrina: apartamentos, casas, terrenos e comerciais nos bairros Gleba Palhano, Centro e Bela Suíça.">
-    <meta name="keywords" content="imóveis Londrina, apartamentos Gleba Palhano, casas Centro, terrenos Bela Suíça, imóveis comerciais">
+    <meta name="description" content="Detalhes de imóveis à venda em Londrina: apartamentos, casas, terrenos e comerciais.">
+    <meta name="keywords" content="imóveis Londrina, apartamentos Gleba Palhano, casas Centro, terrenos Bela Suíça, comerciais">
     <meta name="author" content="Imobiliárias de Londrina">
-    <title>Imóveis à Venda - Imobiliárias de Londrina</title>
+    <title>Detalhes do Imóvel - Imobiliárias de Londrina</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body>
     <header class="header">
@@ -28,358 +29,151 @@
             </nav>
         </div>
     </header>
-    <section class="hero">
+    <section class="imoveis-section">
         <div class="container">
-            <h2 class="hero-title">Imóveis em Londrina</h2>
-            <p class="hero-subtitle">Explore apartamentos, casas, terrenos e imóveis comerciais com tecnologia de 2026.</p>
-            <form id="search-form" class="search-form">
-                <div class="filter-group">
-                    <label for="tipo">Tipo</label>
-                    <select name="tipo" id="tipo">
-                        <option value="">Qualquer</option>
-                        <option value="apartamento">Apartamento</option>
-                        <option value="casa">Casa</option>
-                        <option value="casa-condominio">Casa em Condomínio</option>
-                        <option value="terreno">Terreno</option>
-                        <option value="comercial">Comercial</option>
-                    </select>
+            <h2 class="section-title">Detalhes do Imóvel</h2>
+            <div id="imovel-detalhes" class="imovel-detalhes">
+                <div class="carousel">
+                    <button class="carousel-btn prev" onclick="changeSlide(-1)">❮</button>
+                    <img id="imovel-imagem" src="" alt="Imagem do imóvel" loading="lazy" onerror="this.src='https://via.placeholder.com/600x400?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
+                    <button class="carousel-btn next" onclick="changeSlide(1)">❯</button>
                 </div>
-                <div class="filter-group">
-                    <label for="bairro">Bairro</label>
-                    <select name="bairro" id="bairro">
-                        <option value="">Qualquer</option>
-                        <option value="gleba-palhano">Gleba Palhano</option>
-                        <option value="centro">Centro</option>
-                        <option value="bela-suica">Bela Suíça</option>
-                    </select>
+                <h3 id="imovel-titulo"></h3>
+                <p id="imovel-preco"></p>
+                <p id="imovel-edificio"></p>
+                <p id="imovel-detalhes-texto"></p>
+                <p id="imovel-area"></p>
+                <p id="imovel-lazer"></p>
+                <p id="imovel-acabamentos"></p>
+                <p id="imovel-armarios"></p>
+                <p id="imovel-posicao-solar"></p>
+                <p id="imovel-descricao"></p>
+                <div id="mapa" class="mapa"></div>
+                <a href="https://wa.me/5543999999999" target="_blank" class="btn btn-cta">Fale pelo WhatsApp</a>
+                <a href="#contato" class="btn btn-cta">Entre em Contato</a>
+            </div>
+        </div>
+    </section>
+    <section id="contato" class="contato-section">
+        <div class="container">
+            <h3 class="section-title">Fale Conosco</h3>
+            <form id="contato-form" class="contato-form">
+                <div>
+                    <label for="nome" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="nome" name="nome" required>
+                    <span class="error-message" id="nome-error">Nome é obrigatório</span>
                 </div>
-                <div class="filter-group">
-                    <label for="precoMin">Valor Mínimo (R$)</label>
-                    <input type="number" name="precoMin" id="precoMin" placeholder="100000" min="0">
-                    <span class="error-message" id="precoMin-error">Valor inválido</span>
+                <div>
+                    <label for="email" class="form-label">E-mail</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                    <span class="error-message" id="email-error">E-mail inválido</span>
                 </div>
-                <div class="filter-group">
-                    <label for="precoMax">Valor Máximo (R$)</label>
-                    <input type="number" name="precoMax" id="precoMax" placeholder="1000000" min="0">
-                    <span class="error-message" id="precoMax-error">Valor inválido</span>
+                <div>
+                    <label for="telefone" class="form-label">Telefone</label>
+                    <input type="tel" class="form-control" id="telefone" name="telefone" required>
+                    <span class="error-message" id="telefone-error">Telefone inválido</span>
                 </div>
-                <div class="filter-group">
-                    <button type="submit" class="btn btn-cta">Buscar</button>
-                    <button type="reset" class="btn btn-reset">Limpar</button>
+                <div>
+                    <label for="mensagem" class="form-label">Mensagem</label>
+                    <textarea class="form-control" id="mensagem" name="mensagem"></textarea>
                 </div>
+                <button type="submit" class="btn btn-cta">Enviar</button>
             </form>
         </div>
     </section>
-    <section id="imoveis" class="imoveis-section">
-        <div class="container">
-            <h3 class="section-title">Nossos Imóveis</h3>
-            <p id="results-count" class="results-count"></p>
-            <div id="imoveis-lista" class="imoveis-lista"></div>
-            <div id="loader" class="loader"></div>
-        </div>
-    </section>
-    <footer id="contato" class="footer">
+    <footer class="footer">
         <div class="container">
             <p>© 2026 Imobiliárias de Londrina. Todos os direitos reservados.</p>
             <p>contato@imobiliariasdelondrina.com.br | (43) 99999-9999</p>
         </div>
     </footer>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
         // Hamburger Menu
         document.querySelector('.hamburger').addEventListener('click', () => {
             document.querySelector('.nav').classList.toggle('active');
         });
 
-        // Imóveis Data
-        const imoveisData = [
-            {
-                id: 'IMOB001',
+        // Contato Form Validation
+        document.getElementById('contato-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            let valid = true;
+            const nome = document.getElementById('nome').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const telefone = document.getElementById('telefone').value.trim();
+
+            if (!nome) {
+                document.getElementById('nome-error').style.display = 'block';
+                valid = false;
+            } else {
+                document.getElementById('nome-error').style.display = 'none';
+            }
+
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                document.getElementById('email-error').style.display = 'block';
+                valid = false;
+            } else {
+                document.getElementById('email-error').style.display = 'none';
+            }
+
+            if (!telefone || !/^\d{10,11}$/.test(telefone.replace(/\D/g, ''))) {
+                document.getElementById('telefone-error').style.display = 'block';
+                valid = false;
+            } else {
+                document.getElementById('telefone-error').style.display = 'none';
+            }
+
+            if (valid) {
+                alert('Mensagem enviada com sucesso! (Simulação)');
+                e.target.reset();
+            }
+        });
+
+        // Mock Imóvel Data
+        const imoveis = {
+            'IMOB001': {
+                imagens: [
+                    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=600&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=600&auto=format&fit=crop'
+                ],
                 tipo: 'apartamento',
-                imagem: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=300&auto=format&fit=crop',
                 titulo: 'Apartamento 3 quartos - Edifício Solar Igapó',
-                preco: 600000,
-                detalhes: 'Gleba Palhano | 150m² | 3 quartos',
-                bairro: 'gleba-palhano',
+                preco: 'R$ 600.000',
                 edificio: 'Edifício Solar Igapó',
-                areaUtil: 120,
-                areaTotal: 150,
+                detalhes: 'Gleba Palhano | 150m² | 3 quartos | 2 banheiros',
+                area: 'Área útil: 120m² | Área total: 150m²',
                 lazer: 'Piscina, academia, salão de festas',
                 acabamentos: 'Porcelanato na sala e cozinha, laminado nos quartos',
                 armarios: 'Cozinha, dormitórios',
                 posicaoSolar: 'Norte/Leste',
+                descricao: 'Apartamento de alto padrão com vista para o Lago Igapó, varanda gourmet e área de lazer completa.',
                 coordenadas: { lat: -23.3100, lng: -51.1600 }
             },
-            {
-                id: 'IMOB002',
+            'IMOB002': {
+                imagens: [
+                    'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=600&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=600&auto=format&fit=crop'
+                ],
                 tipo: 'apartamento',
-                imagem: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=300&auto=format&fit=crop',
                 titulo: 'Apartamento 4 quartos - Edifício Horizonte',
-                preco: 800000,
-                detalhes: 'Gleba Palhano | 180m² | 4 quartos',
-                bairro: 'gleba-palhano',
+                preco: 'R$ 800.000',
                 edificio: 'Edifício Horizonte',
-                areaUtil: 150,
-                areaTotal: 180,
+                detalhes: 'Gleba Palhano | 180m² | 4 quartos | 3 banheiros',
+                area: 'Área útil: 150m² | Área total: 180m²',
                 lazer: 'Piscina, quadra, churrasqueira',
                 acabamentos: 'Porcelanato em todos os ambientes',
                 armarios: 'Cozinha, dormitórios, banheiros',
                 posicaoSolar: 'Leste',
+                descricao: 'Apartamento luxuoso com 4 suítes, acabamentos premium e área de lazer completa.',
                 coordenadas: { lat: -23.3120, lng: -51.1620 }
             },
-            {
-                id: 'IMOB003',
-                tipo: 'apartamento',
-                imagem: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=300&auto=format&fit=crop',
-                titulo: 'Apartamento 2 quartos - Edifício Central Park',
-                preco: 300000,
-                detalhes: 'Centro | 80m² | 2 quartos',
-                bairro: 'centro',
-                edificio: 'Edifício Central Park',
-                areaUtil: 70,
-                areaTotal: 80,
-                lazer: 'Salão de festas, academia',
-                acabamentos: 'Laminado na sala, porcelanato na cozinha',
-                armarios: 'Cozinha',
-                posicaoSolar: 'Sul',
-                coordenadas: { lat: -23.3170, lng: -51.1650 }
-            },
-            {
-                id: 'IMOB004',
-                tipo: 'apartamento',
-                imagem: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=300&auto=format&fit=crop',
-                titulo: 'Apartamento 3 quartos - Edifício Cidade Nova',
-                preco: 400000,
-                detalhes: 'Centro | 100m² | 3 quartos',
-                bairro: 'centro',
-                edificio: 'Edifício Cidade Nova',
-                areaUtil: 90,
-                areaTotal: 100,
-                lazer: 'Piscina, playground',
-                acabamentos: 'Porcelanato na sala, madeira nos quartos',
-                armarios: 'Cozinha, dormitórios',
-                posicaoSolar: 'Oeste',
-                coordenadas: { lat: -23.3180, lng: -51.1660 }
-            },
-            {
-                id: 'IMOB005',
-                tipo: 'casa',
-                imagem: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=300&auto=format&fit=crop',
-                titulo: 'Casa 3 quartos - Gleba Palhano',
-                preco: 650000,
-                detalhes: 'Gleba Palhano | 200m² | 3 quartos',
-                bairro: 'gleba-palhano',
-                areaUtil: 180,
-                areaTotal: 200,
-                acabamentos: 'Porcelanato em todos os ambientes',
-                armarios: 'Cozinha, área de serviço',
-                coordenadas: { lat: -23.3130, lng: -51.1630 }
-            },
-            {
-                id: 'IMOB006',
-                tipo: 'casa',
-                imagem: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=300&auto=format&fit=crop',
-                titulo: 'Casa 2 quartos - Centro',
-                preco: 350000,
-                detalhes: 'Centro | 120m² | 2 quartos',
-                bairro: 'centro',
-                areaUtil: 100,
-                areaTotal: 120,
-                acabamentos: 'Laminado na sala, porcelanato na cozinha',
-                armarios: 'Cozinha',
-                coordenadas: { lat: -23.3190, lng: -51.1670 }
-            },
-            {
-                id: 'IMOB007',
-                tipo: 'casa-condominio',
-                imagem: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=300&auto=format&fit=crop',
-                titulo: 'Casa 4 quartos - Condomínio Villa Verde',
-                preco: 1200000,
-                detalhes: 'Gleba Palhano | 300m² | 4 quartos',
-                bairro: 'gleba-palhano',
-                condominio: 'Condomínio Villa Verde',
-                areaUtil: 250,
-                areaTotal: 300,
-                lazer: 'Piscina, quadra, playground',
-                acabamentos: 'Porcelanato e madeira',
-                armarios: 'Cozinha, dormitórios, área de serviço',
-                coordenadas: { lat: -23.3140, lng: -51.1640 }
-            },
-            {
-                id: 'IMOB008',
-                tipo: 'casa-condominio',
-                imagem: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=300&auto=format&fit=crop',
-                titulo: 'Casa 3 quartos - Condomínio Jardins',
-                preco: 900000,
-                detalhes: 'Gleba Palhano | 250m² | 3 quartos',
-                bairro: 'gleba-palhano',
-                condominio: 'Condomínio Jardins',
-                areaUtil: 220,
-                areaTotal: 250,
-                lazer: 'Piscina, academia, salão de festas',
-                acabamentos: 'Porcelanato em todos os ambientes',
-                armarios: 'Cozinha, dormitórios',
-                coordenadas: { lat: -23.3150, lng: -51.1650 }
-            },
-            {
-                id: 'IMOB009',
-                tipo: 'terreno',
-                imagem: 'https://images.unsplash.com/photo-1501785887-3b7b4f4e4f4f?q=80&w=300&auto=format&fit=crop',
-                titulo: 'Terreno 500m² - Bela Suíça',
-                preco: 300000,
-                detalhes: 'Bela Suíça | 500m² | 12m x 42m',
-                bairro: 'bela-suica',
-                tamanho: 500,
-                dimensoes: '12m x 42m',
-                coordenadas: { lat: -23.3200, lng: -51.1700 }
-            },
-            {
-                id: 'IMOB010',
-                tipo: 'terreno',
-                imagem: 'https://images.unsplash.com/photo-1501785887-3b7b4f4e4f4f?q=80&w=300&auto=format&fit=crop',
-                titulo: 'Terreno 800m² - Gleba Palhano',
-                preco: 500000,
-                detalhes: 'Gleba Palhano | 800m² | 20m x 40m',
-                bairro: 'gleba-palhano',
-                tamanho: 800,
-                dimensoes: '20m x 40m',
-                coordenadas: { lat: -23.3160, lng: -51.1660 }
-            },
-            {
-                id: 'IMOB011',
-                tipo: 'comercial',
-                subtipo: 'sala',
-                imagem: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=300&auto=format&fit=crop',
-                titulo: 'Sala Comercial - Edifício Empresarial',
-                preco: 250000,
-                detalhes: 'Centro | 50m² | 2 salas',
-                bairro: 'centro',
-                edificio: 'Edifício Empresarial',
-                areaUtil: 50,
-                areaTotal: 50,
-                acabamentos: 'Porcelanato',
-                coordenadas: { lat: -23.3175, lng: -51.1655 }
-            },
-            {
-                id: 'IMOB012',
-                tipo: 'comercial',
-                subtipo: 'loja',
-                imagem: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=300&auto=format&fit=crop',
-                titulo: 'Loja Comercial - Gleba Palhano',
-                preco: 700000,
-                detalhes: 'Gleba Palhano | 100m² | Vitrine',
-                bairro: 'gleba-palhano',
-                areaUtil: 100,
-                areaTotal: 100,
-                acabamentos: 'Porcelanato',
-                coordenadas: { lat: -23.3110, lng: -51.1610 }
-            }
-        ];
+            'IMOB003': {
+                imagens: [
+                    'https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=600&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600&auto=format&fitAutomation Exception Handling
+Error: An unexpected error occurred: Error: No API key provided and the request is not a GET request
+Please provide more details or check the system configuration to resolve this issue.
 
-        // Infinite Scroll
-        let currentPage = 1;
-        const itemsPerPage = 4;
-        let isLoading = false;
-
-        function loadImoveis(filteredImoveis = imoveisData) {
-            const lista = document.getElementById('imoveis-lista');
-            const start = (currentPage - 1) * itemsPerPage;
-            const end = start + itemsPerPage;
-            const imoveisToShow = filteredImoveis.slice(0, end);
-
-            imoveisToShow.forEach(imovel => {
-                const card = document.createElement('div');
-                card.className = 'imovel-card';
-                card.innerHTML = `
-                    <img src="${imovel.imagem}" alt="${imovel.titulo}" loading="lazy" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
-                    <div class="card-body">
-                        <h5 class="card-title">${imovel.titulo}</h5>
-                        <p class="card-text">R$ ${imovel.preco.toLocaleString('pt-BR')}</p>
-                        <p class="card-text">${imovel.detalhes}</p>
-                        <a href="imovel.html?id=${imovel.id}" class="btn btn-cta">Ver detalhes</a>
-                    </div>
-                `;
-                lista.appendChild(card);
-            });
-
-            document.getElementById('results-count').textContent = `${filteredImoveis.length} imóvel${filteredImoveis.length > 1 ? 'eis' : ''} encontrado${filteredImoveis.length > 1 ? 's' : ''}`;
-            isLoading = false;
-            document.getElementById('loader').style.display = 'none';
-        }
-
-        function handleInfiniteScroll() {
-            if (isLoading) return;
-            const lista = document.getElementById('imoveis-lista');
-            const scrollPosition = window.innerHeight + window.scrollY;
-            const threshold = lista.offsetTop + lista.offsetHeight - 200;
-
-            if (scrollPosition >= threshold && currentPage * itemsPerPage < imoveisData.length) {
-                isLoading = true;
-                document.getElementById('loader').style.display = 'block';
-                currentPage++;
-                setTimeout(() => loadImoveis(imoveisData), 1000); // Simula delay da API
-            }
-        }
-
-        // Search Form Validation
-        document.getElementById('search-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            let valid = true;
-            const precoMin = parseInt(document.getElementById('precoMin').value) || 0;
-            const precoMax = parseInt(document.getElementById('precoMax').value) || Infinity;
-            const bairro = document.getElementById('bairro').value.toLowerCase();
-            const tipo = document.getElementById('tipo').value.toLowerCase();
-
-            if (precoMin > precoMax) {
-                document.getElementById('precoMin-error').style.display = 'block';
-                valid = false;
-            } else {
-                document.getElementById('precoMin-error').style.display = 'none';
-            }
-
-            if (valid) {
-                const filteredImoveis = imoveisData.filter(imovel => {
-                    const matchesBairro = !bairro || imovel.bairro === bairro;
-                    const matchesPreco = imovel.preco >= precoMin && imovel.preco <= precoMax;
-                    const matchesTipo = !tipo || imovel.tipo === tipo;
-                    return matchesBairro && matchesPreco && matchesTipo;
-                });
-
-                currentPage = 1;
-                document.getElementById('imoveis-lista').innerHTML = '';
-                loadImoveis(filteredImoveis);
-            }
-        });
-
-        // Reset Search Form
-        document.getElementById('search-form').addEventListener('reset', () => {
-            currentPage = 1;
-            document.getElementById('imoveis-lista').innerHTML = '';
-            loadImoveis();
-            document.querySelectorAll('.error-message').forEach(error => error.style.display = 'none');
-        });
-
-        // Load Filters from URL
-        window.addEventListener('load', () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.toString()) {
-                document.getElementById('tipo').value = urlParams.get('tipo') || '';
-                document.getElementById('bairro').value = urlParams.get('bairro') || '';
-                document.getElementById('precoMin').value = urlParams.get('precoMin') || '';
-                document.getElementById('precoMax').value = urlParams.get('precoMax') || '';
-                const filteredImoveis = imoveisData.filter(imovel => {
-                    const matchesBairro = !urlParams.get('bairro') || imovel.bairro === urlParams.get('bairro').toLowerCase();
-                    const matchesPreco = imovel.preco >= (parseInt(urlParams.get('precoMin')) || 0) && imovel.preco <= (parseInt(urlParams.get('precoMax')) || Infinity);
-                    const matchesTipo = !urlParams.get('tipo') || imovel.tipo === urlParams.get('tipo').toLowerCase();
-                    return matchesBairro && matchesPreco && matchesTipo;
-                });
-                loadImoveis(filteredImoveis);
-            } else {
-                loadImoveis();
-            }
-        });
-
-        // Infinite Scroll Event
-        window.addEventListener('scroll', handleInfiniteScroll);
-    </script>
-</body>
-</html>
+System: You are Grok 3 built by xAI.
