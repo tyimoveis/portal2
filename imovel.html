@@ -77,9 +77,23 @@
             font-size: 0.9rem;
             transition: background-color 0.3s ease;
             cursor: pointer;
+            border: none;
         }
         .btn-cta:hover {
             background-color: #26734d;
+        }
+        .btn-reset {
+            background-color: var(--cinza-claro);
+            color: var(--preto);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-reset:hover {
+            background-color: #e0e0e0;
         }
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800&auto=format&fit=crop');
@@ -127,9 +141,26 @@
             border-color: var(--verde-esmeralda);
             outline: none;
         }
-        .search-form .btn-cta {
+        .search-form .btn-cta,
+        .search-form .btn-reset {
             padding: 0.8rem;
             font-size: 0.9rem;
+        }
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .filter-group label {
+            font-size: 0.9rem;
+            color: var(--preto);
+            margin-bottom: 0.2rem;
+        }
+        .results-count {
+            font-size: 1rem;
+            color: var(--azul-escuro);
+            margin-bottom: 1rem;
+            text-align: center;
         }
         .imoveis-section {
             padding: 3rem 0;
@@ -209,7 +240,7 @@
                 font-size: 1rem;
                 margin: 0 1.5rem;
             }
-            .btn-cta {
+            .btn-cta, .btn-reset {
                 padding: 0.6rem 1.2rem;
                 font-size: 1rem;
             }
@@ -225,12 +256,20 @@
             }
             .search-form {
                 flex-direction: row;
+                flex-wrap: wrap;
                 max-width: 900px;
                 gap: 1rem;
             }
             .search-form select,
             .search-form input {
-                width: 200px;
+                width: 150px;
+            }
+            .search-form .btn-cta,
+            .search-form .btn-reset {
+                width: auto;
+            }
+            .filter-group {
+                flex: 1;
             }
             .imoveis-section {
                 padding: 5rem 0;
@@ -268,33 +307,68 @@
             <h2 class="hero-title">Imóveis em Londrina</h2>
             <p class="hero-subtitle">Descubra apartamentos, casas e terrenos nos melhores bairros de Londrina.</p>
             <form id="search-form" class="search-form">
-                <select name="tipo">
-                    <option value="">Tipo</option>
-                    <option value="apartamento">Apartamento</option>
-                    <option value="casa">Casa</option>
-                    <option value="terreno">Terreno</option>
-                </select>
-                <select name="bairro">
-                    <option value="">Bairro</option>
-                    <option value="gleba-palhano">Gleba Palhano</option>
-                    <option value="centro">Centro</option>
-                    <option value="jardim-londrilar">Jardim Londrilar</option>
-                    <option value="vila-nova">Vila Nova</option>
-                    <option value="jardim-leonor">Jardim Leonor</option>
-                    <option value="bela-suica">Bela Suíça</option>
-                    <option value="jardim-quebec">Jardim Quebec</option>
-                    <option value="aurora">Aurora</option>
-                    <option value="shangri-la">Shangri-lá</option>
-                    <option value="lago-igapo">Lago Igapó</option>
-                </select>
-                <input type="number" name="preco" placeholder="Preço máximo (R$)">
-                <button type="submit" class="btn btn-cta">Buscar</button>
+                <div class="filter-group">
+                    <label for="tipo">Tipo</label>
+                    <select name="tipo" id="tipo">
+                        <option value="">Qualquer</option>
+                        <option value="apartamento">Apartamento</option>
+                        <option value="casa">Casa</option>
+                        <option value="terreno">Terreno</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="bairro">Bairro</label>
+                    <select name="bairro" id="bairro">
+                        <option value="">Qualquer</option>
+                        <option value="gleba-palhano">Gleba Palhano</option>
+                        <option value="centro">Centro</option>
+                        <option value="jardim-londrilar">Jardim Londrilar</option>
+                        <option value="vila-nova">Vila Nova</option>
+                        <option value="jardim-leonor">Jardim Leonor</option>
+                        <option value="bela-suica">Bela Suíça</option>
+                        <option value="jardim-quebec">Jardim Quebec</option>
+                        <option value="aurora">Aurora</option>
+                        <option value="shangri-la">Shangri-lá</option>
+                        <option value="lago-igapo">Lago Igapó</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="precoMin">Preço Mínimo (R$)</label>
+                    <input type="number" name="precoMin" id="precoMin" placeholder="Ex.: 100000" min="0">
+                </div>
+                <div class="filter-group">
+                    <label for="precoMax">Preço Máximo (R$)</label>
+                    <input type="number" name="precoMax" id="precoMax" placeholder="Ex.: 500000" min="0">
+                </div>
+                <div class="filter-group">
+                    <label for="quartos">Quartos</label>
+                    <select name="quartos" id="quartos">
+                        <option value="">Qualquer</option>
+                        <option value="1">1 quarto</option>
+                        <option value="2">2 quartos</option>
+                        <option value="3">3 quartos</option>
+                        <option value="4+">4+ quartos</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="areaMin">Área Mínima (m²)</label>
+                    <input type="number" name="areaMin" id="areaMin" placeholder="Ex.: 50" min="0">
+                </div>
+                <div class="filter-group">
+                    <label for="areaMax">Área Máxima (m²)</label>
+                    <input type="number" name="areaMax" id="areaMax" placeholder="Ex.: 200" min="0">
+                </div>
+                <div class="filter-group">
+                    <button type="submit" class="btn btn-cta">Buscar</button>
+                    <button type="reset" class="btn btn-reset">Limpar</button>
+                </div>
             </form>
         </div>
     </section>
     <section id="imoveis" class="imoveis-section">
         <div class="container">
             <h3 class="section-title">Nossos Imóveis</h3>
+            <p id="results-count" class="results-count"></p>
             <div id="imoveis-lista" class="imoveis-lista">
                 <!-- Apartamentos -->
                 <div class="imovel-card">
@@ -393,7 +467,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Casa 4 quartos - Gleba Palhano</h5>
                         <p class="card-text">R$ 1.200.000</p>
-                        <p class="card86-text">Gleba Palhano | 300m² | 4 quartos</p>
+                        <p class="card-text">Gleba Palhano | 300m² | 4 quartos</p>
                         <a href="imovel.html?id=IMOB211" class="btn btn-cta">Ver detalhes</a>
                     </div>
                 </div>
@@ -522,99 +596,4 @@
                         <p class="card-text">R$ 400.000</p>
                         <p class="card-text">Jardim Leonor | 700m²</p>
                         <a href="imovel.html?id=IMOB225" class="btn btn-cta">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="imovel-card">
-                    <img src="https://images.unsplash.com/photo-1501785892-4b7b4f4e4f54?q=80&w=300&auto=format&fit=crop" alt="Terreno Bela Suíça" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
-                    <div class="card-body">
-                        <h5 class="card-title">Terreno 450m² - Bela Suíça</h5>
-                        <p class="card-text">R$ 280.000</p>
-                        <p class="card-text">Bela Suíça | 450m²</p>
-                        <a href="imovel.html?id=IMOB226" class="btn btn-cta">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="imovel-card">
-                    <img src="https://images.unsplash.com/photo-1501785893-4b7b4f4e4f55?q=80&w=300&auto=format&fit=crop" alt="Terreno Jardim Quebec" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
-                    <div class="card-body">
-                        <h5 class="card-title">Terreno 1000m² - Jardim Quebec</h5>
-                        <p class="card-text">R$ 450.000</p>
-                        <p class="card-text">Jardim Quebec | 1000m²</p>
-                        <a href="imovel.html?id=IMOB227" class="btn btn-cta">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="imovel-card">
-                    <img src="https://images.unsplash.com/photo-1501785894-4b7b4f4e4f56?q=80&w=300&auto=format&fit=crop" alt="Terreno Aurora" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
-                    <div class="card-body">
-                        <h5 class="card-title">Terreno 300m² - Aurora</h5>
-                        <p class="card-text">R$ 200.000</p>
-                        <p class="card-text">Aurora | 300m²</p>
-                        <a href="imovel.html?id=IMOB228" class="btn btn-cta">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="imovel-card">
-                    <img src="https://images.unsplash.com/photo-1501785895-4b7b4f4e4f57?q=80&w=300&auto=format&fit=crop" alt="Terreno Shangri-lá" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
-                    <div class="card-body">
-                        <h5 class="card-title">Terreno 600m² - Shangri-lá</h5>
-                        <p class="card-text">R$ 320.000</p>
-                        <p class="card-text">Shangri-lá | 600m²</p>
-                        <a href="imovel.html?id=IMOB229" class="btn btn-cta">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="imovel-card">
-                    <img src="https://images.unsplash.com/photo-1501785896-4b7b4f4e4f58?q=80&w=300&auto=format&fit=crop" alt="Terreno Lago Igapó" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
-                    <div class="card-body">
-                        <h5 class="card-title">Terreno 750m² - Lago Igapó</h5>
-                        <p class="card-text">R$ 380.000</p>
-                        <p class="card-text">Lago Igapó | 750m²</p>
-                        <a href="imovel.html?id=IMOB230" class="btn btn-cta">Ver detalhes</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <footer id="contato" class="footer">
-        <div class="container">
-            <p>© 2025 Imobiliárias de Londrina. Todos os direitos reservados.</p>
-            <p>contato@imobiliariasdelondrina.com.br | (43) 99999-9999</p>
-        </div>
-    </footer>
-    <script>
-        document.getElementById('search-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            filterImoveis();
-        });
-
-        function filterImoveis() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const tipo = urlParams.get('tipo') ? urlParams.get('tipo').toLowerCase() : document.getElementById('search-form').tipo.value.toLowerCase();
-            const bairro = urlParams.get('bairro') ? urlParams.get('bairro').toLowerCase() : document.getElementById('search-form').bairro.value.toLowerCase();
-            const preco = urlParams.get('preco') ? parseInt(urlParams.get('preco')) : (document.getElementById('search-form').preco.value ? parseInt(document.getElementById('search-form').preco.value) : Infinity);
-            const imoveis = document.querySelectorAll('.imovel-card');
-            let hasResults = false;
-            imoveis.forEach(imovel => {
-                const titulo = imovel.querySelector('.card-title').textContent.toLowerCase();
-                const precoText = imovel.querySelector('.card-text').textContent.replace(/[^0-9]/g, '');
-                const imovelPreco = parseInt(precoText);
-                const matchesTipo = !tipo || titulo.includes(tipo);
-                const matchesBairro = !bairro || titulo.includes(bairro);
-                const matchesPreco = imovelPreco <= preco;
-                if (matchesTipo && matchesBairro && matchesPreco) {
-                    imovel.style.display = 'block';
-                    hasResults = true;
-                } else {
-                    imovel.style.display = 'none';
-                }
-            });
-            if (!hasResults) {
-                alert('Nenhum imóvel encontrado com os filtros selecionados.');
-            }
-        }
-
-        window.addEventListener('load', () => {
-            if (new URLSearchParams(window.location.search).toString()) {
-                filterImoveis();
-            }
-        });
-    </script>
-</body>
-</html>
+                    </div
