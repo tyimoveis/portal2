@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Apartamentos à venda em Londrina, nos bairros Gleba Palhano e Centro, com design moderno de 2026.">
-    <meta name="keywords" content="apartamentos Londrina, Gleba Palhano, Centro, imóveis 2026">
+    <meta name="description" content="Imóveis à venda em Londrina: apartamentos, casas, terrenos e comerciais nos bairros Gleba Palhano, Centro e Bela Suíça.">
+    <meta name="keywords" content="imóveis Londrina, apartamentos Gleba Palhano, casas Centro, terrenos Bela Suíça, imóveis comerciais">
     <meta name="author" content="Imobiliárias de Londrina">
-    <title>Apartamentos à Venda - Imobiliárias de Londrina</title>
+    <title>Imóveis à Venda - Imobiliárias de Londrina</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -30,13 +30,18 @@
     </header>
     <section class="hero">
         <div class="container">
-            <h2 class="hero-title">Apartamentos em Londrina</h2>
-            <p class="hero-subtitle">Explore imóveis modernos na Gleba Palhano e Centro com tecnologia de 2026.</p>
+            <h2 class="hero-title">Imóveis em Londrina</h2>
+            <p class="hero-subtitle">Explore apartamentos, casas, terrenos e imóveis comerciais com tecnologia de 2026.</p>
             <form id="search-form" class="search-form">
                 <div class="filter-group">
                     <label for="tipo">Tipo</label>
-                    <select name="tipo" id="tipo" disabled>
-                        <option value="apartamento" selected>Apartamento</option>
+                    <select name="tipo" id="tipo">
+                        <option value="">Qualquer</option>
+                        <option value="apartamento">Apartamento</option>
+                        <option value="casa">Casa</option>
+                        <option value="casa-condominio">Casa em Condomínio</option>
+                        <option value="terreno">Terreno</option>
+                        <option value="comercial">Comercial</option>
                     </select>
                 </div>
                 <div class="filter-group">
@@ -45,6 +50,7 @@
                         <option value="">Qualquer</option>
                         <option value="gleba-palhano">Gleba Palhano</option>
                         <option value="centro">Centro</option>
+                        <option value="bela-suica">Bela Suíça</option>
                     </select>
                 </div>
                 <div class="filter-group">
@@ -66,7 +72,7 @@
     </section>
     <section id="imoveis" class="imoveis-section">
         <div class="container">
-            <h3 class="section-title">Nossos Apartamentos</h3>
+            <h3 class="section-title">Nossos Imóveis</h3>
             <p id="results-count" class="results-count"></p>
             <div id="imoveis-lista" class="imoveis-lista"></div>
             <div id="loader" class="loader"></div>
@@ -88,67 +94,184 @@
         const imoveisData = [
             {
                 id: 'IMOB001',
+                tipo: 'apartamento',
                 imagem: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=300&auto=format&fit=crop',
-                titulo: 'Apartamento 3 quartos - Gleba Palhano',
+                titulo: 'Apartamento 3 quartos - Edifício Solar Igapó',
                 preco: 600000,
                 detalhes: 'Gleba Palhano | 150m² | 3 quartos',
-                bairro: 'gleba-palhano'
+                bairro: 'gleba-palhano',
+                edificio: 'Edifício Solar Igapó',
+                areaUtil: 120,
+                areaTotal: 150,
+                lazer: 'Piscina, academia, salão de festas',
+                acabamentos: 'Porcelanato na sala e cozinha, laminado nos quartos',
+                armarios: 'Cozinha, dormitórios',
+                posicaoSolar: 'Norte/Leste',
+                coordenadas: { lat: -23.3100, lng: -51.1600 }
             },
             {
                 id: 'IMOB002',
+                tipo: 'apartamento',
                 imagem: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=300&auto=format&fit=crop',
-                titulo: 'Apartamento 4 quartos - Gleba Palhano',
+                titulo: 'Apartamento 4 quartos - Edifício Horizonte',
                 preco: 800000,
                 detalhes: 'Gleba Palhano | 180m² | 4 quartos',
-                bairro: 'gleba-palhano'
+                bairro: 'gleba-palhano',
+                edificio: 'Edifício Horizonte',
+                areaUtil: 150,
+                areaTotal: 180,
+                lazer: 'Piscina, quadra, churrasqueira',
+                acabamentos: 'Porcelanato em todos os ambientes',
+                armarios: 'Cozinha, dormitórios, banheiros',
+                posicaoSolar: 'Leste',
+                coordenadas: { lat: -23.3120, lng: -51.1620 }
             },
             {
                 id: 'IMOB003',
+                tipo: 'apartamento',
                 imagem: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=300&auto=format&fit=crop',
-                titulo: 'Apartamento 2 quartos - Gleba Palhano',
-                preco: 450000,
-                detalhes: 'Gleba Palhano | 100m² | 2 quartos',
-                bairro: 'gleba-palhano'
+                titulo: 'Apartamento 2 quartos - Edifício Central Park',
+                preco: 300000,
+                detalhes: 'Centro | 80m² | 2 quartos',
+                bairro: 'centro',
+                edificio: 'Edifício Central Park',
+                areaUtil: 70,
+                areaTotal: 80,
+                lazer: 'Salão de festas, academia',
+                acabamentos: 'Laminado na sala, porcelanato na cozinha',
+                armarios: 'Cozinha',
+                posicaoSolar: 'Sul',
+                coordenadas: { lat: -23.3170, lng: -51.1650 }
             },
             {
                 id: 'IMOB004',
+                tipo: 'apartamento',
                 imagem: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=300&auto=format&fit=crop',
-                titulo: 'Apartamento 3 quartos - Gleba Palhano',
-                preco: 700000,
-                detalhes: 'Gleba Palhano | 160m² | 3 quartos',
-                bairro: 'gleba-palhano'
+                titulo: 'Apartamento 3 quartos - Edifício Cidade Nova',
+                preco: 400000,
+                detalhes: 'Centro | 100m² | 3 quartos',
+                bairro: 'centro',
+                edificio: 'Edifício Cidade Nova',
+                areaUtil: 90,
+                areaTotal: 100,
+                lazer: 'Piscina, playground',
+                acabamentos: 'Porcelanato na sala, madeira nos quartos',
+                armarios: 'Cozinha, dormitórios',
+                posicaoSolar: 'Oeste',
+                coordenadas: { lat: -23.3180, lng: -51.1660 }
             },
             {
                 id: 'IMOB005',
-                imagem: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=300&auto=format&fit=crop',
-                titulo: 'Apartamento 2 quartos - Centro',
-                preco: 300000,
-                detalhes: 'Centro | 80m² | 2 quartos',
-                bairro: 'centro'
+                tipo: 'casa',
+                imagem: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=300&auto=format&fit=crop',
+                titulo: 'Casa 3 quartos - Gleba Palhano',
+                preco: 650000,
+                detalhes: 'Gleba Palhano | 200m² | 3 quartos',
+                bairro: 'gleba-palhano',
+                areaUtil: 180,
+                areaTotal: 200,
+                acabamentos: 'Porcelanato em todos os ambientes',
+                armarios: 'Cozinha, área de serviço',
+                coordenadas: { lat: -23.3130, lng: -51.1630 }
             },
             {
                 id: 'IMOB006',
-                imagem: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=300&auto=format&fit=crop',
-                titulo: 'Apartamento 3 quartos - Centro',
-                preco: 400000,
-                detalhes: 'Centro | 100m² | 3 quartos',
-                bairro: 'centro'
+                tipo: 'casa',
+                imagem: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=300&auto=format&fit=crop',
+                titulo: 'Casa 2 quartos - Centro',
+                preco: 350000,
+                detalhes: 'Centro | 120m² | 2 quartos',
+                bairro: 'centro',
+                areaUtil: 100,
+                areaTotal: 120,
+                acabamentos: 'Laminado na sala, porcelanato na cozinha',
+                armarios: 'Cozinha',
+                coordenadas: { lat: -23.3190, lng: -51.1670 }
             },
             {
                 id: 'IMOB007',
-                imagem: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=300&auto=format&fit=crop',
-                titulo: 'Apartamento 1 quarto - Centro',
-                preco: 250000,
-                detalhes: 'Centro | 70m² | 1 quarto',
-                bairro: 'centro'
+                tipo: 'casa-condominio',
+                imagem: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=300&auto=format&fit=crop',
+                titulo: 'Casa 4 quartos - Condomínio Villa Verde',
+                preco: 1200000,
+                detalhes: 'Gleba Palhano | 300m² | 4 quartos',
+                bairro: 'gleba-palhano',
+                condominio: 'Condomínio Villa Verde',
+                areaUtil: 250,
+                areaTotal: 300,
+                lazer: 'Piscina, quadra, playground',
+                acabamentos: 'Porcelanato e madeira',
+                armarios: 'Cozinha, dormitórios, área de serviço',
+                coordenadas: { lat: -23.3140, lng: -51.1640 }
             },
             {
                 id: 'IMOB008',
-                imagem: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=300&auto=format&fit=crop',
-                titulo: 'Apartamento 3 quartos - Centro',
+                tipo: 'casa-condominio',
+                imagem: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=300&auto=format&fit=crop',
+                titulo: 'Casa 3 quartos - Condomínio Jardins',
+                preco: 900000,
+                detalhes: 'Gleba Palhano | 250m² | 3 quartos',
+                bairro: 'gleba-palhano',
+                condominio: 'Condomínio Jardins',
+                areaUtil: 220,
+                areaTotal: 250,
+                lazer: 'Piscina, academia, salão de festas',
+                acabamentos: 'Porcelanato em todos os ambientes',
+                armarios: 'Cozinha, dormitórios',
+                coordenadas: { lat: -23.3150, lng: -51.1650 }
+            },
+            {
+                id: 'IMOB009',
+                tipo: 'terreno',
+                imagem: 'https://images.unsplash.com/photo-1501785887-3b7b4f4e4f4f?q=80&w=300&auto=format&fit=crop',
+                titulo: 'Terreno 500m² - Bela Suíça',
+                preco: 300000,
+                detalhes: 'Bela Suíça | 500m² | 12m x 42m',
+                bairro: 'bela-suica',
+                tamanho: 500,
+                dimensoes: '12m x 42m',
+                coordenadas: { lat: -23.3200, lng: -51.1700 }
+            },
+            {
+                id: 'IMOB010',
+                tipo: 'terreno',
+                imagem: 'https://images.unsplash.com/photo-1501785887-3b7b4f4e4f4f?q=80&w=300&auto=format&fit=crop',
+                titulo: 'Terreno 800m² - Gleba Palhano',
                 preco: 500000,
-                detalhes: 'Centro | 120m² | 3 quartos',
-                bairro: 'centro'
+                detalhes: 'Gleba Palhano | 800m² | 20m x 40m',
+                bairro: 'gleba-palhano',
+                tamanho: 800,
+                dimensoes: '20m x 40m',
+                coordenadas: { lat: -23.3160, lng: -51.1660 }
+            },
+            {
+                id: 'IMOB011',
+                tipo: 'comercial',
+                subtipo: 'sala',
+                imagem: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=300&auto=format&fit=crop',
+                titulo: 'Sala Comercial - Edifício Empresarial',
+                preco: 250000,
+                detalhes: 'Centro | 50m² | 2 salas',
+                bairro: 'centro',
+                edificio: 'Edifício Empresarial',
+                areaUtil: 50,
+                areaTotal: 50,
+                acabamentos: 'Porcelanato',
+                coordenadas: { lat: -23.3175, lng: -51.1655 }
+            },
+            {
+                id: 'IMOB012',
+                tipo: 'comercial',
+                subtipo: 'loja',
+                imagem: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=300&auto=format&fit=crop',
+                titulo: 'Loja Comercial - Gleba Palhano',
+                preco: 700000,
+                detalhes: 'Gleba Palhano | 100m² | Vitrine',
+                bairro: 'gleba-palhano',
+                areaUtil: 100,
+                areaTotal: 100,
+                acabamentos: 'Porcelanato',
+                coordenadas: { lat: -23.3110, lng: -51.1610 }
             }
         ];
 
@@ -178,7 +301,7 @@
                 lista.appendChild(card);
             });
 
-            document.getElementById('results-count').textContent = `${filteredImoveis.length} apartamento${filteredImoveis.length > 1 ? 's' : ''} encontrado${filteredImoveis.length > 1 ? 's' : ''}`;
+            document.getElementById('results-count').textContent = `${filteredImoveis.length} imóvel${filteredImoveis.length > 1 ? 'eis' : ''} encontrado${filteredImoveis.length > 1 ? 's' : ''}`;
             isLoading = false;
             document.getElementById('loader').style.display = 'none';
         }
@@ -204,6 +327,7 @@
             const precoMin = parseInt(document.getElementById('precoMin').value) || 0;
             const precoMax = parseInt(document.getElementById('precoMax').value) || Infinity;
             const bairro = document.getElementById('bairro').value.toLowerCase();
+            const tipo = document.getElementById('tipo').value.toLowerCase();
 
             if (precoMin > precoMax) {
                 document.getElementById('precoMin-error').style.display = 'block';
@@ -216,7 +340,8 @@
                 const filteredImoveis = imoveisData.filter(imovel => {
                     const matchesBairro = !bairro || imovel.bairro === bairro;
                     const matchesPreco = imovel.preco >= precoMin && imovel.preco <= precoMax;
-                    return matchesBairro && matchesPreco;
+                    const matchesTipo = !tipo || imovel.tipo === tipo;
+                    return matchesBairro && matchesPreco && matchesTipo;
                 });
 
                 currentPage = 1;
@@ -237,13 +362,15 @@
         window.addEventListener('load', () => {
             const urlParams = new URLSearchParams(window.location.search);
             if (urlParams.toString()) {
+                document.getElementById('tipo').value = urlParams.get('tipo') || '';
                 document.getElementById('bairro').value = urlParams.get('bairro') || '';
                 document.getElementById('precoMin').value = urlParams.get('precoMin') || '';
                 document.getElementById('precoMax').value = urlParams.get('precoMax') || '';
                 const filteredImoveis = imoveisData.filter(imovel => {
                     const matchesBairro = !urlParams.get('bairro') || imovel.bairro === urlParams.get('bairro').toLowerCase();
                     const matchesPreco = imovel.preco >= (parseInt(urlParams.get('precoMin')) || 0) && imovel.preco <= (parseInt(urlParams.get('precoMax')) || Infinity);
-                    return matchesBairro && matchesPreco;
+                    const matchesTipo = !urlParams.get('tipo') || imovel.tipo === urlParams.get('tipo').toLowerCase();
+                    return matchesBairro && matchesPreco && matchesTipo;
                 });
                 loadImoveis(filteredImoveis);
             } else {
