@@ -8,291 +8,17 @@
     <meta name="author" content="Imobiliárias de Londrina">
     <title>Imóveis à Venda - Imobiliárias de Londrina</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
-        :root {
-            --preto: #1A1A1A;
-            --branco: #FFFFFF;
-            --azul-escuro: #0A2540;
-            --verde-esmeralda: #2E8B57;
-            --cinza-claro: #F5F5F5;
-        }
-        body {
-            background-color: var(--branco);
-            color: var(--preto);
-        }
-        .header {
-            background-color: var(--azul-escuro);
-            padding: 1rem;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-        .header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--branco);
-        }
-        .nav {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        .nav-link {
-            color: var(--branco);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 400;
-            transition: color 0.3s ease;
-        }
-        .nav-link:hover {
-            color: var(--verde-esmeralda);
-        }
-        .btn-cta {
-            background-color: var(--verde-esmeralda);
-            color: var(--branco);
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: background-color 0.3s ease;
-            cursor: pointer;
-            border: none;
-        }
-        .btn-cta:hover {
-            background-color: #26734d;
-        }
-        .btn-reset {
-            background-color: var(--cinza-claro);
-            color: var(--preto);
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            cursor: pointer;
-            border: none;
-        }
-        .btn-reset:hover {
-            background-color: #e0e0e0;
-        }
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            padding: 6rem 1rem 3rem;
-            text-align: center;
-            color: var(--branco);
-        }
-        .hero-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-        .hero-subtitle {
-            font-size: 1rem;
-            font-weight: 400;
-            margin-bottom: 1.5rem;
-            max-width: 90%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .search-form {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            max-width: 100%;
-            margin: 0 auto;
-            background-color: var(--branco);
-            padding: 1rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        .search-form select,
-        .search-form input {
-            border: 1px solid var(--cinza-claro);
-            border-radius: 5px;
-            padding: 0.8rem;
-            font-size: 0.9rem;
-            width: 100%;
-            transition: border-color 0.3s ease;
-        }
-        .search-form select:focus,
-        .search-form input:focus {
-            border-color: var(--verde-esmeralda);
-            outline: none;
-        }
-        .search-form .btn-cta,
-        .search-form .btn-reset {
-            padding: 0.8rem;
-            font-size: 0.9rem;
-        }
-        .filter-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        .filter-group label {
-            font-size: 0.9rem;
-            color: var(--preto);
-            margin-bottom: 0.2rem;
-        }
-        .results-count {
-            font-size: 1rem;
-            color: var(--azul-escuro);
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-        .imoveis-section {
-            padding: 3rem 0;
-        }
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            color: var(--azul-escuro);
-        }
-        .imoveis-lista {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-        .imovel-card {
-            background-color: var(--branco);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .imovel-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-        }
-        .imovel-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            display: block;
-        }
-        .imovel-card img[alt*="fallback"] {
-            background-color: var(--cinza-claro);
-        }
-        .imovel-card .card-body {
-            padding: 1rem;
-        }
-        .imovel-card .card-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--azul-escuro);
-            margin-bottom: 0.5rem;
-        }
-        .imovel-card .card-text {
-            font-size: 0.9rem;
-            color: var(--preto);
-            margin-bottom: 0.5rem;
-        }
-        .imovel-card .btn-cta {
-            display: block;
-            width: 100%;
-            text-align: center;
-        }
-        .footer {
-            background-color: var(--azul-escuro);
-            color: var(--branco);
-            padding: 2rem 0;
-            text-align: center;
-        }
-        .footer p {
-            font-size: 0.9rem;
-            margin: 0.5rem 0;
-        }
-        @media (min-width: 768px) {
-            .header {
-                padding: 1.5rem;
-            }
-            .logo {
-                font-size: 1.8rem;
-            }
-            .nav {
-                gap: 1rem;
-            }
-            .nav-link {
-                font-size: 1rem;
-                margin: 0 1.5rem;
-            }
-            .btn-cta, .btn-reset {
-                padding: 0.6rem 1.2rem;
-                font-size: 1rem;
-            }
-            .hero {
-                padding: 10rem 0 6rem;
-            }
-            .hero-title {
-                font-size: 3.5rem;
-            }
-            .hero-subtitle {
-                font-size: 1.3rem;
-                max-width: 600px;
-            }
-            .search-form {
-                flex-direction: row;
-                flex-wrap: wrap;
-                max-width: 900px;
-                gap: 1rem;
-            }
-            .search-form select,
-            .search-form input {
-                width: 150px;
-            }
-            .search-form .btn-cta,
-            .search-form .btn-reset {
-                width: auto;
-            }
-            .filter-group {
-                flex: 1;
-            }
-            .imoveis-section {
-                padding: 5rem 0;
-            }
-            .section-title {
-                font-size: 2rem;
-            }
-            .imoveis-lista {
-                gap: 2rem;
-            }
-            .imovel-card img {
-                height: 200px;
-            }
-            .imovel-card .card-title {
-                font-size: 1.3rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header class="header">
         <div class="container">
             <h1 class="logo">Imobiliárias de Londrina</h1>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <nav class="nav">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="imoveis.html" class="nav-link">Imóveis</a>
@@ -335,10 +61,12 @@
                 <div class="filter-group">
                     <label for="precoMin">Preço Mínimo (R$)</label>
                     <input type="number" name="precoMin" id="precoMin" placeholder="Ex.: 100000" min="0">
+                    <span class="error-message" id="precoMin-error">Preço inválido</span>
                 </div>
                 <div class="filter-group">
                     <label for="precoMax">Preço Máximo (R$)</label>
                     <input type="number" name="precoMax" id="precoMax" placeholder="Ex.: 500000" min="0">
+                    <span class="error-message" id="precoMax-error">Preço inválido</span>
                 </div>
                 <div class="filter-group">
                     <label for="quartos">Quartos</label>
@@ -353,10 +81,12 @@
                 <div class="filter-group">
                     <label for="areaMin">Área Mínima (m²)</label>
                     <input type="number" name="areaMin" id="areaMin" placeholder="Ex.: 50" min="0">
+                    <span class="error-message" id="areaMin-error">Área inválida</span>
                 </div>
                 <div class="filter-group">
                     <label for="areaMax">Área Máxima (m²)</label>
                     <input type="number" name="areaMax" id="areaMax" placeholder="Ex.: 200" min="0">
+                    <span class="error-message" id="areaMax-error">Área inválida</span>
                 </div>
                 <div class="filter-group">
                     <button type="submit" class="btn btn-cta">Buscar</button>
@@ -389,78 +119,6 @@
                         <a href="imovel.html?id=IMOB202" class="btn btn-cta">Ver detalhes</a>
                     </div>
                 </div>
-                <div class="imovel-card">
-                    <img src="https://images.unsplash.com/photo-1600585153490-76fb20a0f2b4?q=80&w=300&auto=format&fit=crop" alt="Apartamento Jardim Londrilar" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
-                    <div class="card-body">
-                        <h5 class="card-title">Apartamento 1 quarto - Jardim Londrilar</h5>
-                        <p class="card-text">R$ 200.000</p>
-                        <p class="card-text">Jardim Londrilar | 50m² | 1 quarto</p>
-                        <a href="imovel.html?id=IMOB203" class="btn btn-cta">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="imovel-card">
-                    <img src="https://images.unsplash.com/photo-1600585152915-d208bec867a1?q=80&w=300&auto=format&fit=crop" alt="Apartamento Vila Nova" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
-                    <div class="card-body">
-                        <h5 class="card-title">Apartamento 2 quartos - Vila Nova</h5>
-                        <p class="card-text">R$ 350.000</p>
-                        <p class="card-text">Vila Nova | 90m² | 2 quartos</p>
-                        <a href="imovel.html?id=IMOB204" class="btn btn-cta">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="imovel-card">
-                    <img src="https://images.unsplash.com/photo-1600585154084-4e1fe0687c8d?q=80&w=300&auto=format&fit=crop" alt="Apartamento Jardim Leonor" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
-                    <div class="card-body">
-                        <h5 class="card-title">Apartamento 3 quartos - Jardim Leonor</h5>
-                        <p class="card-text">R$ 500.000</p>
-                        <p class="card-text">Jardim Leonor | 120m² | 3 quartos</p>
-                        <a href="imovel.html?id=IMOB205" class="btn btn-cta">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="imovel-card">
-                    <img src="https://images.unsplash.com/photo-1600585153786-7e5acbabdafc?q=80&w=300&auto=format&fit=crop" alt="Apartamento Bela Suíça" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
-                    <div class="card-body">
-                        <h5 class="card-title">Apartamento 2 quartos - Bela Suíça</h5>
-                        <p class="card-text">R$ 400.000</p>
-                        <p class="card-text">Bela Suíça | 100m² | 2 quartos</p>
-                        <a href="imovel.html?id=IMOB206" class="btn btn-cta">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="imovel-card">
-                    <img src="https://images.unsplash.com/photo-1600585153917-28a9b28b8b3d?q=80&w=300&auto=format&fit=crop" alt="Apartamento Jardim Quebec" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
-                    <div class="card-body">
-                        <h5 class="card-title">Apartamento 1 quarto - Jardim Quebec</h5>
-                        <p class="card-text">R$ 250.000</p>
-                        <p class="card-text">Jardim Quebec | 60m² | 1 quarto</p>
-                        <a href="imovel.html?id=IMOB207" class="btn btn-cta">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="imovel-card">
-                    <img src="https://images.unsplash.com/photo-1600585154477-8c208b3813f7?q=80&w=300&auto=format&fit=crop" alt="Apartamento Aurora" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
-                    <div class="card-body">
-                        <h5 class="card-title">Apartamento 3 quartos - Aurora</h5>
-                        <p class="card-text">R$ 550.000</p>
-                        <p class="card-text">Aurora | 130m² | 3 quartos</p>
-                        <a href="imovel.html?id=IMOB208" class="btn btn-cta">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="imovel-card">
-                    <img src="https://images.unsplash.com/photo-1600585154626-8c2f2a139804?q=80&w=300&auto=format&fit=crop" alt="Apartamento Shangri-lá" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
-                    <div class="card-body">
-                        <h5 class="card-title">Apartamento 2 quartos - Shangri-lá</h5>
-                        <p class="card-text">R$ 380.000</p>
-                        <p class="card-text">Shangri-lá | 95m² | 2 quartos</p>
-                        <a href="imovel.html?id=IMOB209" class="btn btn-cta">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="imovel-card">
-                    <img src="https://images.unsplash.com/photo-1600585154855-09c93cd7e2f2?q=80&w=300&auto=format&fit=crop" alt="Apartamento Lago Igapó" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
-                    <div class="card-body">
-                        <h5 class="card-title">Apartamento 3 quartos - Lago Igapó</h5>
-                        <p class="card-text">R$ 580.000</p>
-                        <p class="card-text">Lago Igapó | 140m² | 3 quartos</p>
-                        <a href="imovel.html?id=IMOB210" class="btn btn-cta">Ver detalhes</a>
-                    </div>
-                </div>
                 <!-- Casas -->
                 <div class="imovel-card">
                     <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=300&auto=format&fit=crop" alt="Casa Gleba Palhano" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
@@ -469,87 +127,6 @@
                         <p class="card-text">R$ 1.200.000</p>
                         <p class="card-text">Gleba Palhano | 300m² | 4 quartos</p>
                         <a href="imovel.html?id=IMOB211" class="btn btn-cta">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="imovel-card">
-                    <img src="https://images.unsplash.com/photo-1560448205-17d3f43b7d87?q=80&w=300&auto=format&fit=crop" alt="Casa Centro" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
-                    <div class="card-body">
-                        <h5 class="card-title">Casa 3 quartos - Centro</h5>
-                        <p class="card-text">R$ 600.000</p>
-                        <p class="card-text">Centro | 200m² | 3 quartos</p>
-                        <a href="imovel.html?id=IMOB212" class="btn btn-cta">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="imovel-card">
-                    <img src="https://images.unsplash.com/photo-1560448208-4f8b4d456d45?q=80&w=300&auto=format&fit=crop" alt="Casa Jardim Londrilar" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
-                    <div class="card-body">
-                        <h5 class="card-title">Casa 2 quartos - Jardim Londrilar</h5>
-                        <p class="card-text">R$ 400.000</p>
-                        <p class="card-text">Jardim Londrilar | 120m² | 2 quartos</p>
-                        <a href="imovel.html?id=IMOB213" class="btn btn-cta">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="imovel-card">
-                    <img src="https://images.unsplash.com/photo-1560448209-0b3f48f6f4f2?q=80&w=300&auto=format&fit=crop" alt="Casa Vila Nova" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
-                    <div class="card-body">
-                        <h5 class="card-title">Casa 5 quartos - Vila Nova</h5>
-                        <p class="card-text">R$ 900.000</p>
-                        <p class="card-text">Vila Nova | 250m² | 5 quartos</p>
-                        <a href="imovel.html?id=IMOB214" class="btn btn-cta">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="imovel-card">
-                    <img src="https://images.unsplash.com/photo-1560448210-1b3f48f6f4f3?q=80&w=300&auto=format&fit=crop" alt="Casa Jardim Leonor" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
-                    <div class="card-body">
-                        <h5 class="card-title">Casa 3 quartos - Jardim Leonor</h5>
-                        <p class="card-text">R$ 650.000</p>
-                        <p class="card-text">Jardim Leonor | 180m² | 3 quartos</p>
-                        <a href="imovel.html?id=IMOB215" class="btn btn-cta">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="imovel-card">
-                    <img src="https://images.unsplash.com/photo-1560448211-4b3f48f6f4f4?q=80&w=300&auto=format&fit=crop" alt="Casa Bela Suíça" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
-                    <div class="card-body">
-                        <h5 class="card-title">Casa 4 quartos - Bela Suíça</h5>
-                        <p class="card-text">R$ 800.000</p>
-                        <p class="card-text">Bela Suíça | 220m² | 4 quartos</p>
-                        <a href="imovel.html?id=IMOB216" class="btn btn-cta">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="imovel-card">
-                    <img src="https://images.unsplash.com/photo-1560448212-4b3f48f6f4f5?q=80&w=300&auto=format&fit=crop" alt="Casa Jardim Quebec" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
-                    <div class="card-body">
-                        <h5 class="card-title">Casa 3 quartos - Jardim Quebec</h5>
-                        <p class="card-text">R$ 700.000</p>
-                        <p class="card-text">Jardim Quebec | 200m² | 3 quartos</p>
-                        <a href="imovel.html?id=IMOB217" class="btn btn-cta">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="imovel-card">
-                    <img src="https://images.unsplash.com/photo-1560448213-4b3f48f6f4f6?q=80&w=300&auto=format&fit=crop" alt="Casa Aurora" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
-                    <div class="card-body">
-                        <h5 class="card-title">Casa 2 quartos - Aurora</h5>
-                        <p class="card-text">R$ 450.000</p>
-                        <p class="card-text">Aurora | 150m² | 2 quartos</p>
-                        <a href="imovel.html?id=IMOB218" class="btn btn-cta">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="imovel-card">
-                    <img src="https://images.unsplash.com/photo-1560448214-4b3f48f6f4f7?q=80&w=300&auto=format&fit=crop" alt="Casa Shangri-lá" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
-                    <div class="card-body">
-                        <h5 class="card-title">Casa 4 quartos - Shangri-lá</h5>
-                        <p class="card-text">R$ 850.000</p>
-                        <p class="card-text">Shangri-lá | 240m² | 4 quartos</p>
-                        <a href="imovel.html?id=IMOB219" class="btn btn-cta">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="imovel-card">
-                    <img src="https://images.unsplash.com/photo-1560448215-4b3f48f6f4f8?q=80&w=300&auto=format&fit=crop" alt="Casa Lago Igapó" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
-                    <div class="card-body">
-                        <h5 class="card-title">Casa 3 quartos - Lago Igapó</h5>
-                        <p class="card-text">R$ 750.000</p>
-                        <p class="card-text">Lago Igapó | 210m² | 3 quartos</p>
-                        <a href="imovel.html?id=IMOB220" class="btn btn-cta">Ver detalhes</a>
                     </div>
                 </div>
                 <!-- Terrenos -->
@@ -562,38 +139,114 @@
                         <a href="imovel.html?id=IMOB221" class="btn btn-cta">Ver detalhes</a>
                     </div>
                 </div>
-                <div class="imovel-card">
-                    <img src="https://images.unsplash.com/photo-1501785888-4b7b4f4e4f50?q=80&w=300&auto=format&fit=crop" alt="Terreno Centro" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
-                    <div class="card-body">
-                        <h5 class="card-title">Terreno 400m² - Centro</h5>
-                        <p class="card-text">R$ 350.000</p>
-                        <p class="card-text">Centro | 400m²</p>
-                        <a href="imovel.html?id=IMOB222" class="btn btn-cta">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="imovel-card">
-                    <img src="https://images.unsplash.com/photo-1501785889-4b7b4f4e4f51?q=80&w=300&auto=format&fit=crop" alt="Terreno Jardim Londrilar" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
-                    <div class="card-body">
-                        <h5 class="card-title">Terreno 600m² - Jardim Londrilar</h5>
-                        <p class="card-text">R$ 300.000</p>
-                        <p class="card-text">Jardim Londrilar | 600m²</p>
-                        <a href="imovel.html?id=IMOB223" class="btn btn-cta">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="imovel-card">
-                    <img src="https://images.unsplash.com/photo-1501785890-4b7b4f4e4f52?q=80&w=300&auto=format&fit=crop" alt="Terreno Vila Nova" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
-                    <div class="card-body">
-                        <h5 class="card-title">Terreno 500m² - Vila Nova</h5>
-                        <p class="card-text">R$ 250.000</p>
-                        <p class="card-text">Vila Nova | 500m²</p>
-                        <a href="imovel.html?id=IMOB224" class="btn btn-cta">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="imovel-card">
-                    <img src="https://images.unsplash.com/photo-1501785891-4b7b4f4e4f53?q=80&w=300&auto=format&fit=crop" alt="Terreno Jardim Leonor" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
-                    <div class="card-body">
-                        <h5 class="card-title">Terreno 700m² - Jardim Leonor</h5>
-                        <p class="card-text">R$ 400.000</p>
-                        <p class="card-text">Jardim Leonor | 700m²</p>
-                        <a href="imovel.html?id=IMOB225" class="btn btn-cta">Ver detalhes</a>
-                    </div
+            </div>
+        </div>
+    </section>
+    <footer id="contato" class="footer">
+        <div class="container">
+            <p>© 2025 Imobiliárias de Londrina. Todos os direitos reservados.</p>
+            <p>contato@imobiliariasdelondrina.com.br | (43) 99999-9999</p>
+        </div>
+    </footer>
+    <script>
+        // Hamburger Menu
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('.nav').classList.toggle('active');
+        });
+
+        // Search Form Validation
+        document.getElementById('search-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            let valid = true;
+            const precoMin = parseInt(document.getElementById('precoMin').value) || 0;
+            const precoMax = parseInt(document.getElementById('precoMax').value) || Infinity;
+            const areaMin = parseInt(document.getElementById('areaMin').value) || 0;
+            const areaMax = parseInt(document.getElementById('areaMax').value) || Infinity;
+
+            if (precoMin > precoMax) {
+                document.getElementById('precoMin-error').style.display = 'block';
+                valid = false;
+            } else {
+                document.getElementById('precoMin-error').style.display = 'none';
+            }
+
+            if (areaMin > areaMax) {
+                document.getElementById('areaMin-error').style.display = 'block';
+                valid = false;
+            } else {
+                document.getElementById('areaMin-error').style.display = 'none';
+            }
+
+            if (valid) {
+                filterImoveis();
+            }
+        });
+
+        // Reset Search Form
+        document.getElementById('search-form').addEventListener('reset', () => {
+            const imoveis = document.querySelectorAll('.imovel-card');
+            imoveis.forEach(imovel => imovel.style.display = 'block');
+            document.getElementById('results-count').textContent = `${imoveis.length} imóveis encontrados`;
+            document.querySelectorAll('.error-message').forEach(error => error.style.display = 'none');
+        });
+
+        // Filter Imóveis
+        function filterImoveis() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const tipo = urlParams.get('tipo') ? urlParams.get('tipo').toLowerCase() : document.getElementById('tipo').value.toLowerCase();
+            const bairro = urlParams.get('bairro') ? urlParams.get('bairro').toLowerCase() : document.getElementById('bairro').value.toLowerCase();
+            const precoMin = urlParams.get('precoMin') ? parseInt(urlParams.get('precoMin')) : (document.getElementById('precoMin').value ? parseInt(document.getElementById('precoMin').value) : 0);
+            const precoMax = urlParams.get('precoMax') ? parseInt(urlParams.get('precoMax')) : (document.getElementById('precoMax').value ? parseInt(document.getElementById('precoMax').value) : Infinity);
+            const quartos = urlParams.get('quartos') ? urlParams.get('quartos') : document.getElementById('quartos').value;
+            const areaMin = urlParams.get('areaMin') ? parseInt(urlParams.get('areaMin')) : (document.getElementById('areaMin').value ? parseInt(document.getElementById('areaMin').value) : 0);
+            const areaMax = urlParams.get('areaMax') ? parseInt(urlParams.get('areaMax')) : (document.getElementById('areaMax').value ? parseInt(document.getElementById('areaMax').value) : Infinity);
+
+            const imoveis = document.querySelectorAll('.imovel-card');
+            let count = 0;
+
+            imoveis.forEach(imovel => {
+                const titulo = imovel.querySelector('.card-title').textContent.toLowerCase();
+                const precoText = imovel.querySelector('.card-text').textContent.replace(/[^0-9]/g, '');
+                const imovelPreco = parseInt(precoText);
+                const detalhes = imovel.querySelectorAll('.card-text')[1].textContent.toLowerCase();
+                const areaMatch = detalhes.match(/(\d+)m²/);
+                const imovelArea = areaMatch ? parseInt(areaMatch[1]) : 0;
+                const quartosMatch = detalhes.match(/(\d+)\s*quarto/);
+                const imovelQuartos = quartosMatch ? parseInt(quartosMatch[1]) : 0;
+
+                const matchesTipo = !tipo || titulo.includes(tipo);
+                const matchesBairro = !bairro || titulo.includes(bairro.replace('gleba-palhano', 'gleba palhano').replace('jardim-londrilar', 'jardim londrilar').replace('vila-nova', 'vila nova').replace('jardim-leonor', 'jardim leonor').replace('bela-suica', 'bela suíça').replace('jardim-quebec', 'jardim quebec').replace('lago-igapo', 'lago igapó'));
+                const matchesPreco = imovelPreco >= precoMin && imovelPreco <= precoMax;
+                const matchesQuartos = !quartos || (quartos === '4+' ? imovelQuartos >= 4 : imovelQuartos === parseInt(quartos));
+                const matchesArea = imovelArea >= areaMin && imovelArea <= areaMax;
+
+                if (matchesTipo && matchesBairro && matchesPreco && matchesQuartos && matchesArea) {
+                    imovel.style.display = 'block';
+                    count++;
+                } else {
+                    imovel.style.display = 'none';
+                }
+            });
+
+            document.getElementById('results-count').textContent = count > 0 ? `${count} imóvel${count > 1 ? 'eis' : ''} encontrado${count > 1 ? 's' : ''}` : 'Nenhum imóvel encontrado';
+        }
+
+        // Load Filters from URL
+        window.addEventListener('load', () => {
+            const imoveis = document.querySelectorAll('.imovel-card');
+            document.getElementById('results-count').textContent = `${imoveis.length} imóveis encontrados`;
+            if (new URLSearchParams(window.location.search).toString()) {
+                const urlParams = new URLSearchParams(window.location.search);
+                document.getElementById('tipo').value = urlParams.get('tipo') || '';
+                document.getElementById('bairro').value = urlParams.get('bairro') || '';
+                document.getElementById('precoMin').value = urlParams.get('precoMin') || '';
+                document.getElementById('precoMax').value = urlParams.get('precoMax') || '';
+                document.getElementById('quartos').value = urlParams.get('quartos') || '';
+                document.getElementById('areaMin').value = urlParams.get('areaMin') || '';
+                document.getElementById('areaMax').value = urlParams.get('areaMax') || '';
+                filterImoveis();
+            }
+        });
+    </script>
+</body>
+</html>
