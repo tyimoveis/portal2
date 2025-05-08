@@ -237,7 +237,7 @@
             <h1 class="logo">Imobiliárias de Londrina</h1>
             <nav class="nav">
                 <a href="index.html" class="nav-link">Home</a>
-                <a href="index.html#imoveis" class="nav-link">Imóveis</a>
+                <a href="imoveis.html" class="nav-link">Imóveis</a>
                 <a href="#sobre" class="nav-link">Sobre</a>
                 <a href="#contato" class="nav-link">Contato</a>
                 <a href="painel.html" class="btn btn-cta">Área da Imobiliária</a>
@@ -249,7 +249,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <h2 class="section-title" id="imovel-titulo">Apartamento 3 quartos - Gleba Palhano</h2>
-                    <img id="imovel-foto" src="https://via.placeholder.com/800x400?text=Apartamento+Gleba+Palhano" alt="Apartamento na Gleba Palhano" class="imovel-foto">
+                    <img id="imovel-foto" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop" alt="Apartamento na Gleba Palhano" class="imovel-foto">
                     <div class="imovel-info">
                         <p><strong>Preço:</strong> <span id="imovel-preco">R$ 450.000</span></p>
                         <p><strong>Bairro:</strong> <span id="imovel-bairro">Gleba Palhano</span></p>
@@ -288,7 +288,7 @@
                 <h3 class="section-title">Imóveis Relacionados</h3>
                 <div class="imoveis-lista">
                     <div class="imovel-card">
-                        <img src="https://via.placeholder.com/300x200?text=Apartamento+Jardim+Londrilar" alt="Apartamento no Jardim Londrilar">
+                        <img src="https://images.unsplash.com/photo-1600585153490-76fb20a0f2b4?q=80&w=300&auto=format&fit=crop" alt="Apartamento no Jardim Londrilar">
                         <div class="card-body">
                             <h5 class="card-title">Apartamento 2 quartos - Jardim Londrilar</h5>
                             <p class="card-text">R$ 320.000</p>
@@ -297,7 +297,7 @@
                         </div>
                     </div>
                     <div class="imovel-card">
-                        <img src="https://via.placeholder.com/300x200?text=Casa+Vila+Nova" alt="Casa na Vila Nova">
+                        <img src="https://images.unsplash.com/photo-1560448209-0b3f48f6f4f2?q=80&w=300&auto=format&fit=crop" alt="Casa na Vila Nova">
                         <div class="card-body">
                             <h5 class="card-title">Casa 3 quartos - Vila Nova</h5>
                             <p class="card-text">R$ 550.000</p>
@@ -306,7 +306,7 @@
                         </div>
                     </div>
                     <div class="imovel-card">
-                        <img src="https://via.placeholder.com/300x200?text=Terreno+Jardim+Leonor" alt="Terreno no Jardim Leonor">
+                        <img src="https://images.unsplash.com/photo-1501785891-4b7b4f4e4f53?q=80&w=300&auto=format&fit=crop" alt="Terreno no Jardim Leonor">
                         <div class="card-body">
                             <h5 class="card-title">Terreno 600m² - Jardim Leonor</h5>
                             <p class="card-text">R$ 280.000</p>
@@ -333,6 +333,7 @@
         const urlParams = new URLSearchParams(window.location.search);
         const imovelId = urlParams.get('id');
         const imoveis = {
+            // Imóveis de index.html
             'IMOB123': {
                 titulo: 'Apartamento 3 quartos - Gleba Palhano',
                 preco: '450.000',
@@ -341,7 +342,7 @@
                 quartos: '3',
                 vagas: '2',
                 descricao: 'Apartamento moderno com vista para o Lago Igapó, acabamentos de alto padrão, área de lazer completa e localização privilegiada na Gleba Palhano.',
-                foto: 'https://via.placeholder.com/800x400?text=Apartamento+Gleba+Palhano'
+                foto: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop'
             },
             'IMOB124': {
                 titulo: 'Casa 4 quartos - Centro',
@@ -351,7 +352,7 @@
                 quartos: '4',
                 vagas: '3',
                 descricao: 'Casa espaçosa no coração de Londrina, ideal para famílias, com quintal amplo e garagem para 3 carros.',
-                foto: 'https://via.placeholder.com/800x400?text=Casa+Centro'
+                foto: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=800&auto=format&fit=crop'
             },
             'IMOB125': {
                 titulo: 'Terreno 500m² - Bela Suíça',
@@ -361,7 +362,7 @@
                 quartos: '0',
                 vagas: '0',
                 descricao: 'Terreno plano em bairro residencial tranquilo, perfeito para construção de casa ou investimento.',
-                foto: 'https://via.placeholder.com/800x400?text=Terreno+Bela+Suíça'
+                foto: 'https://images.unsplash.com/photo-1501785887-3b7b4f4e4f4f?q=80&w=800&auto=format&fit=crop'
             },
             'IMOB126': {
                 titulo: 'Apartamento 2 quartos - Centro',
@@ -371,7 +372,7 @@
                 quartos: '2',
                 vagas: '1',
                 descricao: 'Apartamento compacto e funcional, próximo a comércios e serviços no Centro de Londrina.',
-                foto: 'https://via.placeholder.com/800x400?text=Apartamento+Centro'
+                foto: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=800&auto=format&fit=crop'
             },
             'IMOB127': {
                 titulo: 'Casa 3 quartos - Gleba Palhano',
@@ -381,7 +382,7 @@
                 quartos: '3',
                 vagas: '4',
                 descricao: 'Casa de alto padrão com piscina e área gourmet, localizada no bairro mais valorizado de Londrina.',
-                foto: 'https://via.placeholder.com/800x400?text=Casa+Gleba+Palhano'
+                foto: 'https://images.unsplash.com/photo-1560448205-17d3f43b7d87?q=80&w=800&auto=format&fit=crop'
             },
             'IMOB128': {
                 titulo: 'Terreno 400m² - Centro',
@@ -390,9 +391,10 @@
                 area: '400m²',
                 quartos: '0',
                 vagas: '0',
-                descrição: 'Terreno comercial no Centro, ideal para empreendimentos ou investimento.',
-                foto: 'https://via.placeholder.com/800x400?text=Terreno+Centro'
+                descricao: 'Terreno comercial no Centro, ideal para empreendimentos ou investimento.',
+                foto: 'https://images.unsplash.com/photo-1501785888-4b7b4f4e4f50?q=80&w=800&auto=format&fit=crop'
             },
+            // Imóveis Relacionados (anteriores)
             'IMOB129': {
                 titulo: 'Apartamento 2 quartos - Jardim Londrilar',
                 preco: '320.000',
@@ -401,7 +403,7 @@
                 quartos: '2',
                 vagas: '1',
                 descricao: 'Apartamento aconchegante com varanda gourmet, ideal para casais, em bairro residencial tranquilo.',
-                foto: 'https://via.placeholder.com/800x400?text=Apartamento+Jardim+Londrilar'
+                foto: 'https://images.unsplash.com/photo-1600585153490-76fb20a0f2b4?q=80&w=800&auto=format&fit=crop'
             },
             'IMOB130': {
                 titulo: 'Casa 3 quartos - Vila Nova',
@@ -411,7 +413,7 @@
                 quartos: '3',
                 vagas: '2',
                 descricao: 'Casa térrea com quintal amplo e churrasqueira, perfeita para famílias em bairro bem localizado.',
-                foto: 'https://via.placeholder.com/800x400?text=Casa+Vila+Nova'
+                foto: 'https://images.unsplash.com/photo-1560448209-0b3f48f6f4f2?q=80&w=800&auto=format&fit=crop'
             },
             'IMOB131': {
                 titulo: 'Terreno 600m² - Jardim Leonor',
@@ -421,21 +423,289 @@
                 quartos: '0',
                 vagas: '0',
                 descricao: 'Terreno amplo em bairro valorizado, ideal para construção residencial ou comercial.',
-                foto: 'https://via.placeholder.com/800x400?text=Terreno+Jardim+Leonor'
-            }
-        };
-        if (imoveis[imovelId]) {
-            const imovel = imoveis[imovelId];
-            document.getElementById('imovel-titulo').textContent = imovel.titulo;
-            document.getElementById('imovel-foto').src = imovel.foto;
-            document.getElementById('imovel-preco').textContent = `R$ ${imovel.preco}`;
-            document.getElementById('imovel-bairro').textContent = imovel.bairro;
-            document.getElementById('imovel-area').textContent = imovel.area;
-            document.getElementById('imovel-quartos').textContent = imovel.quartos;
-            document.getElementById('imovel-vagas').textContent = imovel.vagas;
-            document.getElementById('imovel-descricao').textContent = imovel.descricao;
-            document.getElementById('lead-imovel-id').value = imovelId;
-        }
-    </script>
-</body>
-</html>
+                foto: 'https://images.unsplash.com/photo-1501785891-4b7b4f4e4f53?q=80&w=800&auto=format&fit=crop'
+            },
+            // Novos imóveis de imoveis.html
+            'IMOB201': {
+                titulo: 'Apartamento 3 quartos - Gleba Palhano',
+                preco: '600.000',
+                bairro: 'Gleba Palhano',
+                area: '150m²',
+                quartos: '3',
+                vagas: '2',
+                descricao: 'Apartamento de alto padrão com vista panorâmica, área de lazer completa e localização privilegiada.',
+                foto: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop'
+            },
+            'IMOB202': {
+                titulo: 'Apartamento 2 quartos - Centro',
+                preco: '300.000',
+                bairro: 'Centro',
+                area: '80m²',
+                quartos: '2',
+                vagas: '1',
+                descricao: 'Apartamento funcional no coração de Londrina, próximo a comércios e serviços.',
+                foto: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=800&auto=format&fit=crop'
+            },
+            'IMOB203': {
+                titulo: 'Apartamento 1 quarto - Jardim Londrilar',
+                preco: '200.000',
+                bairro: 'Jardim Londrilar',
+                area: '50m²',
+                quartos: '1',
+                vagas: '1',
+                descricao: 'Apartamento compacto ideal para solteiros ou investidores, em bairro tranquilo.',
+                foto: 'https://images.unsplash.com/photo-1600585153490-76fb20a0f2b4?q=80&w=800&auto=format&fit=crop'
+            },
+            'IMOB204': {
+                titulo: 'Apartamento 2 quartos - Vila Nova',
+                preco: '350.000',
+                bairro: 'Vila Nova',
+                area: '90m²',
+                quartos: '2',
+                vagas: '1',
+                descricao: 'Apartamento com varanda gourmet, perfeito para casais jovens.',
+                foto: 'https://images.unsplash.com/photo-1600585152915-d208bec867a1?q=80&w=800&auto=format&fit=crop'
+            },
+            'IMOB205': {
+                titulo: 'Apartamento 3 quartos - Jardim Leonor',
+                preco: '500.000',
+                bairro: 'Jardim Leonor',
+                area: '120m²',
+                quartos: '3',
+                vagas: '2',
+                descricao: 'Apartamento espaçoso com acabamentos modernos, em bairro residencial valorizado.',
+                foto: 'https://images.unsplash.com/photo-1600585154084-4e1fe0687c8d?q=80&w=800&auto=format&fit=crop'
+            },
+            'IMOB206': {
+                titulo: 'Apartamento 2 quartos - Bela Suíça',
+                preco: '400.000',
+                bairro: 'Bela Suíça',
+                area: '100m²',
+                quartos: '2',
+                vagas: '1',
+                descricao: 'Apartamento com área de lazer e localização estratégica em bairro tranquilo.',
+                foto: 'https://images.unsplash.com/photo-1600585153786-7e5acbabdafc?q=80&w=800&auto=format&fit=crop'
+            },
+            'IMOB207': {
+                titulo: 'Apartamento 1 quarto - Jardim Quebec',
+                preco: '250.000',
+                bairro: 'Jardim Quebec',
+                area: '60m²',
+                quartos: '1',
+                vagas: '1',
+                descricao: 'Apartamento compacto com design moderno, ideal para jovens ou investidores.',
+                foto: 'https://images.unsplash.com/photo-1600585153917-28a9b28b8b3d?q=80&w=800&auto=format&fit=crop'
+            },
+            'IMOB208': {
+                titulo: 'Apartamento 3 quartos - Aurora',
+                preco: '550.000',
+                bairro: 'Aurora',
+                area: '130m²',
+                quartos: '3',
+                vagas: '2',
+                descricao: 'Apartamento amplo com área de lazer completa, perfeito para famílias.',
+                foto: 'https://images.unsplash.com/photo-1600585154477-8c208b3813f7?q=80&w=800&auto=format&fit=crop'
+            },
+            'IMOB209': {
+                titulo: 'Apartamento 2 quartos - Shangri-lá',
+                preco: '380.000',
+                bairro: 'Shangri-lá',
+                area: '95m²',
+                quartos: '2',
+                vagas: '1',
+                descricao: 'Apartamento aconchegante com boa iluminação, em bairro residencial.',
+                foto: 'https://images.unsplash.com/photo-1600585154626-8c2f2a139804?q=80&w=800&auto=format&fit=crop'
+            },
+            'IMOB210': {
+                titulo: 'Apartamento 3 quartos - Lago Igapó',
+                preco: '580.000',
+                bairro: 'Lago Igapó',
+                area: '140m²',
+                quartos: '3',
+                vagas: '2',
+                descricao: 'Apartamento com vista para o Lago Igapó, ideal para quem busca conforto e natureza.',
+                foto: 'https://images.unsplash.com/photo-1600585154855-09c93cd7e2f2?q=80&w=800&auto=format&fit=crop'
+            },
+            'IMOB211': {
+                titulo: 'Casa 4 quartos - Gleba Palhano',
+                preco: '1200000',
+                bairro: 'Gleba Palhano',
+                area: '300m²',
+                quartos: '4',
+                vagas: '4',
+                descricao: 'Casa de alto padrão com piscina e área gourmet, no bairro mais valorizado de Londrina.',
+                foto: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=800&auto=format&fit=crop'
+            },
+            'IMOB212': {
+                titulo: 'Casa 3 quartos - Centro',
+                preco: '600.000',
+                bairro: 'Centro',
+                area: '200m²',
+                quartos: '3',
+                vagas: '2',
+                descricao: 'Casa térrea espaçosa, ideal para famílias, próxima a comércios no Centro.',
+                foto: 'https://images.unsplash.com/photo-1560448205-17d3f43b7d87?q=80&w=800&auto=format&fit=crop'
+            },
+            'IMOB213': {
+                titulo: 'Casa 2 quartos - Jardim Londrilar',
+                preco: '400.000',
+                bairro: 'Jardim Londrilar',
+                area: '120m²',
+                quartos: '2',
+                vagas: '1',
+                descricao: 'Casa compacta com quintal, perfeita para casais ou famílias pequenas.',
+                foto: 'https://images.unsplash.com/photo-1560448208-4f8b4d456d45?q=80&w=800&auto=format&fit=crop'
+            },
+            'IMOB214': {
+                titulo: 'Casa 5 quartos - Vila Nova',
+                preco: '900.000',
+                bairro: 'Vila Nova',
+                area: '250m²',
+                quartos: '5',
+                vagas: '3',
+                descricao: 'Casa ampla com área de lazer, ideal para famílias grandes.',
+                foto: 'https://images.unsplash.com/photo-1560448209-0b3f48f6f4f2?q=80&w=800&auto=format&fit=crop'
+            },
+            'IMOB215': {
+                titulo: 'Casa 3 quartos - Jardim Leonor',
+                preco: '650.000',
+                bairro: 'Jardim Leonor',
+                area: '180m²',
+                quartos: '3',
+                vagas: '2',
+                descricao: 'Casa moderna com churrasqueira, em bairro residencial tranquilo.',
+                foto: 'https://images.unsplash.com/photo-1560448210-1b3f48f6f4f3?q=80&w=800&auto=format&fit=crop'
+            },
+            'IMOB216': {
+                titulo: 'Casa 4 quartos - Bela Suíça',
+                preco: '800.000',
+                bairro: 'Bela Suíça',
+                area: '220m²',
+                quartos: '4',
+                vagas: '3',
+                descricao: 'Casa com acabamentos de alto padrão, ideal para quem busca conforto.',
+                foto: 'https://images.unsplash.com/photo-1560448211-4b3f48f6f4f4?q=80&w=800&auto=format&fit=crop'
+            },
+            'IMOB217': {
+                titulo: 'Casa 3 quartos - Jardim Quebec',
+                preco: '700.000',
+                bairro: 'Jardim Quebec',
+                area: '200m²',
+                quartos: '3',
+                vagas: '2',
+                descricao: 'Casa com quintal amplo, perfeita para famílias que valorizam espaço.',
+                foto: 'https://images.unsplash.com/photo-1560448212-4b3f48f6f4f5?q=80&w=800&auto=format&fit=crop'
+            },
+            'IMOB218': {
+                titulo: 'Casa 2 quartos - Aurora',
+                preco: '450.000',
+                bairro: 'Aurora',
+                area: '150m²',
+                quartos: '2',
+                vagas: '1',
+                descricao: 'Casa térrea aconchegante, ideal para casais ou famílias pequenas.',
+                foto: 'https://images.unsplash.com/photo-1560448213-4b3f48f6f4f6?q=80&w=800&auto=format&fit=crop'
+            },
+            'IMOB219': {
+                titulo: 'Casa 4 quartos - Shangri-lá',
+                preco: '850.000',
+                bairro: 'Shangri-lá',
+                area: '240m²',
+                quartos: '4',
+                vagas: '3',
+                descricao: 'Casa com área gourmet e piscina, em bairro residencial valorizado.',
+                foto: 'https://images.unsplash.com/photo-1560448214-4b3f48f6f4f7?q=80&w=800&auto=format&fit=crop'
+            },
+            'IMOB220': {
+                titulo: 'Casa 3 quartos - Lago Igapó',
+                preco: '750.000',
+                bairro: 'Lago Igapó',
+                area: '210m²',
+                quartos: '3',
+                vagas: '2',
+                descricao: 'Casa com vista para o lago, ideal para quem busca tranquilidade.',
+                foto: 'https://images.unsplash.com/photo-1560448215-4b3f48f6f4f8?q=80&w=800&auto=format&fit=crop'
+            },
+            'IMOB221': {
+                titulo: 'Terreno 800m² - Gleba Palhano',
+                preco: '500.000',
+                bairro: 'Gleba Palhano',
+                area: '800m²',
+                quartos: '0',
+                vagas: '0',
+                descricao: 'Terreno amplo em bairro nobre, ideal para construção de alto padrão.',
+                foto: 'https://images.unsplash.com/photo-1501785887-3b7b4f4e4f4f?q=80&w=800&auto=format&fit=crop'
+            },
+            'IMOB222': {
+                titulo: 'Terreno 400m² - Centro',
+                preco: '350.000',
+                bairro: 'Centro',
+                area: '400m²',
+                quartos: '0',
+                vagas: '0',
+                descricao: 'Terreno comercial no coração de Londrina, perfeito para empreendimentos.',
+                foto: 'https://images.unsplash.com/photo-1501785888-4b7b4f4e4f50?q=80&w=800&auto=format&fit=crop'
+            },
+            'IMOB223': {
+                titulo: 'Terreno 600m² - Jardim Londrilar',
+                preco: '300.000',
+                bairro: 'Jardim Londrilar',
+                area: '600m²',
+                quartos: '0',
+                vagas: '0',
+                descricao: 'Terreno plano em bairro residencial, ideal para construção de casas.',
+                foto: 'https://images.unsplash.com/photo-1501785889-4b7b4f4e4f51?q=80&w=800&auto=format&fit=crop'
+            },
+            'IMOB224': {
+                titulo: 'Terreno 500m² - Vila Nova',
+                preco: '250.000',
+                bairro: 'Vila Nova',
+                area: '500m²',
+                quartos: '0',
+                vagas: '0',
+                descricao: 'Terreno bem localizado, perfeito para investimentos residenciais.',
+                foto: 'https://images.unsplash.com/photo-1501785890-4b7b4f4e4f52?q=80&w=800&auto=format&fit=crop'
+            },
+            'IMOB225': {
+                titulo: 'Terreno 700m² - Jardim Leonor',
+                preco: '400.000',
+                bairro: 'Jardim Leonor',
+                area: '700m²',
+                quartos: '0',
+                vagas: '0',
+                descricao: 'Terreno amplo em bairro valorizado, ideal para projetos residenciais ou comerciais.',
+                foto: 'https://images.unsplash.com/photo-1501785891-4b7b4f4e4f53?q=80&w=800&auto=format&fit=crop'
+            },
+            'IMOB226': {
+                titulo: 'Terreno 450m² - Bela Suíça',
+                preco: '280.000',
+                bairro: 'Bela Suíça',
+                area: '450m²',
+                quartos: '0',
+                vagas: '0',
+                descricao: 'Terreno em bairro tranquilo, perfeito para construção de casas.',
+                foto: 'https://images.unsplash.com/photo-1501785892-4b7b4f4e4f54?q=80&w=800&auto=format&fit=crop'
+            },
+            'IMOB227': {
+                titulo: 'Terreno 1000m² - Jardim Quebec',
+                preco: '450.000',
+                bairro: 'Jardim Quebec',
+                area: '1000m²',
+                quartos: '0',
+                vagas: '0',
+                descricao: 'Terreno grande em bairro nobre, ideal para empreendimentos de alto padrão.',
+                foto: 'https://images.unsplash.com/photo-1501785893-4b7b4f4e4f55?q=80&w=800&auto=format&fit=crop'
+            },
+            'IMOB228': {
+                titulo: 'Terreno 300m² - Aurora',
+                preco: '200.000',
+                bairro: 'Aurora',
+                area: '300m²',
+                quartos: '0',
+                vagas: '0',
+                descricao: 'Terreno compacto, ideal para projetos residenciais econômicos.',
+                foto: 'https://images.unsplash.com/photo-1501785894-4b7b4f4e4f56?q=80&w=800&auto=format&fit=crop'
+            },
+            'IMOB229': {
+                titulo: 'Terreno 600m² - Shangri-lá',
+                preco: '320.000
