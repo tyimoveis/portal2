@@ -28,7 +28,7 @@
         }
         .header {
             background-color: var(--azul-escuro);
-            padding: 1.5rem 0;
+            padding: 1rem;
             position: fixed;
             width: 100%;
             top: 0;
@@ -44,21 +44,23 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
         }
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--branco);
         }
         .nav {
             display: flex;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
         }
         .nav-link {
             color: var(--branco);
             text-decoration: none;
-            margin: 0 1.5rem;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 400;
             transition: color 0.3s ease;
         }
@@ -68,10 +70,11 @@
         .btn-cta {
             background-color: var(--verde-esmeralda);
             color: var(--branco);
-            padding: 0.6rem 1.2rem;
+            padding: 0.5rem 1rem;
             border-radius: 5px;
             text-decoration: none;
             font-weight: 600;
+            font-size: 0.9rem;
             transition: background-color 0.3s ease;
             cursor: pointer;
         }
@@ -82,28 +85,28 @@
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
-            padding: 10rem 0 6rem;
+            padding: 6rem 1rem 3rem;
             text-align: center;
             color: var(--branco);
         }
         .hero-title {
-            font-size: 3.5rem;
+            font-size: 2rem;
             font-weight: 700;
             margin-bottom: 1rem;
         }
         .hero-subtitle {
-            font-size: 1.3rem;
+            font-size: 1rem;
             font-weight: 400;
-            margin-bottom: 2.5rem;
-            max-width: 600px;
+            margin-bottom: 1.5rem;
+            max-width: 90%;
             margin-left: auto;
             margin-right: auto;
         }
         .search-form {
             display: flex;
-            gap: 1rem;
-            justify-content: center;
-            max-width: 900px;
+            flex-direction: column;
+            gap: 0.5rem;
+            max-width: 100%;
             margin: 0 auto;
             background-color: var(--branco);
             padding: 1rem;
@@ -115,8 +118,8 @@
             border: 1px solid var(--cinza-claro);
             border-radius: 5px;
             padding: 0.8rem;
-            font-size: 1rem;
-            width: 200px;
+            font-size: 0.9rem;
+            width: 100%;
             transition: border-color 0.3s ease;
         }
         .search-form select:focus,
@@ -125,23 +128,23 @@
             outline: none;
         }
         .search-form .btn-cta {
-            padding: 0.8rem 2rem;
-            font-size: 1rem;
+            padding: 0.8rem;
+            font-size: 0.9rem;
         }
         .imoveis-section {
-            padding: 5rem 0;
+            padding: 3rem 0;
         }
         .section-title {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 600;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             text-align: center;
             color: var(--azul-escuro);
         }
         .imoveis-lista {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
         }
         .imovel-card {
             background-color: var(--branco);
@@ -156,7 +159,7 @@
         }
         .imovel-card img {
             width: 100%;
-            height: 200px;
+            height: 180px;
             object-fit: cover;
             display: block;
         }
@@ -164,21 +167,21 @@
             background-color: var(--cinza-claro);
         }
         .imovel-card .card-body {
-            padding: 1.5rem;
+            padding: 1rem;
         }
         .imovel-card .card-title {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: var(--azul-escuro);
             margin-bottom: 0.5rem;
         }
         .imovel-card .card-text {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--preto);
             margin-bottom: 0.5rem;
         }
         .imovel-card .btn-cta {
-            display: inline-block;
+            display: block;
             width: 100%;
             text-align: center;
         }
@@ -192,30 +195,57 @@
             font-size: 0.9rem;
             margin: 0.5rem 0;
         }
-        @media (max-width: 768px) {
-            .hero {
-                padding: 7rem 0 4rem;
+        @media (min-width: 768px) {
+            .header {
+                padding: 1.5rem;
             }
-            .hero-title {
-                font-size: 2.5rem;
+            .logo {
+                font-size: 1.8rem;
             }
-            .hero-subtitle {
+            .nav {
+                gap: 1rem;
+            }
+            .nav-link {
+                font-size: 1rem;
+                margin: 0 1.5rem;
+            }
+            .btn-cta {
+                padding: 0.6rem 1.2rem;
                 font-size: 1rem;
             }
+            .hero {
+                padding: 10rem 0 6rem;
+            }
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            .hero-subtitle {
+                font-size: 1.3rem;
+                max-width: 600px;
+            }
             .search-form {
-                flex-direction: column;
-                padding: 0.5rem;
+                flex-direction: row;
+                max-width: 900px;
+                gap: 1rem;
             }
             .search-form select,
             .search-form input {
-                width: 100%;
+                width: 200px;
             }
-            .nav {
-                flex-direction: column;
-                gap: 0.5rem;
+            .imoveis-section {
+                padding: 5rem 0;
             }
-            .nav-link {
-                margin: 0.5rem 0;
+            .section-title {
+                font-size: 2rem;
+            }
+            .imoveis-lista {
+                gap: 2rem;
+            }
+            .imovel-card img {
+                height: 200px;
+            }
+            .imovel-card .card-title {
+                font-size: 1.3rem;
             }
         }
     </style>
@@ -363,7 +393,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Casa 4 quartos - Gleba Palhano</h5>
                         <p class="card-text">R$ 1.200.000</p>
-                        <p class="card-text">Gleba Palhano | 300m² | 4 quartos</p>
+                        <p class="card86-text">Gleba Palhano | 300m² | 4 quartos</p>
                         <a href="imovel.html?id=IMOB211" class="btn btn-cta">Ver detalhes</a>
                     </div>
                 </div>
@@ -551,9 +581,14 @@
     <script>
         document.getElementById('search-form').addEventListener('submit', (e) => {
             e.preventDefault();
-            const tipo = e.target.tipo.value.toLowerCase();
-            const bairro = e.target.bairro.value.toLowerCase();
-            const preco = e.target.preco.value ? parseInt(e.target.preco.value) : Infinity;
+            filterImoveis();
+        });
+
+        function filterImoveis() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const tipo = urlParams.get('tipo') ? urlParams.get('tipo').toLowerCase() : document.getElementById('search-form').tipo.value.toLowerCase();
+            const bairro = urlParams.get('bairro') ? urlParams.get('bairro').toLowerCase() : document.getElementById('search-form').bairro.value.toLowerCase();
+            const preco = urlParams.get('preco') ? parseInt(urlParams.get('preco')) : (document.getElementById('search-form').preco.value ? parseInt(document.getElementById('search-form').preco.value) : Infinity);
             const imoveis = document.querySelectorAll('.imovel-card');
             let hasResults = false;
             imoveis.forEach(imovel => {
@@ -572,6 +607,12 @@
             });
             if (!hasResults) {
                 alert('Nenhum imóvel encontrado com os filtros selecionados.');
+            }
+        }
+
+        window.addEventListener('load', () => {
+            if (new URLSearchParams(window.location.search).toString()) {
+                filterImoveis();
             }
         });
     </script>
