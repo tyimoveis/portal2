@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Encontre apartamentos, casas, terrenos e imóveis comerciais à venda em Londrina, nos bairros Gleba Palhano, Centro e Bela Suíça.">
-    <meta name="keywords" content="imóveis Londrina, apartamentos Gleba Palhano, casas Centro, terrenos Bela Suíça, imóveis comerciais">
+    <meta name="description" content="Encontre apartamentos à venda em Londrina, nos bairros Gleba Palhano e Centro.">
+    <meta name="keywords" content="apartamentos Londrina, Gleba Palhano, Centro, imóveis 2026">
     <meta name="author" content="Imobiliárias de Londrina">
-    <title>Imobiliárias de Londrina - Imóveis 2026</title>
+    <title>Imobiliárias de Londrina - Apartamentos 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -30,18 +30,13 @@
     </header>
     <section class="hero">
         <div class="container">
-            <h2 class="hero-title">Seu Imóvel dos Sonhos em Londrina</h2>
-            <p class="hero-subtitle">Descubra apartamentos, casas, terrenos e imóveis comerciais com design moderno de 2026.</p>
+            <h2 class="hero-title">Seu Apartamento dos Sonhos em Londrina</h2>
+            <p class="hero-subtitle">Descubra apartamentos modernos na Gleba Palhano e Centro com design de 2026.</p>
             <form id="search-form" class="search-form">
                 <div class="filter-group">
                     <label for="tipo">Tipo</label>
-                    <select name="tipo" id="tipo">
-                        <option value="">Qualquer</option>
-                        <option value="apartamento">Apartamento</option>
-                        <option value="casa">Casa</option>
-                        <option value="casa-condominio">Casa em Condomínio</option>
-                        <option value="terreno">Terreno</option>
-                        <option value="comercial">Comercial</option>
+                    <select name="tipo" id="tipo" disabled>
+                        <option value="apartamento" selected>Apartamento</option>
                     </select>
                 </div>
                 <div class="filter-group">
@@ -50,7 +45,6 @@
                         <option value="">Qualquer</option>
                         <option value="gleba-palhano">Gleba Palhano</option>
                         <option value="centro">Centro</option>
-                        <option value="bela-suica">Bela Suíça</option>
                     </select>
                 </div>
                 <div class="filter-group">
@@ -72,33 +66,36 @@
     </section>
     <section id="imoveis" class="imoveis-section">
         <div class="container">
-            <h3 class="section-title">Imóveis em Destaque</h3>
+            <h3 class="section-title">Apartamentos em Destaque</h3>
             <div class="imoveis-lista">
                 <div class="imovel-card">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=300&auto=format&fit=crop" alt="Apartamento Gleba Palhano" loading="lazy" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
+                    <div class="image-placeholder"></div>
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=300&auto=format&fit=crop" alt="Apartamento Gleba Palhano" loading="lazy" onload="this.classList.add('loaded')" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'; this.classList.add('loaded')">
                     <div class="card-body">
-                        <h5 class="card-title">Apartamento 3 quartos - Edifício Solar Igapó</h5>
+                        <h5 class="card-title">Apartamento 3 quartos - Gleba Palhano</h5>
                         <p class="card-text">R$ 600.000</p>
                         <p class="card-text">Gleba Palhano | 150m² | 3 quartos</p>
                         <a href="imovel.html?id=IMOB001" class="btn btn-cta">Ver detalhes</a>
                     </div>
                 </div>
                 <div class="imovel-card">
-                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=300&auto=format&fit=crop" alt="Casa em Condomínio Gleba Palhano" loading="lazy" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
+                    <div class="image-placeholder"></div>
+                    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=300&auto=format&fit=crop" alt="Apartamento Centro" loading="lazy" onload="this.classList.add('loaded')" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'; this.classList.add('loaded')">
                     <div class="card-body">
-                        <h5 class="card-title">Casa 4 quartos - Condomínio Villa Verde</h5>
-                        <p class="card-text">R$ 1.200.000</p>
-                        <p class="card-text">Gleba Palhano | 300m² | 4 quartos</p>
-                        <a href="imovel.html?id=IMOB007" class="btn btn-cta">Ver detalhes</a>
+                        <h5 class="card-title">Apartamento 2 quartos - Centro</h5>
+                        <p class="card-text">R$ 300.000</p>
+                        <p class="card-text">Centro | 80m² | 2 quartos</p>
+                        <a href="imovel.html?id=IMOB005" class="btn btn-cta">Ver detalhes</a>
                     </div>
                 </div>
                 <div class="imovel-card">
-                    <img src="https://images.unsplash.com/photo-1501785887-3b7b4f4e4f4f?q=80&w=300&auto=format&fit=crop" alt="Terreno Bela Suíça" loading="lazy" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
+                    <div class="image-placeholder"></div>
+                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=300&auto=format&fit=crop" alt="Apartamento Gleba Palhano" loading="lazy" onload="this.classList.add('loaded')" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'; this.classList.add('loaded')">
                     <div class="card-body">
-                        <h5 class="card-title">Terreno 500m² - Bela Suíça</h5>
-                        <p class="card-text">R$ 300.000</p>
-                        <p class="card-text">Bela Suíça | 500m² | 12m x 42m</p>
-                        <a href="imovel.html?id=IMOB009" class="btn btn-cta">Ver detalhes</a>
+                        <h5 class="card-title">Apartamento 4 quartos - Gleba Palhano</h5>
+                        <p class="card-text">R$ 800.000</p>
+                        <p class="card-text">Gleba Palhano | 180m² | 4 quartos</p>
+                        <a href="imovel.html?id=IMOB002" class="btn btn-cta">Ver detalhes</a>
                     </div>
                 </div>
             </div>
@@ -108,7 +105,7 @@
         <div class="container">
             <h3 class="section-title">Sobre Nós</h3>
             <div class="sobre-content">
-                <p>Somos a sua conexão com os melhores imóveis de Londrina, oferecendo apartamentos, casas, terrenos e imóveis comerciais nos bairros mais valorizados, com tecnologia e design de ponta para 2026.</p>
+                <p>Somos a sua conexão com os melhores apartamentos de Londrina, oferecendo imóveis modernos na Gleba Palhano e Centro, com tecnologia e design de ponta para 2026.</p>
             </div>
         </div>
     </section>
