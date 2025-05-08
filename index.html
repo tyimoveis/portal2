@@ -8,342 +8,17 @@
     <meta name="author" content="Imobiliárias de Londrina">
     <title>Imobiliárias de Londrina - Encontre seu Imóvel</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
-        :root {
-            --preto: #1A1A1A;
-            --branco: #FFFFFF;
-            --azul-escuro: #0A2540;
-            --verde-esmeralda: #2E8B57;
-            --cinza-claro: #F5F5F5;
-        }
-        body {
-            background-color: var(--branco);
-            color: var(--preto);
-        }
-        .header {
-            background-color: var(--azul-escuro);
-            padding: 1rem;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-        .header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--branco);
-        }
-        .nav {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        .nav-link {
-            color: var(--branco);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 400;
-            transition: color 0.3s ease;
-        }
-        .nav-link:hover {
-            color: var(--verde-esmeralda);
-        }
-        .btn-cta {
-            background-color: var(--verde-esmeralda);
-            color: var(--branco);
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: background-color 0.3s ease;
-            cursor: pointer;
-            border: none;
-        }
-        .btn-cta:hover {
-            background-color: #26734d;
-        }
-        .btn-reset {
-            background-color: var(--cinza-claro);
-            color: var(--preto);
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            cursor: pointer;
-            border: none;
-        }
-        .btn-reset:hover {
-            background-color: #e0e0e0;
-        }
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            padding: 6rem 1rem 3rem;
-            text-align: center;
-            color: var(--branco);
-        }
-        .hero-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-        .hero-subtitle {
-            font-size: 1rem;
-            font-weight: 400;
-            margin-bottom: 1.5rem;
-            max-width: 90%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .search-form {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            max-width: 100%;
-            margin: 0 auto;
-            background-color: var(--branco);
-            padding: 1rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        .search-form select,
-        .search-form input {
-            border: 1px solid var(--cinza-claro);
-            border-radius: 5px;
-            padding: 0.8rem;
-            font-size: 0.9rem;
-            width: 100%;
-            transition: border-color 0.3s ease;
-        }
-        .search-form select:focus,
-        .search-form input:focus {
-            border-color: var(--verde-esmeralda);
-            outline: none;
-        }
-        .search-form .btn-cta,
-        .search-form .btn-reset {
-            padding: 0.8rem;
-            font-size: 0.9rem;
-        }
-        .filter-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        .filter-group label {
-            font-size: 0.9rem;
-            color: var(--preto);
-            margin-bottom: 0.2rem;
-        }
-        .imoveis-section {
-            padding: 3rem 0;
-        }
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            color: var(--azul-escuro);
-        }
-        .imoveis-lista {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-        .imovel-card {
-            background-color: var(--branco);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .imovel-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-        }
-        .imovel-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            display: block;
-        }
-        .imovel-card img[alt*="fallback"] {
-            background-color: var(--cinza-claro);
-        }
-        .imovel-card .card-body {
-            padding: 1rem;
-        }
-        .imovel-card .card-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--azul-escuro);
-            margin-bottom: 0.5rem;
-        }
-        .imovel-card .card-text {
-            font-size: 0.9rem;
-            color: var(--preto);
-            margin-bottom: 0.5rem;
-        }
-        .imovel-card .btn-cta {
-            display: block;
-            width: 100%;
-            text-align: center;
-        }
-        .sobre-section {
-            padding: 3rem 0;
-            background-color: var(--cinza-claro);
-            text-align: center;
-        }
-        .sobre-content {
-            max-width: 90%;
-            margin: 0 auto;
-        }
-        .sobre-content p {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: var(--preto);
-        }
-        .contato-section {
-            padding: 3rem 0;
-            text-align: center;
-        }
-        .contato-form {
-            max-width: 90%;
-            margin: 0 auto;
-        }
-        .contato-form .form-label {
-            font-size: 0.9rem;
-            color: var(--preto);
-            display: block;
-            text-align: left;
-            margin-bottom: 0.5rem;
-        }
-        .contato-form .form-control {
-            width: 100%;
-            border: 1px solid var(--cinza-claro);
-            border-radius: 5px;
-            padding: 0.8rem;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            transition: border-color 0.3s ease;
-        }
-        .contato-form .form-control:focus {
-            border-color: var(--verde-esmeralda);
-            outline: none;
-        }
-        .contato-form .btn-cta {
-            width: 100%;
-            padding: 0.8rem;
-        }
-        .footer {
-            background-color: var(--azul-escuro);
-            color: var(--branco);
-            padding: 2rem 0;
-            text-align: center;
-        }
-        .footer p {
-            font-size: 0.9rem;
-            margin: 0.5rem 0;
-        }
-        @media (min-width: 768px) {
-            .header {
-                padding: 1.5rem;
-            }
-            .logo {
-                font-size: 1.8rem;
-            }
-            .nav {
-                gap: 1rem;
-            }
-            .nav-link {
-                font-size: 1rem;
-                margin: 0 1.5rem;
-            }
-            .btn-cta, .btn-reset {
-                padding: 0.6rem 1.2rem;
-                font-size: 1rem;
-            }
-            .hero {
-                padding: 10rem 0 6rem;
-            }
-            .hero-title {
-                font-size: 3.5rem;
-            }
-            .hero-subtitle {
-                font-size: 1.3rem;
-                max-width: 600px;
-            }
-            .search-form {
-                flex-direction: row;
-                flex-wrap: wrap;
-                max-width: 900px;
-                gap: 1rem;
-            }
-            .search-form select,
-            .search-form input {
-                width: 150px;
-            }
-            .search-form .btn-cta,
-            .search-form .btn-reset {
-                width: auto;
-            }
-            .filter-group {
-                flex: 1;
-            }
-            .imoveis-section,
-            .sobre-section,
-            .contato-section {
-                padding: 5rem 0;
-            }
-            .section-title {
-                font-size: 2rem;
-            }
-            .imoveis-lista {
-                gap: 2rem;
-            }
-            .imovel-card img {
-                height: 200px;
-            }
-            .imovel-card .card-title {
-                font-size: 1.3rem;
-            }
-            .sobre-content {
-                max-width: 800px;
-            }
-            .sobre-content p {
-                font-size: 1.1rem;
-            }
-            .contato-form {
-                max-width: 600px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header class="header">
         <div class="container">
             <h1 class="logo">Imobiliárias de Londrina</h1>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <nav class="nav">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="imoveis.html" class="nav-link">Imóveis</a>
@@ -386,10 +61,12 @@
                 <div class="filter-group">
                     <label for="precoMin">Preço Mínimo (R$)</label>
                     <input type="number" name="precoMin" id="precoMin" placeholder="Ex.: 100000" min="0">
+                    <span class="error-message" id="precoMin-error">Preço inválido</span>
                 </div>
                 <div class="filter-group">
                     <label for="precoMax">Preço Máximo (R$)</label>
                     <input type="number" name="precoMax" id="precoMax" placeholder="Ex.: 500000" min="0">
+                    <span class="error-message" id="precoMax-error">Preço inválido</span>
                 </div>
                 <div class="filter-group">
                     <label for="quartos">Quartos</label>
@@ -404,10 +81,12 @@
                 <div class="filter-group">
                     <label for="areaMin">Área Mínima (m²)</label>
                     <input type="number" name="areaMin" id="areaMin" placeholder="Ex.: 50" min="0">
+                    <span class="error-message" id="areaMin-error">Área inválida</span>
                 </div>
                 <div class="filter-group">
                     <label for="areaMax">Área Máxima (m²)</label>
                     <input type="number" name="areaMax" id="areaMax" placeholder="Ex.: 200" min="0">
+                    <span class="error-message" id="areaMax-error">Área inválida</span>
                 </div>
                 <div class="filter-group">
                     <button type="submit" class="btn btn-cta">Buscar</button>
@@ -447,33 +126,6 @@
                         <a href="imovel.html?id=IMOB125" class="btn btn-cta">Ver detalhes</a>
                     </div>
                 </div>
-                <div class="imovel-card">
-                    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=300&auto=format&fit=crop" alt="Apartamento Centro" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
-                    <div class="card-body">
-                        <h5 class="card-title">Apartamento 2 quartos - Centro</h5>
-                        <p class="card-text">R$ 280.000</p>
-                        <p class="card-text">Centro | 80m² | 2 quartos</p>
-                        <a href="imovel.html?id=IMOB126" class="btn btn-cta">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="imovel-card">
-                    <img src="https://images.unsplash.com/photo-1560448205-17d3f43b7d87?q=80&w=300&auto=format&fit=crop" alt="Casa Gleba Palhano" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
-                    <div class="card-body">
-                        <h5 class="card-title">Casa 3 quartos - Gleba Palhano</h5>
-                        <p class="card-text">R$ 800.000</p>
-                        <p class="card-text">Gleba Palhano | 250m² | 3 quartos</p>
-                        <a href="imovel.html?id=IMOB127" class="btn btn-cta">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="imovel-card">
-                    <img src="https://images.unsplash.com/photo-1501785888-4b7b4f4e4f50?q=80&w=300&auto=format&fit=crop" alt="Terreno Centro" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'">
-                    <div class="card-body">
-                        <h5 class="card-title">Terreno 400m² - Centro</h5>
-                        <p class="card-text">R$ 350.000</p>
-                        <p class="card-text">Centro | 400m²</p>
-                        <a href="imovel.html?id=IMOB128" class="btn btn-cta">Ver detalhes</a>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -488,18 +140,21 @@
     <section id="contato" class="contato-section">
         <div class="container">
             <h3 class="section-title">Entre em Contato</h3>
-            <form class="contato-form">
+            <form id="contato-form" class="contato-form">
                 <div>
                     <label for="nome" class="form-label">Nome</label>
                     <input type="text" class="form-control" id="nome" name="nome" required>
+                    <span class="error-message" id="nome-error">Nome é obrigatório</span>
                 </div>
                 <div>
                     <label for="email" class="form-label">E-mail</label>
                     <input type="email" class="form-control" id="email" name="email" required>
+                    <span class="error-message" id="email-error">E-mail inválido</span>
                 </div>
                 <div>
                     <label for="telefone" class="form-label">Telefone</label>
                     <input type="tel" class="form-control" id="telefone" name="telefone" required>
+                    <span class="error-message" id="telefone-error">Telefone inválido</span>
                 </div>
                 <div>
                     <label for="mensagem" class="form-label">Mensagem</label>
@@ -516,24 +171,82 @@
         </div>
     </footer>
     <script>
+        // Hamburger Menu
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('.nav').classList.toggle('active');
+        });
+
+        // Search Form Validation
         document.getElementById('search-form').addEventListener('submit', (e) => {
             e.preventDefault();
-            const formData = new FormData(e.target);
-            const query = new URLSearchParams();
-            formData.forEach((value, key) => {
-                if (value) query.set(key, value);
-            });
-            window.location.href = `imoveis.html?${query.toString()}`;
+            let valid = true;
+            const precoMin = parseInt(document.getElementById('precoMin').value) || 0;
+            const precoMax = parseInt(document.getElementById('precoMax').value) || Infinity;
+            const areaMin = parseInt(document.getElementById('areaMin').value) || 0;
+            const areaMax = parseInt(document.getElementById('areaMax').value) || Infinity;
+
+            if (precoMin > precoMax) {
+                document.getElementById('precoMin-error').style.display = 'block';
+                valid = false;
+            } else {
+                document.getElementById('precoMin-error').style.display = 'none';
+            }
+
+            if (areaMin > areaMax) {
+                document.getElementById('areaMin-error').style.display = 'block';
+                valid = false;
+            } else {
+                document.getElementById('areaMin-error').style.display = 'none';
+            }
+
+            if (valid) {
+                const formData = new FormData(e.target);
+                const query = new URLSearchParams();
+                formData.forEach((value, key) => {
+                    if (value) query.set(key, value);
+                });
+                window.location.href = `imoveis.html?${query.toString()}`;
+            }
         });
 
+        // Reset Search Form
         document.getElementById('search-form').addEventListener('reset', () => {
-            document.getElementById('search-form').reset();
+            document.querySelectorAll('.error-message').forEach(error => error.style.display = 'none');
         });
 
-        document.querySelector('.contato-form').addEventListener('submit', (e) => {
+        // Contato Form Validation
+        document.getElementById('contato-form').addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('Mensagem enviada com sucesso! (Simulação)');
-            e.target.reset();
+            let valid = true;
+            const nome = document.getElementById('nome').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const telefone = document.getElementById('telefone').value.trim();
+
+            if (!nome) {
+                document.getElementById('nome-error').style.display = 'block';
+                valid = false;
+            } else {
+                document.getElementById('nome-error').style.display = 'none';
+            }
+
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                document.getElementById('email-error').style.display = 'block';
+                valid = false;
+            } else {
+                document.getElementById('email-error').style.display = 'none';
+            }
+
+            if (!telefone || !/^\d{10,11}$/.test(telefone.replace(/\D/g, ''))) {
+                document.getElementById('telefone-error').style.display = 'block';
+                valid = false;
+            } else {
+                document.getElementById('telefone-error').style.display = 'none';
+            }
+
+            if (valid) {
+                alert('Mensagem enviada com sucesso! (Simulação)');
+                e.target.reset();
+            }
         });
     </script>
 </body>
