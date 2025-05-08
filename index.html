@@ -77,9 +77,23 @@
             font-size: 0.9rem;
             transition: background-color 0.3s ease;
             cursor: pointer;
+            border: none;
         }
         .btn-cta:hover {
             background-color: #26734d;
+        }
+        .btn-reset {
+            background-color: var(--cinza-claro);
+            color: var(--preto);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-reset:hover {
+            background-color: #e0e0e0;
         }
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800&auto=format&fit=crop');
@@ -127,9 +141,20 @@
             border-color: var(--verde-esmeralda);
             outline: none;
         }
-        .search-form .btn-cta {
+        .search-form .btn-cta,
+        .search-form .btn-reset {
             padding: 0.8rem;
             font-size: 0.9rem;
+        }
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .filter-group label {
+            font-size: 0.9rem;
+            color: var(--preto);
+            margin-bottom: 0.2rem;
         }
         .imoveis-section {
             padding: 3rem 0;
@@ -255,7 +280,7 @@
                 font-size: 1rem;
                 margin: 0 1.5rem;
             }
-            .btn-cta {
+            .btn-cta, .btn-reset {
                 padding: 0.6rem 1.2rem;
                 font-size: 1rem;
             }
@@ -271,12 +296,20 @@
             }
             .search-form {
                 flex-direction: row;
+                flex-wrap: wrap;
                 max-width: 900px;
                 gap: 1rem;
             }
             .search-form select,
             .search-form input {
-                width: 200px;
+                width: 150px;
+            }
+            .search-form .btn-cta,
+            .search-form .btn-reset {
+                width: auto;
+            }
+            .filter-group {
+                flex: 1;
             }
             .imoveis-section,
             .sobre-section,
@@ -325,27 +358,61 @@
             <h2 class="hero-title">Encontre seu Imóvel em Londrina</h2>
             <p class="hero-subtitle">Apartamentos, casas e terrenos nos melhores bairros, como Gleba Palhano, Centro e Jardim Londrilar.</p>
             <form id="search-form" class="search-form">
-                <select name="tipo">
-                    <option value="">Tipo</option>
-                    <option value="apartamento">Apartamento</option>
-                    <option value="casa">Casa</option>
-                    <option value="terreno">Terreno</option>
-                </select>
-                <select name="bairro">
-                    <option value="">Bairro</option>
-                    <option value="gleba-palhano">Gleba Palhano</option>
-                    <option value="centro">Centro</option>
-                    <option value="jardim-londrilar">Jardim Londrilar</option>
-                    <option value="vila-nova">Vila Nova</option>
-                    <option value="jardim-leonor">Jardim Leonor</option>
-                    <option value="bela-suica">Bela Suíça</option>
-                    <option value="jardim-quebec">Jardim Quebec</option>
-                    <option value="aurora">Aurora</option>
-                    <option value="shangri-la">Shangri-lá</option>
-                    <option value="lago-igapo">Lago Igapó</option>
-                </select>
-                <input type="number" name="preco" placeholder="Preço máximo (R$)">
-                <button type="submit" class="btn btn-cta">Buscar</button>
+                <div class="filter-group">
+                    <label for="tipo">Tipo</label>
+                    <select name="tipo" id="tipo">
+                        <option value="">Qualquer</option>
+                        <option value="apartamento">Apartamento</option>
+                        <option value="casa">Casa</option>
+                        <option value="terreno">Terreno</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="bairro">Bairro</label>
+                    <select name="bairro" id="bairro">
+                        <option value="">Qualquer</option>
+                        <option value="gleba-palhano">Gleba Palhano</option>
+                        <option value="centro">Centro</option>
+                        <option value="jardim-londrilar">Jardim Londrilar</option>
+                        <option value="vila-nova">Vila Nova</option>
+                        <option value="jardim-leonor">Jardim Leonor</option>
+                        <option value="bela-suica">Bela Suíça</option>
+                        <option value="jardim-quebec">Jardim Quebec</option>
+                        <option value="aurora">Aurora</option>
+                        <option value="shangri-la">Shangri-lá</option>
+                        <option value="lago-igapo">Lago Igapó</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="precoMin">Preço Mínimo (R$)</label>
+                    <input type="number" name="precoMin" id="precoMin" placeholder="Ex.: 100000" min="0">
+                </div>
+                <div class="filter-group">
+                    <label for="precoMax">Preço Máximo (R$)</label>
+                    <input type="number" name="precoMax" id="precoMax" placeholder="Ex.: 500000" min="0">
+                </div>
+                <div class="filter-group">
+                    <label for="quartos">Quartos</label>
+                    <select name="quartos" id="quartos">
+                        <option value="">Qualquer</option>
+                        <option value="1">1 quarto</option>
+                        <option value="2">2 quartos</option>
+                        <option value="3">3 quartos</option>
+                        <option value="4+">4+ quartos</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="areaMin">Área Mínima (m²)</label>
+                    <input type="number" name="areaMin" id="areaMin" placeholder="Ex.: 50" min="0">
+                </div>
+                <div class="filter-group">
+                    <label for="areaMax">Área Máxima (m²)</label>
+                    <input type="number" name="areaMax" id="areaMax" placeholder="Ex.: 200" min="0">
+                </div>
+                <div class="filter-group">
+                    <button type="submit" class="btn btn-cta">Buscar</button>
+                    <button type="reset" class="btn btn-reset">Limpar</button>
+                </div>
             </form>
         </div>
     </section>
@@ -409,7 +476,7 @@
                 </div>
             </div>
         </div>
-    </section создаю
+    </section>
     <section id="sobre" class="sobre-section">
         <div class="container">
             <h3 class="section-title">Sobre Nós</h3>
@@ -451,14 +518,16 @@
     <script>
         document.getElementById('search-form').addEventListener('submit', (e) => {
             e.preventDefault();
-            const tipo = e.target.tipo.value;
-            const bairro = e.target.bairro.value;
-            const preco = e.target.preco.value;
+            const formData = new FormData(e.target);
             const query = new URLSearchParams();
-            if (tipo) query.set('tipo', tipo);
-            if (bairro) query.set('bairro', bairro);
-            if (preco) query.set('preco', preco);
+            formData.forEach((value, key) => {
+                if (value) query.set(key, value);
+            });
             window.location.href = `imoveis.html?${query.toString()}`;
+        });
+
+        document.getElementById('search-form').addEventListener('reset', () => {
+            document.getElementById('search-form').reset();
         });
 
         document.querySelector('.contato-form').addEventListener('submit', (e) => {
