@@ -78,6 +78,8 @@ body {
     transition: background-color 0.3s ease;
     cursor: pointer;
     border: none;
+    display: inline-block;
+    text-align: center;
 }
 
 .btn-cta:hover {
