@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Detalhes de imóveis em Londrina - Imobiliárias de Londrina">
+    <meta name="keywords" content="imóveis Londrina, apartamentos Gleba Palhano, casas Centro">
+    <meta name="author" content="Imobiliárias de Londrina">
+    <title>Detalhes do Imóvel - Imobiliárias de Londrina</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        :root {
+            --preto: #1A1A1A;
+            --branco: #FFFFFF;
+            --azul-escuro: #0A2540;
+            --verde-esmeralda: #2E8B57;
+            --cinza-claro: #F5F5F5;
+        }
+        body {
+            background-color: var(--branco);
+            color: var(--preto);
+        }
+        .header {
+            background-color: var(--azul-escuro);
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--branco);
+        }
+        .nav {
+            display: flex;
+            align-items: center;
+        }
+        .nav-link {
+            color: var(--branco);
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-size: 1rem;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: var(--verde-esmeralda);
+        }
+        .btn-cta {
+            background-color: var(--verde-esmeralda);
+            color: var(--branco);
+            padding: 0.6rem 1.2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        .btn-cta:hover {
+            background-color: #26734d;
+        }
+        .imovel-section {
+            padding: 8rem 0 5rem;
+        }
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--azul-escuro);
+        }
+        .imovel-foto {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+        }
+        .imovel-info p {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--preto);
+        }
+        .imovel-info strong {
+            color: var(--azul-escuro);
+        }
+        .lead-form {
+            background-color: var(--cinza-claro);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .lead-form .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--azul-escuro);
+            margin-bottom: 1.5rem;
+        }
+        .lead-form .form-label {
+            font-size: 0.9rem;
+            color: var(--preto);
+        }
+        .lead-form .form-control,
+        .lead-form .form-select {
+            border: 1px solid var(--cinza-claro);
+            border-radius: 5px;
+            padding: 0.8rem;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        .lead-form .form-control:focus,
+        .lead-form .form-select:focus {
+            border-color: var(--verde-esmeralda);
+            outline: none;
+        }
+        .lead-form .btn-cta {
+            width: 100%;
+            padding: 0.8rem;
+        }
+        .imoveis-relacionados {
+            padding: 3rem 0;
+        }
+        .imoveis-lista {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .imovel-card {
+            background-color: var(--branco);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .imovel-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+        .imovel-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .imovel-card .card-body {
+            padding: 1.5rem;
+        }
+        .imovel-card .card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--azul-escuro);
+            margin-bottom: 0.5rem;
+        }
+        .imovel-card .card-text {
+            font-size: 0.95rem;
+            color: var(--preto);
+            margin-bottom: 0.5rem;
+        }
+        .imovel-card .btn-cta {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+        }
+        .footer {
+            background-color: var(--azul-escuro);
+            color: var(--branco);
+            padding: 2rem 0;
+            text-align: center;
+        }
+        .footer p {
+            font-size: 0.9rem;
+            margin: 0.5rem 0;
+        }
+        @media (max-width: 768px) {
+            .imovel-section {
+                padding: 7rem 0 4rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .imovel-foto {
+                max-height: 300px;
+            }
+            .lead-form {
+                padding: 1.5rem;
+            }
+            .imoveis-relacionados {
+                padding: 2rem 0;
+            }
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -1rem;
+        }
+        .col-md-8,
+        .col-md-4 {
+            padding: 0 1rem;
+        }
+        .col-md-8 {
+            flex: 0 0 66.666%;
+            max-width: 66.666%;
+        }
+        .col-md-4 {
+            flex: 0 0 33.333%;
+            max-width: 33.333%;
+        }
+        @media (max-width: 768px) {
+            .col-md-8,
+            .col-md-4 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Imobiliárias de Londrina</h1>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#imoveis" class="nav-link">Imóveis</a>
+                <a href="#sobre" class="nav-link">Sobre</a>
+                <a href="#contato" class="nav-link">Contato</a>
+                <a href="painel.html" class="btn btn-cta">Área da Imobiliária</a>
+            </nav>
+        </div>
+    </header>
+    <section class="imovel-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h2 class="section-title" id="imovel-titulo">Apartamento 3 quartos - Gleba Palhano</h2>
+                    <img id="imovel-foto" src="https://via.placeholder.com/800x400?text=Apartamento+Gleba+Palhano" alt="Apartamento na Gleba Palhano" class="imovel-foto">
+                    <div class="imovel-info">
+                        <p><strong>Preço:</strong> <span id="imovel-preco">R$ 450.000</span></p>
+                        <p><strong>Bairro:</strong> <span id="imovel-bairro">Gleba Palhano</span></p>
+                        <p><strong>Área:</strong> <span id="imovel-area">120m²</span></p>
+                        <p><strong>Quartos:</strong> <span id="imovel-quartos">3</span></p>
+                        <p><strong>Vagas:</strong> <span id="imovel-vagas">2</span></p>
+                        <p><strong>Descrição:</strong> <span id="imovel-descricao">Apartamento moderno com vista para o Lago Igapó, acabamentos de alto padrão, área de lazer completa e localização privilegiada na Gleba Palhano.</span></p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <form id="lead-form" class="lead-form">
+                        <h3 class="card-title">Entre em contato</h3>
+                        <input type="hidden" name="imovel_id" id="lead-imovel-id" value="IMOB123">
+                        <input type="hidden" name="imobiliaria_id" id="lead-imobiliaria-id" value="IMOBI456">
+                        <div>
+                            <label for="nome" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="nome" name="nome" required>
+                        </div>
+                        <div>
+                            <label for="email" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div>
+                            <label for="telefone" class="form-label">Telefone</label>
+                            <input type="tel" class="form-control" id="telefone" name="telefone" required>
+                        </div>
+                        <div>
+                            <label for="mensagem" class="form-label">Mensagem</label>
+                            <textarea class="form-control" id="mensagem" name="mensagem"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-cta">Enviar</button>
+                    </form>
+                </div>
+            </div>
+            <section class="imoveis-relacionados">
+                <h3 class="section-title">Imóveis Relacionados</h3>
+                <div class="imoveis-lista">
+                    <div class="imovel-card">
+                        <img src="https://via.placeholder.com/300x200?text=Apartamento+Jardim+Londrilar" alt="Apartamento no Jardim Londrilar">
+                        <div class="card-body">
+                            <h5 class="card-title">Apartamento 2 quartos - Jardim Londrilar</h5>
+                            <p class="card-text">R$ 320.000</p>
+                            <p class="card-text">Jardim Londrilar | 90m² | 2 quartos</p>
+                            <a href="imovel.html?id=IMOB129" class="btn btn-cta">Ver detalhes</a>
+                        </div>
+                    </div>
+                    <div class="imovel-card">
+                        <img src="https://via.placeholder.com/300x200?text=Casa+Vila+Nova" alt="Casa na Vila Nova">
+                        <div class="card-body">
+                            <h5 class="card-title">Casa 3 quartos - Vila Nova</h5>
+                            <p class="card-text">R$ 550.000</p>
+                            <p class="card-text">Vila Nova | 180m² | 3 quartos</p>
+                            <a href="imovel.html?id=IMOB130" class="btn btn-cta">Ver detalhes</a>
+                        </div>
+                    </div>
+                    <div class="imovel-card">
+                        <img src="https://via.placeholder.com/300x200?text=Terreno+Jardim+Leonor" alt="Terreno no Jardim Leonor">
+                        <div class="card-body">
+                            <h5 class="card-title">Terreno 600m² - Jardim Leonor</h5>
+                            <p class="card-text">R$ 280.000</p>
+                            <p class="card-text">Jardim Leonor | 600m²</p>
+                            <a href="imovel.html?id=IMOB131" class="btn btn-cta">Ver detalhes</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Imobiliárias de Londrina. Todos os direitos reservados.</p>
+            <p>contato@imobiliariasdelondrina.com.br | (43) 99999-9999</p>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('lead-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Lead enviado com sucesso! (Simulação)');
+            e.target.reset();
+        });
+        const urlParams = new URLSearchParams(window.location.search);
+        const imovelId = urlParams.get('id');
+        const imoveis = {
+            'IMOB123': {
+                titulo: 'Apartamento 3 quartos - Gleba Palhano',
+                preco: '450.000',
+                bairro: 'Gleba Palhano',
+                area: '120m²',
+                quartos: '3',
+                vagas: '2',
+                descricao: 'Apartamento moderno com vista para o Lago Igapó, acabamentos de alto padrão, área de lazer completa e localização privilegiada na Gleba Palhano.',
+                foto: 'https://via.placeholder.com/800x400?text=Apartamento+Gleba+Palhano'
+            },
+            'IMOB124': {
+                titulo: 'Casa 4 quartos - Centro',
+                preco: '650.000',
+                bairro: 'Centro',
+                area: '200m²',
+                quartos: '4',
+                vagas: '3',
+                descricao: 'Casa espaçosa no coração de Londrina, ideal para famílias, com quintal amplo e garagem para 3 carros.',
+                foto: 'https://via.placeholder.com/800x400?text=Casa+Centro'
+            },
+            'IMOB125': {
+                titulo: 'Terreno 500m² - Bela Suíça',
+                preco: '300.000',
+                bairro: 'Bela Suíça',
+                area: '500m²',
+                quartos: '0',
+                vagas: '0',
+                descricao: 'Terreno plano em bairro residencial tranquilo, perfeito para construção de casa ou investimento.',
+                foto: 'https://via.placeholder.com/800x400?text=Terreno+Bela+Suíça'
+            },
+            'IMOB126': {
+                titulo: 'Apartamento 2 quartos - Centro',
+                preco: '280.000',
+                bairro: 'Centro',
+                area: '80m²',
+                quartos: '2',
+                vagas: '1',
+                descricao: 'Apartamento compacto e funcional, próximo a comércios e serviços no Centro de Londrina.',
+                foto: 'https://via.placeholder.com/800x400?text=Apartamento+Centro'
+            },
+            'IMOB127': {
+                titulo: 'Casa 3 quartos - Gleba Palhano',
+                preco: '800.000',
+                bairro: 'Gleba Palhano',
+                area: '250m²',
+                quartos: '3',
+                vagas: '4',
+                descricao: 'Casa de alto padrão com piscina e área gourmet, localizada no bairro mais valorizado de Londrina.',
+                foto: 'https://via.placeholder.com/800x400?text=Casa+Gleba+Palhano'
+            },
+            'IMOB128': {
+                titulo: 'Terreno 400m² - Centro',
+                preco: '350.000',
+                bairro: 'Centro',
+                area: '400m²',
+                quartos: '0',
+                vagas: '0',
+                descrição: 'Terreno comercial no Centro, ideal para empreendimentos ou investimento.',
+                foto: 'https://via.placeholder.com/800x400?text=Terreno+Centro'
+            },
+            'IMOB129': {
+                titulo: 'Apartamento 2 quartos - Jardim Londrilar',
+                preco: '320.000',
+                bairro: 'Jardim Londrilar',
+                area: '90m²',
+                quartos: '2',
+                vagas: '1',
+                descricao: 'Apartamento aconchegante com varanda gourmet, ideal para casais, em bairro residencial tranquilo.',
+                foto: 'https://via.placeholder.com/800x400?text=Apartamento+Jardim+Londrilar'
+            },
+            'IMOB130': {
+                titulo: 'Casa 3 quartos - Vila Nova',
+                preco: '550.000',
+                bairro: 'Vila Nova',
+                area: '180m²',
+                quartos: '3',
+                vagas: '2',
+                descricao: 'Casa térrea com quintal amplo e churrasqueira, perfeita para famílias em bairro bem localizado.',
+                foto: 'https://via.placeholder.com/800x400?text=Casa+Vila+Nova'
+            },
+            'IMOB131': {
+                titulo: 'Terreno 600m² - Jardim Leonor',
+                preco: '280.000',
+                bairro: 'Jardim Leonor',
+                area: '600m²',
+                quartos: '0',
+                vagas: '0',
+                descricao: 'Terreno amplo em bairro valorizado, ideal para construção residencial ou comercial.',
+                foto: 'https://via.placeholder.com/800x400?text=Terreno+Jardim+Leonor'
+            }
+        };
+        if (imoveis[imovelId]) {
+            const imovel = imoveis[imovelId];
+            document.getElementById('imovel-titulo').textContent = imovel.titulo;
+            document.getElementById('imovel-foto').src = imovel.foto;
+            document.getElementById('imovel-preco').textContent = `R$ ${imovel.preco}`;
+            document.getElementById('imovel-bairro').textContent = imovel.bairro;
+            document.getElementById('imovel-area').textContent = imovel.area;
+            document.getElementById('imovel-quartos').textContent = imovel.quartos;
+            document.getElementById('imovel-vagas').textContent = imovel.vagas;
+            document.getElementById('imovel-descricao').textContent = imovel.descricao;
+            document.getElementById('lead-imovel-id').value = imovelId;
+        }
+    </script>
+</body>
+</html>

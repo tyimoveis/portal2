@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Imobiliárias de Londrina - Encontre apartamentos, casas e terrenos em Londrina, PR. Gleba Palhano, Centro e mais!">
+    <meta name="keywords" content="imóveis Londrina, apartamentos Gleba Palhano, casas Centro, terrenos Londrina">
+    <meta name="author" content="Imobiliárias de Londrina">
+    <title>Imobiliárias de Londrina - Seu Portal de Imóveis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        :root {
+            --preto: #1A1A1A;
+            --branco: #FFFFFF;
+            --azul-escuro: #0A2540;
+            --verde-esmeralda: #2E8B57;
+            --cinza-claro: #F5F5F5;
+        }
+        body {
+            background-color: var(--branco);
+            color: var(--preto);
+        }
+        .header {
+            background-color: var(--azul-escuro);
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--branco);
+        }
+        .nav {
+            display: flex;
+            align-items: center;
+        }
+        .nav-link {
+            color: var(--branco);
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-size: 1rem;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: var(--verde-esmeralda);
+        }
+        .btn-cta {
+            background-color: var(--verde-esmeralda);
+            color: var(--branco);
+            padding: 0.6rem 1.2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        .btn-cta:hover {
+            background-color: #26734d;
+        }
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1920x600?text=Lago+Igapó+Londrina');
+            background-size: cover;
+            background-position: center;
+            padding: 10rem 0 6rem;
+            text-align: center;
+            color: var(--branco);
+        }
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .hero-subtitle {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .search-form {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--branco);
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .search-form select,
+        .search-form input {
+            border: 1px solid var(--cinza-claro);
+            border-radius: 5px;
+            padding: 0.8rem;
+            font-size: 1rem;
+            width: 200px;
+            transition: border-color 0.3s ease;
+        }
+        .search-form select:focus,
+        .search-form input:focus {
+            border-color: var(--verde-esmeralda);
+            outline: none;
+        }
+        .search-form .btn-cta {
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+        }
+        .imoveis-section {
+            padding: 5rem 0;
+        }
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--azul-escuro);
+        }
+        .imoveis-lista {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .imovel-card {
+            background-color: var(--branco);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .imovel-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+        .imovel-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .imovel-card .card-body {
+            padding: 1.5rem;
+        }
+        .imovel-card .card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--azul-escuro);
+            margin-bottom: 0.5rem;
+        }
+        .imovel-card .card-text {
+            font-size: 0.95rem;
+            color: var(--preto);
+            margin-bottom: 0.5rem;
+        }
+        .imovel-card .btn-cta {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+        }
+        .footer {
+            background-color: var(--azul-escuro);
+            color: var(--branco);
+            padding: 2rem 0;
+            text-align: center;
+        }
+        .footer p {
+            font-size: 0.9rem;
+            margin: 0.5rem 0;
+        }
+        @media (max-width: 768px) {
+            .hero {
+                padding: 7rem 0 4rem;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            .search-form {
+                flex-direction: column;
+                padding: 0.5rem;
+            }
+            .search-form select,
+            .search-form input {
+                width: 100%;
+            }
+            .nav {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .nav-link {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Imobiliárias de Londrina</h1>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#imoveis" class="nav-link">Imóveis</a>
+                <a href="#sobre" class="nav-link">Sobre</a>
+                <a href="#contato" class="nav-link">Contato</a>
+                <a href="painel.html" class="btn btn-cta">Área da Imobiliária</a>
+            </nav>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="container">
+            <h2 class="hero-title">Encontre seu lar em Londrina</h2>
+            <p class="hero-subtitle">Descubra apartamentos, casas e terrenos na Gleba Palhano, Centro e mais.</p>
+            <form id="search-form" class="search-form">
+                <select name="tipo">
+                    <option value="">Tipo</option>
+                    <option value="apartamento">Apartamento</option>
+                    <option value="casa">Casa</option>
+                    <option value="terreno">Terreno</option>
+                </select>
+                <select name="bairro">
+                    <option value="">Bairro</option>
+                    <option value="gleba-palhano">Gleba Palhano</option>
+                    <option value="centro">Centro</option>
+                    <option value="bela-suica">Bela Suíça</option>
+                </select>
+                <input type="number" name="preco" placeholder="Preço máximo">
+                <button type="submit" class="btn btn-cta">Buscar</button>
+            </form>
+        </div>
+    </section>
+    <section id="imoveis" class="imoveis-section">
+        <div class="container">
+            <h3 class="section-title">Imóveis em Destaque</h3>
+            <div id="imoveis-lista" class="imoveis-lista">
+                <div class="imovel-card">
+                    <img src="https://via.placeholder.com/300x200?text=Apartamento+Gleba+Palhano" alt="Apartamento na Gleba Palhano">
+                    <div class="card-body">
+                        <h5 class="card-title">Apartamento 3 quartos - Gleba Palhano</h5>
+                        <p class="card-text">R$ 450.000</p>
+                        <p class="card-text">Gleba Palhano | 120m² | 3 quartos</p>
+                        <a href="imovel.html?id=IMOB123" class="btn btn-cta">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="imovel-card">
+                    <img src="https://via.placeholder.com/300x200?text=Casa+Centro" alt="Casa no Centro">
+                    <div class="card-body">
+                        <h5 class="card-title">Casa 4 quartos - Centro</h5>
+                        <p class="card-text">R$ 650.000</p>
+                        <p class="card-text">Centro | 200m² | 4 quartos</p>
+                        <a href="imovel.html?id=IMOB124" class="btn btn-cta">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="imovel-card">
+                    <img src="https://via.placeholder.com/300x200?text=Terreno+Bela+Suíça" alt="Terreno na Bela Suíça">
+                    <div class="card-body">
+                        <h5 class="card-title">Terreno 500m² - Bela Suíça</h5>
+                        <p class="card-text">R$ 300.000</p>
+                        <p class="card-text">Bela Suíça | 500m²</p>
+                        <a href="imovel.html?id=IMOB125" class="btn btn-cta">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="imovel-card">
+                    <img src="https://via.placeholder.com/300x200?text=Apartamento+Centro" alt="Apartamento no Centro">
+                    <div class="card-body">
+                        <h5 class="card-title">Apartamento 2 quartos - Centro</h5>
+                        <p class="card-text">R$ 280.000</p>
+                        <p class="card-text">Centro | 80m² | 2 quartos</p>
+                        <a href="imovel.html?id=IMOB126" class="btn btn-cta">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="imovel-card">
+                    <img src="https://via.placeholder.com/300x200?text=Casa+Gleba+Palhano" alt="Casa na Gleba Palhano">
+                    <div class="card-body">
+                        <h5 class="card-title">Casa 3 quartos - Gleba Palhano</h5>
+                        <p class="card-text">R$ 800.000</p>
+                        <p class="card-text">Gleba Palhano | 250m² | 3 quartos</p>
+                        <a href="imovel.html?id=IMOB127" class="btn btn-cta">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="imovel-card">
+                    <img src="https://via.placeholder.com/300x200?text=Terreno+Centro" alt="Terreno no Centro">
+                    <div class="card-body">
+                        <h5 class="card-title">Terreno 400m² - Centro</h5>
+                        <p class="card-text">R$ 350.000</p>
+                        <p class="card-text">Centro | 400m²</p>
+                        <a href="imovel.html?id=IMOB128" class="btn btn-cta">Ver detalhes</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer id="contato" class="footer">
+        <div class="container">
+            <p>© 2025 Imobiliárias de Londrina. Todos os direitos reservados.</p>
+            <p>contato@imobiliariasdelondrina.com.br | (43) 99999-9999</p>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('search-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const tipo = e.target.tipo.value.toLowerCase();
+            const bairro = e.target.bairro.value.toLowerCase();
+            const preco = e.target.preco.value;
+            const imoveis = document.querySelectorAll('.imovel-card');
+            imoveis.forEach(imovel => {
+                const titulo = imovel.querySelector('.card-title').textContent.toLowerCase();
+                const precoText = imovel.querySelector('.card-text').textContent;
+                const matchesTipo = !tipo || titulo.includes(tipo);
+                const matchesBairro = !bairro || titulo.includes(bairro);
+                const matchesPreco = !preco || parseInt(precoText.replace(/[^0-9]/g, '')) <= preco;
+                imovel.style.display = matchesTipo && matchesBairro && matchesPreco ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>

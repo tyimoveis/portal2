@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Painel da Imobiliária - Imobiliárias de Londrina">
+    <meta name="keywords" content="imóveis Londrina, leads imobiliários">
+    <meta name="author" content="Imobiliárias de Londrina">
+    <title>Painel da Imobiliária - Imobiliárias de Londrina</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        :root {
+            --preto: #1A1A1A;
+            --branco: #FFFFFF;
+            --azul-escuro: #0A2540;
+            --verde-esmeralda: #2E8B57;
+            --cinza-claro: #F5F5F5;
+        }
+        body {
+            background-color: var(--branco);
+            color: var(--preto);
+        }
+        .header {
+            background-color: var(--azul-escuro);
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--branco);
+        }
+        .nav {
+            display: flex;
+            align-items: center;
+        }
+        .nav-link {
+            color: var(--branco);
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-size: 1rem;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: var(--verde-esmeralda);
+        }
+        .btn-cta {
+            background-color: var(--verde-esmeralda);
+            color: var(--branco);
+            padding: 0.6rem 1.2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        .btn-cta:hover {
+            background-color: #26734d;
+        }
+        .painel-section {
+            padding: 8rem 0 5rem;
+        }
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--azul-escuro);
+        }
+        .card {
+            background-color: var(--cinza-claro);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--azul-escuro);
+            margin-bottom: 1.5rem;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .table th,
+        .table td {
+            padding: 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid var(--cinza-claro);
+        }
+        .table th {
+            font-weight: 600;
+            color: var(--azul-escuro);
+        }
+        .table td {
+            font-size: 0.9rem;
+            color: var(--preto);
+        }
+        .btn-cta.table-btn {
+            padding: 0.6rem 1.2rem;
+            margin-top: 1rem;
+            display: inline-block;
+        }
+        .footer {
+            background-color: var(--azul-escuro);
+            color: var(--branco);
+            padding: 2rem 0;
+            text-align: center;
+        }
+        .footer p {
+            font-size: 0.9rem;
+            margin: 0.5rem 0;
+        }
+        @media (max-width: 768px) {
+            .painel-section {
+                padding: 7rem 0 4rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .table {
+                font-size: 0.8rem;
+            }
+            .table th,
+            .table td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Imobiliárias de Londrina</h1>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#imoveis" class="nav-link">Imóveis</a>
+                <a href="#sobre" class="nav-link">Sobre</a>
+                <a href="#contato" class="nav-link">Contato</a>
+                <a href="#" class="btn btn-cta">Sair</a>
+            </nav>
+        </div>
+    </header>
+    <section class="painel-section">
+        <div class="container">
+            <h2 class="section-title">Painel da Imobiliária</h2>
+            <div class="card">
+                <h3 class="card-title">Leads Recebidos</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>E-mail</th>
+                            <th>Telefone</th>
+                            <th>Imóvel</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leads-lista">
+                        <tr>
+                            <td>João Silva</td>
+                            <td>joao.silva@email.com</td>
+                            <td>(43) 99999-1234</td>
+                            <td>IMOB123</td>
+                            <td>08/05/2025</td>
+                        </tr>
+                        <tr>
+                            <td>Maria Oliveira</td>
+                            <td>maria.oliveira@email.com</td>
+                            <td>(43) 99999-5678</td>
+                            <td>IMOB124</td>
+                            <td>07/05/2025</td>
+                        </tr>
+                        <tr>
+                            <td>Carlos Santos</td>
+                            <td>carlos.santos@email.com</td>
+                            <td>(43) 99999-9012</td>
+                            <td>IMOB126</td>
+                            <td>06/05/2025</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-cta table-btn" onclick="alert('Exportação simulada!')">Exportar CSV</button>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Imobiliárias de Londrina. Todos os direitos reservados.</p>
+            <p>contato@imobiliariasdelondrina.com.br | (43) 99999-9999</p>
+        </div>
+    </footer>
+</body>
+</html>
