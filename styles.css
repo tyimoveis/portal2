@@ -12,6 +12,7 @@
     --cinza-futurista: #E6ECF0;
     --cinza-escuro: #1A202C;
     --cinza-medio: #4A5568;
+    --vermelho-erro: #E53E3E;
 }
 
 body {
@@ -100,6 +101,8 @@ body {
     border: none;
     display: inline-block;
     text-align: center;
+    min-width: 48px;
+    min-height: 48px;
 }
 
 .btn-cta:hover {
@@ -223,7 +226,7 @@ body {
 }
 
 .error-message {
-    color: #E53E3E;
+    color: var(--vermelho-erro);
     font-size: 0.8rem;
     display: none;
 }
@@ -261,6 +264,7 @@ body {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     animation: fadeIn 0.5s ease-in;
+    position: relative;
 }
 
 .imovel-card:hover {
@@ -273,10 +277,27 @@ body {
     height: 200px;
     object-fit: cover;
     display: block;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.imovel-card img[alt*="fallback"] {
+.imovel-card img.loaded {
+    opacity: 1;
+}
+
+.imovel-card .image-placeholder {
+    width: 100%;
+    height: 200px;
     background-color: var(--cinza-futurista);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+.imovel-card img.loaded + .image-placeholder {
+    opacity: 0;
 }
 
 .imovel-card .card-body {
@@ -325,6 +346,27 @@ body {
     object-fit: cover;
     border-radius: 15px;
     margin-bottom: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.imovel-detalhes img.loaded {
+    opacity: 1;
+}
+
+.imovel-detalhes .image-placeholder {
+    width: 100%;
+    height: 400px;
+    background-color: var(--cinza-futurista);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+.imovel-detalhes img.loaded + .image-placeholder {
+    opacity: 0;
 }
 
 .imovel-detalhes h3 {
@@ -337,6 +379,13 @@ body {
     font-size: 1rem;
     color: var(--cinza-medio);
     margin-bottom: 1rem;
+}
+
+.imovel-detalhes .error {
+    color: var(--vermelho-erro);
+    font-size: 1.1rem;
+    text-align: center;
+    margin: 2rem 0;
 }
 
 .carousel {
@@ -494,10 +543,12 @@ body {
     .imoveis-lista {
         grid-template-columns: 1fr;
     }
-    .imovel-card img {
+    .imovel-card img,
+    .imovel-card .image-placeholder {
         height: 180px;
     }
-    .carousel img {
+    .carousel img,
+    .carousel .image-placeholder {
         height: 300px;
     }
 }
