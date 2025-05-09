@@ -3,214 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Encontre apartamentos à venda em Londrina, nos bairros Gleba Palhano e Centro.">
-    <meta name="keywords" content="apartamentos Londrina, Gleba Palhano, Centro, imóveis 2026">
-    <meta name="author" content="Imobiliárias de Londrina">
-    <title>Imobiliárias de Londrina - Apartamentos 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Imobiliária de alto padrão em Londrina. Apartamentos de luxo na Gleba Palhano e Centro.">
+    <meta name="keywords" content="imóveis Londrina, apartamentos de luxo, Gleba Palhano, Centro, imobiliária premium">
+    <meta name="author" content="Imobiliária Elite">
+    <title>Imobiliária Elite - Apartamentos de Luxo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/feather-icons">
 </head>
 <body>
     <header class="header">
         <div class="container">
-            <h1 class="logo">Imobiliárias de Londrina</h1>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <h1 class="logo">Elite Imóveis</h1>
             <nav class="nav">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="imoveis.html" class="nav-link">Imóveis</a>
                 <a href="#sobre" class="nav-link">Sobre</a>
                 <a href="#contato" class="nav-link">Contato</a>
-                <a href="painel.html" class="btn btn-cta">Área da Imobiliária</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema">
+                    <i data-feather="moon"></i>
+                </button>
             </nav>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </header>
-    <section class="hero">
-        <div class="container">
-            <h2 class="hero-title">Seu Apartamento dos Sonhos em Londrina</h2>
-            <p class="hero-subtitle">Descubra apartamentos modernos na Gleba Palhano e Centro com design de 2026.</p>
-            <form id="search-form" class="search-form">
-                <div class="filter-group">
-                    <label for="tipo">Tipo</label>
-                    <select name="tipo" id="tipo" disabled>
-                        <option value="apartamento" selected>Apartamento</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label for="bairro">Bairro</label>
-                    <select name="bairro" id="bairro">
-                        <option value="">Qualquer</option>
-                        <option value="gleba-palhano">Gleba Palhano</option>
-                        <option value="centro">Centro</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label for="precoMin">Valor Mínimo (R$)</label>
-                    <input type="number" name="precoMin" id="precoMin" placeholder="100000" min="0">
-                    <span class="error-message" id="precoMin-error">Valor inválido</span>
-                </div>
-                <div class="filter-group">
-                    <label for="precoMax">Valor Máximo (R$)</label>
-                    <input type="number" name="precoMax" id="precoMax" placeholder="1000000" min="0">
-                    <span class="error-message" id="precoMax-error">Valor inválido</span>
-                </div>
-                <div class="filter-group">
-                    <button type="submit" class="btn btn-cta">Buscar</button>
-                    <button type="reset" class="btn btn-reset">Limpar</button>
-                </div>
-            </form>
-        </div>
-    </section>
-    <section id="imoveis" class="imoveis-section">
-        <div class="container">
-            <h3 class="section-title">Apartamentos em Destaque</h3>
-            <div class="imoveis-lista">
-                <div class="imovel-card">
-                    <div class="image-placeholder"></div>
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=300&auto=format&fit=crop" alt="Apartamento Gleba Palhano" loading="lazy" onload="this.classList.add('loaded')" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'; this.classList.add('loaded')">
-                    <div class="card-body">
-                        <h5 class="card-title">Apartamento 3 quartos - Gleba Palhano</h5>
-                        <p class="card-text">R$ 600.000</p>
-                        <p class="card-text">Gleba Palhano | 150m² | 3 quartos</p>
-                        <a href="imovel.html?id=IMOB001" class="btn btn-cta">Ver detalhes</a>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2 class="hero-title">Imóveis de Alto Padrão em Londrina</h2>
+                <p class="hero-subtitle">Descubra apartamentos exclusivos na Gleba Palhano e Centro, com design sofisticado.</p>
+                <form id="search-form" class="search-form glass">
+                    <div class="filter-group">
+                        <label for="tipo">Tipo</label>
+                        <select name="tipo" id="tipo" disabled>
+                            <option value="apartamento" selected>Apartamento</option>
+                        </select>
                     </div>
-                </div>
-                <div class="imovel-card">
-                    <div class="image-placeholder"></div>
-                    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=300&auto=format&fit=crop" alt="Apartamento Centro" loading="lazy" onload="this.classList.add('loaded')" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'; this.classList.add('loaded')">
-                    <div class="card-body">
-                        <h5 class="card-title">Apartamento 2 quartos - Centro</h5>
-                        <p class="card-text">R$ 300.000</p>
-                        <p class="card-text">Centro | 80m² | 2 quartos</p>
-                        <a href="imovel.html?id=IMOB005" class="btn btn-cta">Ver detalhes</a>
+                    <div class="filter-group">
+                        <label for="bairro">Bairro</label>
+                        <select name="bairro" id="bairro">
+                            <option value="">Qualquer</option>
+                            <option value="gleba-palhano">Gleba Palhano</option>
+                            <option value="centro">Centro</option>
+                        </select>
                     </div>
-                </div>
-                <div class="imovel-card">
-                    <div class="image-placeholder"></div>
-                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=300&auto=format&fit=crop" alt="Apartamento Gleba Palhano" loading="lazy" onload="this.classList.add('loaded')" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'; this.alt='Imagem fallback'; this.classList.add('loaded')">
-                    <div class="card-body">
-                        <h5 class="card-title">Apartamento 4 quartos - Gleba Palhano</h5>
-                        <p class="card-text">R$ 800.000</p>
-                        <p class="card-text">Gleba Palhano | 180m² | 4 quartos</p>
-                        <a href="imovel.html?id=IMOB002" class="btn btn-cta">Ver detalhes</a>
+                    <div class="filter-group">
+                        <label for="precoMin">Valor Mínimo (R$)</label>
+                        <input type="number" name="precoMin" id="precoMin" placeholder="100000" min="0">
+                    </div>
+                    <div class="filter-group">
+                        <label for="precoMax">Valor Máximo (R$)</label>
+                        <input type="number" name="precoMax" id="precoMax" placeholder="1000000" min="0">
+                    </div>
+                    <div class="filter-group">
+                        <button type="submit" class="btn btn-cta glass">Buscar</button>
+                        <button type="reset" class="btn btn-reset">Limpar</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <section id="imoveis" class="imoveis-section">
+            <div class="container">
+                <h3 class="section-title">Destaques</h3>
+                <div class="imoveis-lista">
+                    <div class="imovel-card">
+                        <div class="image-placeholder"></div>
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=300&auto=format&fit=crop" alt="Apartamento Gleba Palhano" loading="lazy" onload="this.classList.add('loaded')">
+                        <div class="card-body">
+                            <h5 class="card-title">Apartamento 3 quartos - Gleba Palhano</h5>
+                            <p class="card-text">R$ 600.000</p>
+                            <p class="card-text">150m² | 3 quartos | 2 banheiros</p>
+                            <a href="imovel.html?id=IMOB001" class="btn btn-cta">Ver detalhes</a>
+                        </div>
+                    </div>
+                    <div class="imovel-card">
+                        <div class="image-placeholder"></div>
+                        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=300&auto=format&fit=crop" alt="Apartamento Centro" loading="lazy" onload="this.classList.add('loaded')">
+                        <div class="card-body">
+                            <h5 class="card-title">Apartamento 2 quartos - Centro</h5>
+                            <p class="card-text">R$ 300.000</p>
+                            <p class="card-text">80m² | 2 quartos | 1 banheiro</p>
+                            <a href="imovel.html?id=IMOB005" class="btn btn-cta">Ver detalhes</a>
+                        </div>
+                    </div>
+                    <div class="imovel-card">
+                        <div class="image-placeholder"></div>
+                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=300&auto=format&fit=crop" alt="Apartamento Gleba Palhano" loading="lazy" onload="this.classList.add('loaded')">
+                        <div class="card-body">
+                            <h5 class="card-title">Apartamento 4 quartos - Gleba Palhano</h5>
+                            <p class="card-text">R$ 800.000</p>
+                            <p class="card-text">180m² | 4 quartos | 3 banheiros</p>
+                            <a href="imovel.html?id=IMOB002" class="btn btn-cta">Ver detalhes</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <section id="sobre" class="sobre-section">
-        <div class="container">
-            <h3 class="section-title">Sobre Nós</h3>
-            <div class="sobre-content">
-                <p>Somos a sua conexão com os melhores apartamentos de Londrina, oferecendo imóveis modernos na Gleba Palhano e Centro, com tecnologia e design de ponta para 2026.</p>
+        </section>
+        <section id="sobre" class="sobre-section">
+            <div class="container">
+                <h3 class="section-title">Sobre a Elite Imóveis</h3>
+                <p class="sobre-text">Somos uma imobiliária de alto padrão dedicada a oferecer os melhores apartamentos em Londrina. Com foco em design, exclusividade e confiança, conectamos você a imóveis que refletem sofisticação e conforto.</p>
             </div>
-        </div>
-    </section>
-    <section id="contato" class="contato-section">
-        <div class="container">
-            <h3 class="section-title">Fale Conosco</h3>
-            <form id="contato-form" class="contato-form">
-                <div>
-                    <label for="nome" class="form-label">Nome</label>
-                    <input type="text" class="form-control" id="nome" name="nome" required>
-                    <span class="error-message" id="nome-error">Nome é obrigatório</span>
-                </div>
-                <div>
-                    <label for="email" class="form-label">E-mail</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
-                    <span class="error-message" id="email-error">E-mail inválido</span>
-                </div>
-                <div>
-                    <label for="telefone" class="form-label">Telefone</label>
-                    <input type="tel" class="form-control" id="telefone" name="telefone" required>
-                    <span class="error-message" id="telefone-error">Telefone inválido</span>
-                </div>
-                <div>
-                    <label for="mensagem" class="form-label">Mensagem</label>
-                    <textarea class="form-control" id="mensagem" name="mensagem"></textarea>
-                </div>
-                <button type="submit" class="btn btn-cta">Enviar</button>
-            </form>
-        </div>
-    </section>
+        </section>
+        <section id="contato" class="contato-section">
+            <div class="container">
+                <h3 class="section-title">Entre em Contato</h3>
+                <form id="contato-form" class="contato-form glass">
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefone">Telefone</label>
+                        <input type="tel" id="telefone" name="telefone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem</label>
+                        <textarea id="mensagem" name="mensagem"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-cta glass">Enviar</button>
+                </form>
+            </div>
+        </section>
+    </main>
     <footer class="footer">
         <div class="container">
-            <p>© 2026 Imobiliárias de Londrina. Todos os direitos reservados.</p>
-            <p>contato@imobiliariasdelondrina.com.br | (43) 99999-9999</p>
+            <p>&copy; 2026 Elite Imóveis. Todos os direitos reservados.</p>
+            <p>contato@eliteimoveis.com.br | (43) 99999-9999</p>
         </div>
     </footer>
-    <script>
-        // Hamburger Menu
-        document.querySelector('.hamburger').addEventListener('click', () => {
-            document.querySelector('.nav').classList.toggle('active');
-        });
-
-        // Search Form Validation
-        document.getElementById('search-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            let valid = true;
-            const precoMin = parseInt(document.getElementById('precoMin').value) || 0;
-            const precoMax = parseInt(document.getElementById('precoMax').value) || Infinity;
-
-            if (precoMin > precoMax) {
-                document.getElementById('precoMin-error').style.display = 'block';
-                valid = false;
-            } else {
-                document.getElementById('precoMin-error').style.display = 'none';
-            }
-
-            if (valid) {
-                const formData = new FormData(e.target);
-                const query = new URLSearchParams();
-                formData.forEach((value, key) => {
-                    if (value) query.set(key, value);
-                });
-                window.location.href = `imoveis.html?${query.toString()}`;
-            }
-        });
-
-        // Reset Search Form
-        document.getElementById('search-form').addEventListener('reset', () => {
-            document.querySelectorAll('.error-message').forEach(error => error.style.display = 'none');
-        });
-
-        // Contato Form Validation
-        document.getElementById('contato-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            let valid = true;
-            const nome = document.getElementById('nome').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const telefone = document.getElementById('telefone').value.trim();
-
-            if (!nome) {
-                document.getElementById('nome-error').style.display = 'block';
-                valid = false;
-            } else {
-                document.getElementById('nome-error').style.display = 'none';
-            }
-
-            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                document.getElementById('email-error').style.display = 'block';
-                valid = false;
-            } else {
-                document.getElementById('email-error').style.display = 'none';
-            }
-
-            if (!telefone || !/^\d{10,11}$/.test(telefone.replace(/\D/g, ''))) {
-                document.getElementById('telefone-error').style.display = 'block';
-                valid = false;
-            } else {
-                document.getElementById('telefone-error').style.display = 'none';
-            }
-
-            if (valid) {
-                alert('Mensagem enviada com sucesso! (Simulação)');
-                e.target.reset();
-            }
-        });
-    </script>
+    <script src="script.js"></script>
+    <script>feather.replace()</script>
 </body>
 </html>
