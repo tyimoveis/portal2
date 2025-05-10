@@ -1,0 +1,18 @@
+/* Transições suaves */
+a, button {
+  transition: all 0.3s ease;
+}
+
+/* Efeito hover para cards de imóveis */
+.property-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Galeria de imagens */
+.thumb-image {
+  transition: opacity 0.3s;
+}
+
+.thumb-image:hover {
+  opacity: 0.8;
+}
